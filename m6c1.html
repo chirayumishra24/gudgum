@@ -1,0 +1,1306 @@
+<div>
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    referrerpolicy="no-referrer" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0 auto;
+        padding: 0 40px 0 0;
+        background: linear-gradient(180deg, #e8f5e9, #f1f8e9);
+        color: #333;
+        font-size: clamp(16px, 1.4vw, 18px);
+        max-width: 1800px;
+        transition: background 0.1s, color 0.1s;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    body.dark {
+        background: #1a3c34;
+        color: #e0f2e9;
+    }
+
+    .emoji-bg {
+        position: absolute;
+        font-size: clamp(30px, 2.5vw, 44px);
+        opacity: 0.4;
+        color: #4caf50;
+        pointer-events: none;
+        z-index: -1;
+        animation: float-rotate 5s infinite ease-in-out;
+    }
+
+    .emoji-bg.dark {
+        opacity: 0.5;
+        color: #a5d6a7;
+    }
+
+    .emoji-bg:nth-child(1) {
+        top: 10%;
+        left: 2%;
+        animation-delay: 0s;
+    }
+
+    .emoji-bg:nth-child(2) {
+        top: 20%;
+        left: 5%;
+        animation-delay: -1s;
+    }
+
+    .emoji-bg:nth-child(3) {
+        top: 30%;
+        left: 3%;
+        animation-delay: -2s;
+    }
+
+    .emoji-bg:nth-child(4) {
+        top: 40%;
+        left: 6%;
+        animation-delay: -3s;
+    }
+
+    .emoji-bg:nth-child(5) {
+        top: 50%;
+        left: 4%;
+        animation-delay: -4s;
+    }
+
+    .emoji-bg:nth-child(6) {
+        top: 60%;
+        left: 7%;
+        animation-delay: -5s;
+    }
+
+    .emoji-bg:nth-child(7) {
+        top: 70%;
+        left: 2%;
+        animation-delay: -6s;
+    }
+
+    .emoji-bg:nth-child(8) {
+        top: 80%;
+        left: 5%;
+        animation-delay: -7s;
+    }
+
+    .emoji-bg:nth-child(9) {
+        top: 90%;
+        left: 3%;
+        animation-delay: -8s;
+    }
+
+    .emoji-bg:nth-child(10) {
+        top: 15%;
+        left: 92%;
+        animation-delay: -9s;
+    }
+
+    .emoji-bg:nth-child(11) {
+        top: 25%;
+        left: 95%;
+        animation-delay: -10s;
+    }
+
+    .emoji-bg:nth-child(12) {
+        top: 35%;
+        left: 93%;
+        animation-delay: -11s;
+    }
+
+    .emoji-bg:nth-child(13) {
+        top: 45%;
+        left: 94%;
+        animation-delay: -12s;
+    }
+
+    .emoji-bg:nth-child(14) {
+        top: 55%;
+        left: 92%;
+        animation-delay: -13s;
+    }
+
+    .emoji-bg:nth-child(15) {
+        top: 65%;
+        left: 95%;
+        animation-delay: -14s;
+    }
+
+    .emoji-bg:nth-child(16) {
+        top: 75%;
+        left: 93%;
+        animation-delay: -15s;
+    }
+
+    .emoji-bg:nth-child(17) {
+        top: 85%;
+        left: 94%;
+        animation-delay: -16s;
+    }
+
+    .emoji-bg:nth-child(18) {
+        top: 95%;
+        left: 92%;
+        animation-delay: -17s;
+    }
+
+    .emoji-bg:nth-child(19) {
+        top: 12%;
+        left: 5%;
+        animation-delay: -18s;
+    }
+
+    .emoji-bg:nth-child(20) {
+        top: 22%;
+        left: 95%;
+        animation-delay: -19s;
+    }
+
+    @keyframes float-rotate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-30px) rotate(15deg);
+        }
+
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 25%;
+        right: 0;
+        width: 30px;
+        height: 50%;
+        background: transparent;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .sidebar.dark {
+        border-color: #a5d6a7;
+    }
+
+    .progress-bar {
+        width: 8px;
+        height: calc(100% - 60px);
+        background: #e2e8f0;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .progress-bar.dark {
+        background: #475569;
+    }
+
+    .progress-fill {
+        width: 100%;
+        background: #4caf50;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        transition: height 0.2s ease-in-out;
+    }
+
+    .dark .progress-fill {
+        background: #a5d6a7;
+    }
+
+    #theme-toggle {
+        background: #a5d6a7;
+        color: #0f172a;
+        border: none;
+        border-radius: 15px;
+        padding: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: clamp(14px, 1.1vw, 16px);
+        width: clamp(24px, 2vw, 28px);
+        height: clamp(24px, 2vw, 28px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.1s, color 0.1s;
+    }
+
+    #theme-toggle.dark {
+        background: #a5d6a7;
+        color: #0f172a;
+    }
+
+    #theme-toggle:hover {
+        background: #ffffff;
+    }
+
+    .dark #theme-toggle:hover {
+        background: #4caf50;
+    }
+
+    header {
+        background: #4caf50;
+        color: #ffffff;
+        padding: clamp(20px, 2vw, 24px) 0;
+        text-align: center;
+        width: 95%;
+        max-width: 1800px;
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header.dark {
+        background: #2e7d32;
+    }
+
+    header h2 {
+        margin: 5px 0;
+        font-size: clamp(1.5em, 2.2vw, 3em);
+        color: #ffffff;
+    }
+
+    .content-section {
+        background: white;
+        margin: clamp(20px, 2vw, 24px) auto;
+        padding: clamp(20px, 2vw, 24px);
+        border-radius: 16px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 1800px;
+        width: 95%;
+        transition: box-shadow 0.1s, transform 0.1s;
+        position: relative;
+        z-index: 1;
+        animation: fadeIn 1s ease-in;
+    }
+
+    .content-section:hover {
+        box-shadow: 0px 6px 20px rgba(76, 175, 80, 0.4);
+        transform: scale(1.02);
+        z-index: 10;
+    }
+
+    .content-section.dark {
+        background: #3b6e55;
+        color: #e0f2e9;
+    }
+
+    .content-section.dark:hover {
+        box-shadow: 0px 6px 20px rgba(165, 214, 167, 0.4);
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h3 {
+        font-size: clamp(1.5em, 2.2vw, 2em);
+        color: #2e7d32;
+        margin: 20px 0 10px;
+        display: flex;
+        align-items: center;
+        background: #e8f5e9;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        transition: box-shadow 0.1s, transform 0.1s;
+        justify-content: center;
+    }
+
+    h3:hover {
+        box-shadow: 0px 4px 15px rgba(76, 175, 80, 0.5);
+        transform: scale(1.03);
+    }
+
+    .dark h3 {
+        color: #e0f2e9;
+        background: #1a3c34;
+        border-color: #a5d6a7;
+    }
+
+    .dark h3:hover {
+        box-shadow: 0px 4px 15px rgba(165, 214, 167, 0.5);
+    }
+
+    h3 i {
+        margin-right: 10px;
+        color: #4caf50;
+    }
+
+    .dark h3 i {
+        color: #a5d6a7;
+    }
+
+    p {
+        font-size: clamp(16px, 1.4vw, 20px);
+        color: #555;
+    }
+
+    .dark p {
+        color: #e0f2e9;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    li {
+        padding: 10px 0;
+        position: relative;
+        transition: transform 0.1s;
+        background: #e8f5e9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+    }
+
+    li:hover {
+        transform: translateX(5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    li::before {
+        content: '\f058';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: #4caf50;
+        margin-right: 10px;
+    }
+
+    .dark li {
+        background: #4c8c6a;
+    }
+
+    .dark li::before {
+        color: #a5d6a7;
+    }
+
+    a {
+        color: #00A3E0;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #003087;
+    }
+
+    .activity-link a {
+        background: #4caf50;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: inline-block;
+        transition: background 0.3s;
+    }
+
+    .activity-link a:hover {
+        background: #388e3c;
+    }
+
+    .image-gallery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        padding: 10px;
+    }
+
+    .image-gallery img {
+        width: 100%;
+        max-width: 962px;
+        height: auto;
+        border-radius: 10px;
+        border: 2px solid #4caf50;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .dark .image-gallery img {
+        border-color: #a5d6a7;
+    }
+
+    .image-gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    .video-section {
+        text-align: center;
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+    }
+
+    .dark .video-section {
+        background: #3b6e55;
+    }
+
+    .video-section iframe {
+        width: 100%;
+        max-width: 300px;
+        height: 533.33px;
+        border-radius: 8px;
+        border: 2px solid #4caf50;
+        transition: transform 0.1s;
+        aspect-ratio: 9 / 16;
+    }
+
+    .dark .video-section iframe {
+        border-color: #a5d6a7;
+    }
+
+    .video-section iframe:hover {
+        transform: scale(1.05);
+    }
+
+    .activity-section .drag-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+        justify-content: center;
+    }
+
+    .activity-section .drag-item {
+        background: #e8f5e9;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: clamp(14px, 1.2vw, 16px);
+        cursor: move;
+        transition: transform 0.2s, box-shadow 0.2s;
+        width: 200px;
+        text-align: center;
+    }
+
+    .activity-section .drag-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .dark .activity-section .drag-item {
+        background: #4c8c6a;
+        border-color: #a5d6a7;
+    }
+
+    .activity-section .drop-zone {
+        background: #ffffff;
+        border: 2px dashed #4caf50;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        width: 300px;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: clamp(14px, 1.2vw, 16px);
+        text-align: center;
+    }
+
+    .dark .activity-section .drop-zone {
+        background: #3b6e55;
+        border-color: #a5d6a7;
+    }
+
+    .activity-section .drop-zone.over {
+        background: #e8f5e9;
+    }
+
+    .dark .activity-section .drop-zone.over {
+        background: #4c8c6a;
+    }
+
+    .activity-section .button-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin: 15px 0;
+    }
+
+    .activity-section button {
+        background: #4caf50;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: clamp(14px, 1.2vw, 16px);
+        cursor: pointer;
+        transition: background 0.1s, transform 0.1s;
+    }
+
+    .activity-section button:hover {
+        background: #388e3c;
+        transform: scale(1.05);
+    }
+
+    .dark .activity-section button {
+        background: #a5d6a7;
+    }
+
+    .dark .activity-section button:hover {
+        background: #2e7d32;
+    }
+
+    .activity-section .confirmation-message {
+        color: #4caf50;
+        text-align: center;
+        margin-top: 10px;
+        opacity: 0;
+        transition: opacity 0.5s;
+        font-size: clamp(16px, 1.4vw, 18px);
+    }
+
+    .dark .activity-section .confirmation-message {
+        color: #a5d6a7;
+    }
+
+    .activity-section .confirmation-message.show {
+        opacity: 1;
+    }
+
+    footer {
+        background: #4caf50;
+        color: white;
+        text-align: center;
+        padding: clamp(15px, 1.5vw, 18px);
+        margin-top: clamp(40px, 3vw, 48px);
+        border-radius: 20px 20px 0 0;
+        font-size: clamp(14px, 1.2vw, 18px);
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+        width: 95%;
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dark footer {
+        background: #2e7d32;
+    }
+
+    footer p {
+        margin: clamp(5px, 0.5vw, 6px) 0;
+    }
+
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: clamp(40px, 3vw, 60px);
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: clamp(40px, 3.5vw, 60px);
+        height: clamp(40px, 3.5vw, 60px);
+        font-size: clamp(20px, 1.8vw, 26px);
+        cursor: pointer;
+        display: none;
+        transition: background 0.1s, transform 0.1s;
+        z-index: 1000;
+    }
+
+    .dark #back-to-top {
+        background: #a5d6a7;
+    }
+
+    #back-to-top:hover {
+        background: #388e3c;
+        transform: scale(1.1);
+    }
+
+    .dark #back-to-top:hover {
+        background: #2e7d32;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding-right: 0;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .emoji-bg {
+            font-size: clamp(25px, 3vw, 30px);
+        }
+
+        .sidebar {
+            width: 100%;
+            height: 60px;
+            top: auto;
+            bottom: 0;
+            border: none;
+            background: #4caf50;
+            border-radius: 0;
+            padding: 5px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar.dark {
+            background: #2e7d32;
+            border: none;
+        }
+
+        .progress-bar {
+            width: 40%;
+            height: 10px;
+            margin: 0;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            bottom: auto;
+            left: 0;
+            transition: width 0.2s ease-in-out;
+        }
+
+        #theme-toggle {
+            margin-top: 0;
+            width: clamp(20px, 2.5vw, 24px);
+            height: clamp(20px, 2.5vw, 24px);
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        header h2 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        h3 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        p,
+        li {
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-section iframe {
+            max-width: 150px;
+            height: 266.67px;
+        }
+
+        .activity-section .drag-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .activity-section .drag-item {
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .activity-section .drop-zone {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .activity-section .button-container {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        #back-to-top {
+            bottom: 80px;
+            right: 20px;
+            width: clamp(35px, 3vw, 40px);
+            height: clamp(35px, 3vw, 40px);
+            font-size: clamp(18px, 2vw, 20px);
+        }
+
+        footer {
+            font-size: clamp(12px, 2vw, 14px);
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1960px) {
+        body {
+            font-size: clamp(18px, 1.3vw, 20px);
+            max-width: 1700px;
+        }
+
+        header {
+            max-width: 1700px;
+        }
+
+        header h2 {
+            font-size: clamp(2em, 2.2vw, 3em);
+        }
+
+        .content-section {
+            max-width: 1700px;
+        }
+
+        h3 {
+            font-size: clamp(1.5em, 2.2vw, 2em);
+        }
+
+        p,
+        li {
+            font-size: clamp(18px, 1.3vw, 20px);
+        }
+
+        .video-section iframe {
+            max-width: 300px;
+            height: 533.33px;
+        }
+
+        #theme-toggle {
+            font-size: clamp(16px, 1.1vw, 18px);
+            width: clamp(26px, 2vw, 30px);
+            height: clamp(26px, 2vw, 30px);
+        }
+
+        #back-to-top {
+            width: clamp(50px, 3.5vw, 60px);
+            height: clamp(50px, 3.5vw, 60px);
+            font-size: clamp(22px, 1.8vw, 26px);
+        }
+
+        footer {
+            font-size: clamp(16px, 1.2vw, 18px);
+            max-width: 1700px;
+        }
+    }
+
+    @media (min-width: 1961px) {
+        body {
+            font-size: clamp(20px, 1.2vw, 22px);
+            max-width: 2000px;
+        }
+
+        header {
+            max-width: 2000px;
+        }
+
+        header h2 {
+            font-size: clamp(2.5em, 2.1vw, 3.5em);
+        }
+
+        .content-section {
+            max-width: 2000px;
+        }
+
+        h3 {
+            font-size: clamp(2em, 2.1vw, 2.5em);
+        }
+
+        p,
+        li {
+            font-size: clamp(20px, 1.2vw, 22px);
+        }
+
+        .video-section iframe {
+            max-width: 300px;
+            height: 533.33px;
+        }
+
+        #theme-toggle {
+            font-size: clamp(18px, 1.1vw, 20px);
+            width: clamp(28px, 2vw, 32px);
+            height: clamp(28px, 2vw, 32px);
+        }
+
+        .sidebar {
+            width: 40px;
+            right: clamp(10px, 1vw, 20px);
+        }
+
+        .progress-bar {
+            width: 10px;
+        }
+
+        #back-to-top {
+            width: clamp(55px, 3.5vw, 65px);
+            height: clamp(55px, 3.5vw, 65px);
+            font-size: clamp(24px, 1.8vw, 28px);
+            right: clamp(50px, 3vw, 70px);
+        }
+
+        footer {
+            font-size: clamp(18px, 1.2vw, 20px);
+            max-width: 2000px;
+        }
+    }
+</style>
+<!-- Background Emojis -->
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+<!-- Sidebar -->
+
+<div class="sidebar">
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill">&nbsp;</div>
+    </div>
+    <button aria-label="Toggle dark mode" fdprocessedid="r0si6q" id="theme-toggle">🌙</button>
+</div>
+<!-- Header --><!-- GUSTORA THEMED FULLSCREEN BUTTON -->
+
+<div id="gustoraFullscreenBtn"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2.6" viewbox="0 0 24 24">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+    </svg></div>
+<style type="text/css">
+    #gustoraFullscreenBtn {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        z-index: 99999;
+        width: 68px;
+        height: 68px;
+        background: linear-gradient(135deg, var(--brand-gold), #2B2B85);
+        border: 4px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+            0 10px 30px rgba(170, 138, 0, 0.5),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        animation: gentlePulse 4s infinite ease-in-out;
+    }
+
+    #gustoraFullscreenBtn:hover {
+        transform: scale(1.18) rotate(8deg);
+        box-shadow:
+            0 20px 50px rgba(170, 138, 0, 0.7),
+            0 0 50px var(--glow-gold),
+            0 0 60px var(--glow-red);
+        border-color: var(--brand-red);
+    }
+
+    #gustoraFullscreenBtn svg {
+        width: 38px;
+        height: 38px;
+        stroke: #000;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Subtle floating + sauce-red glow on hover */
+    @keyframes gentlePulse {
+
+        0%,
+        100% {
+            box-shadow: 0 10px 30px rgba(170, 138, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 15px 40px rgba(170, 138, 0, 0.6), 0 0 40px rgba(225, 37, 27, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    /* Optional: tiny pasta particle burst when entering fullscreen */
+    #gustoraFullscreenBtn:active {
+        transform: scale(0.95);
+    }
+</style>
+<script>
+    // Gustora-themed Fullscreen Toggle (works on all modern browsers + mobile)
+    document.getElementById('gustoraFullscreenBtn').addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen?.() ||
+                document.documentElement.webkitRequestFullscreen?.() ||
+                document.documentElement.msRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() ||
+                document.webkitExitFullscreen?.() ||
+                document.msExitFullscreen?.();
+        }
+    });
+</script>
+<p>&nbsp;</p>
+
+<header>
+    <h2><span style="font-size:36px;">Marketing Strategy</span></h2>
+</header>
+<!-- Content Sections -->
+
+<div class="audio-container">
+    <audio controls="" controlslist="nodownload" oncontextmenu="return false;">
+        <source src="https://pa2-cmd.github.io/audio-chapters-gudgum/audio%20chapters%20gudgum/m6c1.mp3"
+            type="audio/mp3" /> Your browser does not support the audio element.
+    </audio>
+</div>
+<style type="text/css">
+    .audio-container {
+        position: relative;
+        background: url('/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center center no-repeat;
+        background-size: contain;
+        /* keeps the GIF's aspect ratio */
+        border-radius: 16px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        margin: 1rem auto;
+        width: 90%;
+        max-width: 900px;
+        aspect-ratio: 1920 / 1080;
+        /* maintain original proportion */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    /* Modern styled audio */
+    .audio-container audio {
+        width: 100%;
+        border-radius: 12px;
+        border: 2px solid #2D2B7E;
+        background: #F5F5FF;
+        height: 50px;
+        padding: 4px;
+        box-shadow: 0 3px 10px rgba(45, 43, 126, 0.3);
+    }
+
+    /* Lavender-toned player controls */
+    audio::-webkit-media-controls-panel {
+        background-color: #E6E6FA;
+        border-radius: 12px;
+    }
+
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-timeline,
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display,
+    audio::-webkit-media-controls-volume-slider {
+        filter: hue-rotate(240deg) saturate(1.2);
+    }
+</style>
+<div class="content-section">
+    <p><strong>GudGum&rsquo;s story glows with purpose.</strong> Its marketing weaves sustainability and fun to connect
+        with eco-conscious youth.</p>
+</div>
+
+<div class="content-section">
+    <h3>Marketing Approach</h3>
+
+    <div class="image-gallery"><img alt="GudGum Marketing Approach"
+            src="https://login.skillizee.io/s/articles/68849039b4b6b53215da52aa/images/gugdd.png" /></div>
+
+    <ul>
+        <li><strong>#GudMove Campaign:</strong> Instagram Reels promote sustainable choices</li>
+        <li><strong>Storytelling:</strong> Highlights plastic-free mission and tribal farmer support, resonating with
+            <strong>75% of consumers</strong> valuing social impact</li>
+        <li><strong>Visuals &amp; Wordplay:</strong> Pastel tones, eco-themed designs (leaves, trees), and taglines like
+            &ldquo;Good for you. Gud for Earth.&rdquo;</li>
+    </ul>
+</div>
+
+<div class="content-section">
+    <h3>Explore the Strategy</h3>
+
+    <p>Learn more about GudGum&rsquo;s marketing (video coming soon):</p>
+
+    <ul>
+        <li>What is GudGum&rsquo;s <strong>current marketing strategy</strong>?</li>
+    </ul>
+
+    <div class="video-section"><iframe allowfullscreen="" frameborder="0"
+            src="https://www.youtube.com/embed/Pvt7WadGwl4" title="GudGum Marketing Strategy Video"></iframe></div>
+
+    <ul>
+        <li>How sales <strong>skyrocketed</strong> post-Shark Tank</li>
+    </ul>
+
+    <div class="video-section"><iframe allowfullscreen="" frameborder="0"
+            src="https://www.youtube.com/embed/tFs-coF3DiU" title="GudGum Post Shark Tank Results"></iframe></div>
+</div>
+
+<div class="content-section">
+    <h3>Key Takeaways</h3>
+
+    <div class="image-gallery"><img alt="Key Takeaways Illustration"
+            src="https://login.skillizee.io/s/articles/68849039b4b6b53215da52aa/images/vien.png" /></div>
+</div>
+
+<div class="content-section">
+    <h3>Activity: Sort Marketing Strategies</h3>
+
+    <p>Drag and drop the marketing elements into the correct categories: &lsquo;Core Strategy&rsquo; for elements
+        central to GudGum&rsquo;s marketing, and &lsquo;Not Relevant&rsquo; for those that don&rsquo;t align.</p>
+
+    <div class="activity-section">
+        <div class="drag-container">
+            <div class="drag-item" data-correct="true" draggable="true">#GudMove Campaign</div>
+
+            <div class="drag-item" data-correct="true" draggable="true">Eco-themed visuals</div>
+
+            <div class="drag-item" data-correct="true" draggable="true">Support tribal farmers</div>
+
+            <div class="drag-item" data-correct="false" draggable="true">Heavy discounts</div>
+
+            <div class="drag-item" data-correct="false" draggable="true">Luxury branding</div>
+        </div>
+
+        <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+            <div class="drop-zone" id="core-strategy">
+                <p>Core Strategy</p>
+            </div>
+
+            <div class="drop-zone" id="not-relevant">
+                <p>Not Relevant</p>
+            </div>
+        </div>
+
+        <div class="button-container"><button fdprocessedid="a4b1du"
+                onclick="checkActivityCompletion()">Submit</button><button fdprocessedid="ufurq"
+                onclick="resetActivity()">Reset</button></div>
+
+        <p class="confirmation-message" id="confirmationMessage">&nbsp;</p>
+    </div>
+</div>
+<!-- Footer -->
+
+<footer>
+    <p>GudGum Virtual Internship &ndash; Sustainable Branding</p>
+</footer>
+<!-- Back to Top Button -->
+
+<p><button aria-label="Scroll to top" id="back-to-top" onclick="scrollToTop()">&uarr;</button>
+    <script>
+        // Throttle function to limit scroll event frequency
+        function throttle(fn, wait) {
+            let lastCall = 0;
+            return function (...args) {
+                const now = new Date().getTime();
+                if (now - lastCall < wait) return;
+                lastCall = now;
+                return fn(...args);
+            };
+        }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark");
+            document.querySelector(".sidebar").classList.toggle("dark");
+            document.querySelector(".progress-bar").classList.toggle("dark");
+            document.querySelector(".progress-fill").classList.toggle("dark");
+            document.querySelector("header").classList.toggle("dark");
+            document.querySelectorAll(".content-section").forEach(section => section.classList.toggle("dark"));
+            document.querySelectorAll("h3").forEach(heading => heading.classList.toggle("dark"));
+            document.querySelectorAll(".emoji-bg").forEach(emoji => emoji.classList.toggle("dark"));
+            document.querySelector("footer").classList.toggle("dark");
+            document.querySelector("#back-to-top").classList.toggle("dark");
+            document.querySelectorAll("li").forEach(item => item.classList.toggle("dark"));
+            document.querySelectorAll(".image-gallery img").forEach(img => img.classList.toggle("dark"));
+            document.querySelectorAll(".video-section").forEach(video => video.classList.toggle("dark"));
+            document.querySelectorAll(".video-section iframe").forEach(iframe => iframe.classList.toggle("dark"));
+            document.querySelectorAll(".activity-section .drag-item").forEach(item => item.classList.toggle("dark"));
+            document.querySelectorAll(".activity-section .drop-zone").forEach(zone => zone.classList.toggle("dark"));
+            document.querySelectorAll(".activity-section button").forEach(button => button.classList.toggle("dark"));
+            document.querySelectorAll(".activity-section .confirmation-message").forEach(message => message.classList.toggle("dark"));
+            themeToggle.classList.toggle("dark");
+            themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+        });
+
+        // Progress Bar Logic
+        let scrollProgress = 0;
+        let activityCompleted = false;
+        const progressFill = document.getElementById("progress-fill");
+
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 85 : 0;
+            let totalProgress = scrollProgress;
+            if (activityCompleted) {
+                totalProgress = Math.max(totalProgress, 85) + 15;
+            }
+            totalProgress = Math.min(100, totalProgress);
+            if (window.innerWidth <= 600) {
+                progressFill.style.width = totalProgress + "%";
+            } else {
+                progressFill.style.height = totalProgress + "%";
+            }
+        }
+
+        // Scroll-based Progress
+        const updateScrollProgress = throttle(() => {
+            updateProgress();
+        }, 50);
+
+        window.addEventListener("scroll", () => {
+            requestAnimationFrame(updateScrollProgress);
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById("back-to-top");
+        window.addEventListener("scroll", () => {
+            backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // Drag and Drop Logic
+        const dragItems = document.querySelectorAll(".drag-item");
+        const dropZones = document.querySelectorAll(".drop-zone");
+        const dragContainer = document.querySelector(".drag-container");
+        const confirmationMessage = document.getElementById("confirmationMessage");
+
+        dragItems.forEach(item => {
+            item.addEventListener("dragstart", (e) => {
+                e.dataTransfer.setData("text/plain", item.textContent);
+                item.classList.add("dragging");
+            });
+            item.addEventListener("dragend", () => {
+                item.classList.remove("dragging");
+            });
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                zone.classList.add("over");
+            });
+            zone.addEventListener("dragleave", () => {
+                zone.classList.remove("over");
+            });
+            zone.addEventListener("drop", (e) => {
+                e.preventDefault();
+                zone.classList.remove("over");
+                const itemText = e.dataTransfer.getData("text/plain");
+                const item = Array.from(dragItems).find(i => i.textContent === itemText);
+                if (item) {
+                    zone.appendChild(item);
+                }
+            });
+        });
+
+        function checkActivityCompletion() {
+            const coreStrategyZone = document.getElementById("core-strategy");
+            const notRelevantZone = document.getElementById("not-relevant");
+            const coreItems = coreStrategyZone.querySelectorAll(".drag-item");
+            const notRelevantItems = notRelevantZone.querySelectorAll(".drag-item");
+
+            const correctItems = Array.from(coreItems).every(item => item.dataset.correct === "true") &&
+                Array.from(notRelevantItems).every(item => item.dataset.correct === "false") &&
+                coreItems.length === 3 && notRelevantItems.length === 2;
+
+            if (correctItems) {
+                confirmationMessage.textContent = "Great job! All strategies correctly sorted!";
+                confirmationMessage.classList.add("show");
+                activityCompleted = true;
+                updateProgress();
+                setTimeout(() => {
+                    confirmationMessage.classList.remove("show");
+                    confirmationMessage.textContent = "";
+                }, 3000);
+            } else {
+                confirmationMessage.textContent = "Try again: Some strategies are misplaced.";
+                confirmationMessage.classList.add("show");
+                activityCompleted = false;
+                updateProgress();
+                setTimeout(() => {
+                    confirmationMessage.classList.remove("show");
+                    confirmationMessage.textContent = "";
+                }, 3000);
+            }
+        }
+
+        function resetActivity() {
+            dropZones.forEach(zone => {
+                const items = zone.querySelectorAll(".drag-item");
+                items.forEach(item => dragContainer.appendChild(item));
+            });
+            confirmationMessage.textContent = "";
+            confirmationMessage.classList.remove("show");
+            activityCompleted = false;
+            updateProgress();
+        }
+    </script>
+</p>

@@ -1,0 +1,1149 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="responsive.css" />
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    referrerpolicy="no-referrer" rel="stylesheet" />
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0 auto;
+        padding: 0 40px 0 0;
+        background: linear-gradient(180deg, #e8f5e9, #f1f8e9);
+        color: #333;
+        font-size: clamp(16px, 1.4vw, 18px);
+        max-width: 1800px;
+        transition: background 0.3s, color 0.3s;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    body.dark {
+        background: #1a3c34;
+        color: #e0f2e9;
+    }
+
+    .emoji-bg {
+        position: absolute;
+        font-size: clamp(30px, 2.5vw, 44px);
+        opacity: 0.4;
+        color: #4caf50;
+        pointer-events: none;
+        z-index: -1;
+        animation: float-rotate 15s infinite ease-in-out;
+    }
+
+    .emoji-bg.dark {
+        opacity: 0.5;
+        color: #a5d6a7;
+    }
+
+    .emoji-bg:nth-child(1) {
+        top: 10%;
+        left: 2%;
+        animation-delay: 0s;
+    }
+
+    .emoji-bg:nth-child(2) {
+        top: 20%;
+        left: 5%;
+        animation-delay: -1s;
+    }
+
+    .emoji-bg:nth-child(3) {
+        top: 30%;
+        left: 3%;
+        animation-delay: -2s;
+    }
+
+    .emoji-bg:nth-child(4) {
+        top: 40%;
+        left: 6%;
+        animation-delay: -3s;
+    }
+
+    .emoji-bg:nth-child(5) {
+        top: 50%;
+        left: 4%;
+        animation-delay: -4s;
+    }
+
+    .emoji-bg:nth-child(6) {
+        top: 60%;
+        left: 7%;
+        animation-delay: -5s;
+    }
+
+    .emoji-bg:nth-child(7) {
+        top: 70%;
+        left: 2%;
+        animation-delay: -6s;
+    }
+
+    .emoji-bg:nth-child(8) {
+        top: 80%;
+        left: 5%;
+        animation-delay: -7s;
+    }
+
+    .emoji-bg:nth-child(9) {
+        top: 90%;
+        left: 3%;
+        animation-delay: -8s;
+    }
+
+    .emoji-bg:nth-child(10) {
+        top: 15%;
+        left: 92%;
+        animation-delay: -9s;
+    }
+
+    .emoji-bg:nth-child(11) {
+        top: 25%;
+        left: 95%;
+        animation-delay: -10s;
+    }
+
+    .emoji-bg:nth-child(12) {
+        top: 35%;
+        left: 93%;
+        animation-delay: -11s;
+    }
+
+    .emoji-bg:nth-child(13) {
+        top: 45%;
+        left: 94%;
+        animation-delay: -12s;
+    }
+
+    .emoji-bg:nth-child(14) {
+        top: 55%;
+        left: 92%;
+        animation-delay: -13s;
+    }
+
+    .emoji-bg:nth-child(15) {
+        top: 65%;
+        left: 95%;
+        animation-delay: -14s;
+    }
+
+    .emoji-bg:nth-child(16) {
+        top: 75%;
+        left: 93%;
+        animation-delay: -15s;
+    }
+
+    .emoji-bg:nth-child(17) {
+        top: 85%;
+        left: 94%;
+        animation-delay: -16s;
+    }
+
+    .emoji-bg:nth-child(18) {
+        top: 95%;
+        left: 92%;
+        animation-delay: -17s;
+    }
+
+    .emoji-bg:nth-child(19) {
+        top: 12%;
+        left: 5%;
+        animation-delay: -18s;
+    }
+
+    .emoji-bg:nth-child(20) {
+        top: 22%;
+        left: 95%;
+        animation-delay: -19s;
+    }
+
+    @keyframes float-rotate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-30px) rotate(15deg);
+        }
+
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 25%;
+        right: 0;
+        width: 30px;
+        height: 50%;
+        background: transparent;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .sidebar.dark {
+        border-color: #a5d6a7;
+    }
+
+    .progress-bar {
+        width: 8px;
+        height: calc(100% - 60px);
+        background: #e2e8f0;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .progress-bar.dark {
+        background: #475569;
+    }
+
+    .progress-fill {
+        width: 100%;
+        background: #4caf50;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        transition: height 0.5s ease-in-out;
+    }
+
+    #theme-toggle {
+        background: #a5d6a7;
+        color: #0f172a;
+        border: none;
+        border-radius: 15px;
+        padding: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: clamp(14px, 1.1vw, 16px);
+        width: clamp(24px, 2vw, 28px);
+        height: clamp(24px, 2vw, 28px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    #theme-toggle.dark {
+        background: #a5d6a7;
+        color: #0f172a;
+    }
+
+    #theme-toggle:hover {
+        background: #ffffff;
+    }
+
+    .dark #theme-toggle:hover {
+        background: #4caf50;
+    }
+
+    header {
+        background: #4caf50;
+        color: #ffffff;
+        padding: clamp(20px, 2vw, 24px) 0;
+        text-align: center;
+        width: 95%;
+        max-width: 1800px;
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header.dark {
+        background: #2e7d32;
+    }
+
+    header h2 {
+        margin: 5px 0;
+        font-size: clamp(1.5em, 2.2vw, 3em);
+        color: #ffffff;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: clamp(20px, 2vw, 24px);
+    }
+
+    .content-section {
+        background: white;
+        margin: clamp(20px, 2vw, 24px) 0;
+        padding: clamp(20px, 2vw, 24px);
+        border-radius: 16px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 1800px;
+        width: 95%;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out, box-shadow 0.3s, transform 0.3s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .content-section:hover {
+        box-shadow: 0px 6px 20px rgba(76, 175, 80, 0.4);
+        transform: scale(1.02);
+        z-index: 10;
+    }
+
+    .content-section.dark {
+        background: #3b6e55;
+        color: #e0f2e9;
+    }
+
+    .content-section.dark:hover {
+        box-shadow: 0px 6px 20px rgba(165, 214, 167, 0.4);
+    }
+
+    .content-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .content-heading {
+        background: #e8f5e9;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        position: relative;
+        z-index: 5;
+    }
+
+    .content-heading:hover {
+        box-shadow: 0px 4px 15px rgba(76, 175, 80, 0.5);
+        transform: scale(1.03);
+        z-index: 15;
+    }
+
+    .content-heading.dark {
+        background: #1a3c34;
+        border-color: #a5d6a7;
+    }
+
+    .content-heading.dark:hover {
+        box-shadow: 0px 4px 15px rgba(165, 214, 167, 0.5);
+    }
+
+    .content-heading h2,
+    .content-heading h3 {
+        margin: 0;
+        color: #2e7d32;
+        font-size: clamp(1.5em, 2.2vw, 2em);
+    }
+
+    .dark .content-heading h2,
+    .dark .content-heading h3 {
+        color: #e0f2e9;
+    }
+
+    .content-section p,
+    .content-section li {
+        font-size: clamp(16px, 1.4vw, 20px);
+        color: #555;
+    }
+
+    .dark .content-section p,
+    .dark .content-section li {
+        color: #e0f2e9;
+    }
+
+    .image-gallery {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 20px 0;
+        padding: 10px;
+    }
+
+    .image-gallery img {
+        width: 200px;
+        height: 180px;
+        object-fit: cover;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        transition: transform 0.3s ease, border-color 0.3s;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .image-gallery img[style*="width: 250px"] {
+        width: 250px;
+        height: 250px;
+    }
+
+    .image-gallery img[style*="width: 270px"] {
+        width: 270px;
+        height: 270px;
+    }
+
+    .image-gallery img[style*="width: 400px"] {
+        width: 400px;
+        height: 500px;
+    }
+
+    .image-gallery img[style*="width: 500px"] {
+        width: 500px;
+        height: 405px;
+    }
+
+    .image-gallery img[style*="width: 600px"] {
+        width: 600px;
+        height: 511px;
+    }
+
+    .image-gallery img:hover {
+        transform: scale(1.05);
+        border-color: #4caf50;
+    }
+
+    .dark .image-gallery img {
+        border-color: #a5d6a7;
+    }
+
+    .dark .image-gallery img:hover {
+        border-color: #4caf50;
+    }
+
+    .video-fallback {
+        text-align: center;
+        margin: 10px 0 30px 0;
+    }
+
+    .video-fallback p {
+        font-size: clamp(16px, 1.4vw, 20px);
+        color: #555;
+    }
+
+    .dark .video-fallback p {
+        color: #e0f2e9;
+    }
+
+    footer {
+        background: #4caf50;
+        color: white;
+        text-align: center;
+        padding: clamp(15px, 1.5vw, 18px);
+        margin-top: clamp(40px, 3vw, 48px);
+        border-radius: 20px 20px 0 0;
+        font-size: clamp(14px, 1.2vw, 18px);
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+        width: 95%;
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dark footer {
+        background: #2e7d32;
+    }
+
+    footer p {
+        margin: clamp(5px, 0.5vw, 6px) 0;
+    }
+
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: clamp(40px, 3vw, 60px);
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: clamp(40px, 3.5vw, 60px);
+        height: clamp(40px, 3.5vw, 60px);
+        font-size: clamp(20px, 1.8vw, 26px);
+        cursor: pointer;
+        display: none;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .dark #back-to-top {
+        background: #a5d6a7;
+    }
+
+    #back-to-top:hover {
+        background: #388e3c;
+        transform: scale(1.1);
+    }
+
+    .dark #back-to-top:hover {
+        background: #2e7d32;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding-right: 0;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .emoji-bg {
+            font-size: clamp(25px, 3vw, 30px);
+        }
+
+        .sidebar {
+            width: 100%;
+            height: 60px;
+            top: auto;
+            bottom: 0;
+            border: none;
+            background: #4caf50;
+            border-radius: 0;
+            padding: 5px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar.dark {
+            background: #2e7d32;
+            border: none;
+        }
+
+        .progress-bar {
+            width: 40%;
+            height: 10px;
+            margin: 0;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            bottom: auto;
+            left: 0;
+            transition: width 0.5s ease-in-out;
+        }
+
+        #theme-toggle {
+            margin-top: 0;
+            width: clamp(20px, 2.5vw, 24px);
+            height: clamp(20px, 2.5vw, 24px);
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        header h2 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        .content-heading h2,
+        .content-heading h3 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        .content-section p,
+        .content-section li {
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .image-gallery img {
+            width: 150px;
+            height: 135px;
+        }
+
+        .image-gallery img[style*="width: 250px"] {
+            width: 150px;
+            height: 150px;
+        }
+
+        .image-gallery img[style*="width: 270px"] {
+            width: 150px;
+            height: 150px;
+        }
+
+        .image-gallery img[style*="width: 400px"] {
+            width: 300px;
+            height: 375px;
+        }
+
+        .image-gallery img[style*="width: 500px"] {
+            width: 300px;
+            height: 243px;
+        }
+
+        .image-gallery img[style*="width: 600px"] {
+            width: 300px;
+            height: 255.5px;
+        }
+
+        #back-to-top {
+            bottom: 80px;
+            right: 20px;
+            width: clamp(35px, 3vw, 40px);
+            height: clamp(35px, 3vw, 40px);
+            font-size: clamp(18px, 2vw, 20px);
+        }
+
+        footer {
+            font-size: clamp(12px, 2vw, 14px);
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1960px) {
+        body {
+            font-size: clamp(18px, 1.3vw, 20px);
+            max-width: 1700px;
+        }
+
+        header {
+            max-width: 1700px;
+        }
+
+        header h2 {
+            font-size: clamp(2em, 2.2vw, 3em);
+        }
+
+        .content-section {
+            max-width: 1700px;
+        }
+
+        .content-heading h2,
+        .content-heading h3 {
+            font-size: clamp(1.5em, 2.2vw, 2em);
+        }
+
+        .content-section p,
+        .content-section li {
+            font-size: clamp(18px, 1.3vw, 20px);
+        }
+
+        .image-gallery img {
+            max-width: 600px;
+        }
+
+        .image-gallery img[style*="width: 250px"] {
+            width: 250px;
+            height: 250px;
+        }
+
+        .image-gallery img[style*="width: 270px"] {
+            width: 270px;
+            height: 270px;
+        }
+
+        .image-gallery img[style*="width: 400px"] {
+            width: 400px;
+            height: 500px;
+        }
+
+        .image-gallery img[style*="width: 500px"] {
+            width: 500px;
+            height: 405px;
+        }
+
+        .image-gallery img[style*="width: 600px"] {
+            width: 600px;
+            height: 511px;
+        }
+
+        #theme-toggle {
+            font-size: clamp(16px, 1.1vw, 18px);
+            width: clamp(26px, 2vw, 30px);
+            height: clamp(26px, 2vw, 30px);
+        }
+
+        #back-to-top {
+            width: clamp(50px, 3.5vw, 60px);
+            height: clamp(50px, 3.5vw, 60px);
+            font-size: clamp(22px, 1.8vw, 26px);
+        }
+
+        footer {
+            font-size: clamp(16px, 1.2vw, 18px);
+            max-width: 1700px;
+        }
+    }
+
+    @media (min-width: 1961px) {
+        body {
+            font-size: clamp(20px, 1.2vw, 22px);
+            max-width: 2000px;
+        }
+
+        header {
+            max-width: 2000px;
+        }
+
+        header h2 {
+            font-size: clamp(2.5em, 2.1vw, 3.5em);
+        }
+
+        .content-section {
+            max-width: 2000px;
+        }
+
+        .content-heading h2,
+        .content-heading h3 {
+            font-size: clamp(2em, 2.1vw, 2.5em);
+        }
+
+        .content-section p,
+        .content-section li {
+            font-size: clamp(20px, 1.2vw, 22px);
+        }
+
+        .image-gallery img {
+            max-width: 700px;
+        }
+
+        .image-gallery img[style*="width: 250px"] {
+            width: 250px;
+            height: 250px;
+        }
+
+        .image-gallery img[style*="width: 270px"] {
+            width: 270px;
+            height: 270px;
+        }
+
+        .image-gallery img[style*="width: 400px"] {
+            width: 400px;
+            height: 500px;
+        }
+
+        .image-gallery img[style*="width: 500px"] {
+            width: 500px;
+            height: 405px;
+        }
+
+        .image-gallery img[style*="width: 600px"] {
+            width: 600px;
+            height: 511px;
+        }
+
+        #theme-toggle {
+            font-size: clamp(18px, 1.1vw, 20px);
+            width: clamp(28px, 2vw, 32px);
+            height: clamp(28px, 2vw, 32px);
+        }
+
+        .sidebar {
+            width: 40px;
+            right: clamp(10px, 1vw, 20px);
+        }
+
+        .progress-bar {
+            width: 10px;
+        }
+
+        #back-to-top {
+            width: clamp(55px, 3.5vw, 65px);
+            height: clamp(55px, 3.5vw, 65px);
+            font-size: clamp(24px, 1.8vw, 28px);
+            right: clamp(50px, 3vw, 70px);
+        }
+
+        footer {
+            font-size: clamp(18px, 1.2vw, 20px);
+            max-width: 2000px;
+        }
+    }
+</style>
+<!-- Background Emojis -->
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+<!-- Sidebar -->
+
+<div class="sidebar">
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill">&nbsp;</div>
+    </div>
+    <button aria-label="Toggle dark mode" id="theme-toggle">🌙</button>
+</div>
+
+<header>
+    <h2><span style="font-size:48px;">Business Model</span></h2>
+
+    <p class="text-lg"><span style="font-size:28px;">How does GudGum make money and get its eco-friendly gum to
+            you?</span></p>
+</header>
+
+<main><!-- Business Model Overview -->
+    <div class="audio-container">
+        <audio controls="" controlslist="nodownload" oncontextmenu="return false;">
+            <source src="https://pa2-cmd.github.io/audio-chapters-gudgum/audio%20chapters%20gudgum/m3c3.mp3"
+                type="audio/mp3" /> Your browser does not support the audio element.
+        </audio>
+    </div>
+    <style type="text/css">
+        .audio-container {
+            position: relative;
+            background: url('https://login.skillizee.io/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center center no-repeat;
+            background-size: contain;
+            /* keeps the GIF's aspect ratio */
+            border-radius: 16px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+            margin: 1rem auto;
+            width: 90%;
+            max-width: 900px;
+            aspect-ratio: 1920 / 1080;
+            /* maintain original proportion */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        /* Modern styled audio */
+        .audio-container audio {
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid #2D2B7E;
+            background: #F5F5FF;
+            height: 50px;
+            padding: 4px;
+            box-shadow: 0 3px 10px rgba(45, 43, 126, 0.3);
+        }
+
+        /* Lavender-toned player controls */
+        audio::-webkit-media-controls-panel {
+            background-color: #E6E6FA;
+            border-radius: 12px;
+        }
+
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-timeline,
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display,
+        audio::-webkit-media-controls-volume-slider {
+            filter: hue-rotate(240deg) saturate(1.2);
+        }
+    </style>
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Business Model Overview</h3>
+        </div>
+
+        <p>How does GudGum make money and get its eco-friendly gum to you? Through a smart mix of online sales, retail
+            partnerships, and event appearances, GudGum reaches conscious chewers while staying true to its sustainable
+            roots. Let&rsquo;s break down the business model!</p>
+    </div>
+    <!-- Direct-to-Consumer (D2C) -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Direct-to-Consumer (D2C)</h3>
+        </div>
+
+        <p>GudGum is sold directly through <strong>www.gudgum.in</strong>, <strong>Amazon</strong>,
+            <strong>Flipkart</strong>, and <strong>Blinkit</strong> (in Bengaluru). Enjoy <strong>free shipping</strong>
+            on orders over ₹360, making it easy to grab your favorite eco-conscious gum online.</p>
+
+        <div class="image-gallery"><img src="https://login.skillizee.io/s/articles/68836ae48c5dba6cd76ea950/images/rs.png"
+                style="width: 600px; height: 511px;" /></div>
+    </div>
+    <!-- Retail -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Retail</h3>
+        </div>
+
+        <p>Find GudGum in <strong>eco-stores</strong> like <strong>Brown Living&trade;</strong>, where sustainable
+            shoppers can pick up our gum in person. These stores align with our green mission and bring GudGum to local
+            communities.</p>
+
+        <div class="image-gallery"><img alt="GudGum tote bags in eco-stores"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm5LDdQu8eERATJCckyftOi59s0HiMOg4A4g&amp;s"
+                style="width: 250px; height: 250px;" /></div>
+    </div>
+    <!-- Events -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Events</h3>
+        </div>
+
+        <p>GudGum shines at <strong>vegan markets</strong> and <strong>sustainability events</strong>, connecting with
+            eco-conscious crowds. Our <strong>premium pricing</strong> (₹350&ndash;₹1,584) reflects high-quality,
+            natural ingredients, though 74% of consumers note the price premium for sustainable products</p>
+
+        <div class="image-gallery"><img src="https://login.skillizee.io/s/articles/68836ae48c5dba6cd76ea950/images/IMG_9827_1.png"
+                style="width: 270px; height: 270px;" /> <img
+                src="https://login.skillizee.io/s/articles/68836ae48c5dba6cd76ea950/images/IMG_9797_1.png" style="width: 270px; height: 270px;" />
+            <img src="https://login.skillizee.io/s/articles/68836ae48c5dba6cd76ea950/images/IMG_9799_1.png"
+                style="width: 270px; height: 270px;" /></div>
+    </div>
+    <!-- Revenue Figures -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Revenue Figures</h3>
+        </div>
+
+        <div class="image-gallery"><img src="https://login.skillizee.io/s/articles/68836ae48c5dba6cd76ea950/images/_- visual selection.png"
+                style="width: 500px; height: 405px;" /></div>
+
+        <ul>
+            <li>FY 2022&ndash;23: ₹29.7 Lakhs</li>
+            <li>FY 2023&ndash;24 (till November): ₹53 Lakhs</li>
+        </ul>
+    </div>
+    <!-- In-House Manufacturing -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>In-House Manufacturing</h3>
+        </div>
+
+        <p>GudGum <strong>manufactures in-house</strong>, ensuring <strong>strict quality control</strong> and
+            <strong>minimal production waste</strong>. This hands-on approach reflects our commitment to sustainable
+            practices and top-notch gum. Watch how GudGum comes to life, one chew at a time!</p>
+    </div>
+    <!-- Digital-First Marketing -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Digital-First Marketing</h3>
+        </div>
+
+        <p>To build brand awareness, GudGum goes big on digital marketing! Our strategies include:</p>
+
+        <ul>
+            <li><strong>Engaging social media campaigns</strong> to showcase our eco-friendly vibe.</li>
+            <li><strong>Influencer collaborations</strong> with eco-conscious content creators.</li>
+            <li><strong>Educational promotions</strong> highlighting the benefits of natural, plastic-free products.
+            </li>
+        </ul>
+
+        <p>This approach builds a community of conscious consumers who love sustainable, mindful living.</p>
+    </div>
+    <!-- Key Selling Channels -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Key Selling Channels</h3>
+        </div>
+
+        <p>GudGum reaches you through multiple channels:</p>
+
+        <ul>
+            <li><strong>Official Website</strong>: Order directly from www.gudgum.in.</li>
+            <li><strong>Online Marketplaces</strong>: Available on Amazon and Flipkart.</li>
+            <li><strong>Retail Stores</strong>: Found in eco-stores and health shops in select cities.</li>
+        </ul>
+
+        <p>Sales are evenly split: <strong>50% online marketplaces</strong> (Amazon, Flipkart) and <strong>50% offline
+                retail</strong>.</p>
+    </div>
+    <!-- Expanding the Audience -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Expanding the Audience</h3>
+        </div>
+
+        <p>GudGum targets ages 22&ndash;45, but kids love gum too! How can we reach younger chewers?&nbsp;</p>
+
+        <div class="image-gallery"><img src="https://login.skillizee.io/s/articles/68836ae48c5dba6cd76ea950/images/kids.jpg"
+                style="width: 400px; height: 500px;" /></div>
+
+        <div class="video-fallback">
+            <p>&nbsp;</p>
+        </div>
+    </div>
+    <!-- Key Takeaways -->
+
+    <div class="content-section visible">
+        <div class="content-heading">
+            <h3>Key Takeaways</h3>
+        </div>
+
+        <ul>
+            <li>GudGum&rsquo;s revenue comes from a balanced mix of D2C (online) and retail (offline) channels, with ₹53
+                Lakhs earned by November 2024.</li>
+            <li>In-house manufacturing ensures quality and minimal waste, aligning with sustainable practices.</li>
+            <li>Digital-first marketing (social media, influencers, education) builds a community of eco-conscious
+                consumers.</li>
+        </ul>
+    </div>
+</main>
+<!-- Back to Top Button -->
+
+<p><button aria-label="Scroll to top" id="back-to-top" onclick="scrollToTop()">&uarr;</button><!-- Footer --></p>
+
+<footer>
+    <p>Great job exploring GudGum&rsquo;s business model!</p>
+
+    <p>GudGum Virtual Internship &ndash; Sustainable Branding</p>
+</footer>
+<script>
+    // Throttle function to limit scroll event frequency
+    function throttle(fn, wait) {
+        let lastCall = 0;
+        return function (...args) {
+            const now = new Date().getTime();
+            if (now - lastCall < wait) return;
+            lastCall = now;
+            return fn(...args);
+        };
+    }
+
+    // Theme Toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        document.querySelector(".sidebar").classList.toggle("dark");
+        document.querySelector(".progress-bar").classList.toggle("dark");
+        document.querySelector("header").classList.toggle("dark");
+        document.querySelectorAll(".content-section").forEach(section => section.classList.toggle("dark"));
+        document.querySelectorAll(".content-heading").forEach(heading => heading.classList.toggle("dark"));
+        document.querySelectorAll(".emoji-bg").forEach(emoji => emoji.classList.toggle("dark"));
+        document.querySelector("footer").classList.toggle("dark");
+        document.querySelector("#back-to-top").classList.toggle("dark");
+        themeToggle.classList.toggle("dark");
+        themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+
+    // Progress Bar Logic
+    let scrollProgress = 0;
+    const progressFill = document.getElementById("progress-fill");
+
+    const updateScrollProgress = throttle(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (window.innerWidth <= 600) {
+            progressFill.style.width = scrollProgress + "%";
+        } else {
+            progressFill.style.height = scrollProgress + "%";
+        }
+    }, 50);
+
+    window.addEventListener("scroll", () => {
+        requestAnimationFrame(updateScrollProgress);
+    });
+
+    // Make all content sections visible on load
+    window.addEventListener("load", () => {
+        document.querySelectorAll(".content-section").forEach(section => {
+            section.classList.add("visible");
+        });
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+</script>
+<style type="text/css">
+    #gustoraFullscreenBtn {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 99999;
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--brand-gold), #2B2B85);
+        border: 2px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+            0 10px 30px rgba(170, 138, 0, 0.5),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        animation: gentlePulse 4s infinite ease-in-out;
+    }
+
+    #gustoraFullscreenBtn:hover {
+        transform: scale(1.18) rotate(8deg);
+        box-shadow:
+            0 20px 50px rgba(170, 138, 0, 0.7),
+            0 0 50px var(--glow-gold),
+            0 0 60px var(--glow-red);
+        border-color: var(--brand-red);
+    }
+
+    #gustoraFullscreenBtn svg {
+        width: 24px;
+        height: 24px;
+        stroke: #000;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Subtle floating + sauce-red glow on hover */
+    @keyframes gentlePulse {
+
+        0%,
+        100% {
+            box-shadow: 0 10px 30px rgba(170, 138, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 15px 40px rgba(170, 138, 0, 0.6), 0 0 40px rgba(225, 37, 27, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    /* Optional: tiny pasta particle burst when entering fullscreen */
+    #gustoraFullscreenBtn:active {
+        transform: scale(0.95);
+    }
+</style>

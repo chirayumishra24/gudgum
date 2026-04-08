@@ -1,0 +1,1489 @@
+<div>
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbMvwQzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    referrerpolicy="no-referrer" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0 auto;
+        padding: 0 40px 0 0;
+        background: linear-gradient(180deg, #e8f5e9, #f1f8e9);
+        color: #333;
+        font-size: clamp(16px, 1.4vw, 18px);
+        max-width: 1800px;
+        transition: background 0.1s, color 0.1s;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    body.dark {
+        background: #1a3c34;
+        color: #e0f2e9;
+    }
+
+    .emoji-bg {
+        position: absolute;
+        font-size: clamp(30px, 2.5vw, 44px);
+        opacity: 0.4;
+        color: #4caf50;
+        pointer-events: none;
+        z-index: -1;
+        animation: float-rotate 5s infinite ease-in-out;
+    }
+
+    .emoji-bg.dark {
+        opacity: 0.5;
+        color: #a5d6a7;
+    }
+
+    .emoji-bg:nth-child(1) {
+        top: 10%;
+        left: 2%;
+        animation-delay: 0s;
+    }
+
+    .emoji-bg:nth-child(2) {
+        top: 20%;
+        left: 5%;
+        animation-delay: -1s;
+    }
+
+    .emoji-bg:nth-child(3) {
+        top: 30%;
+        left: 3%;
+        animation-delay: -2s;
+    }
+
+    .emoji-bg:nth-child(4) {
+        top: 40%;
+        left: 6%;
+        animation-delay: -3s;
+    }
+
+    .emoji-bg:nth-child(5) {
+        top: 50%;
+        left: 4%;
+        animation-delay: -4s;
+    }
+
+    .emoji-bg:nth-child(6) {
+        top: 60%;
+        left: 7%;
+        animation-delay: -5s;
+    }
+
+    .emoji-bg:nth-child(7) {
+        top: 70%;
+        left: 2%;
+        animation-delay: -6s;
+    }
+
+    .emoji-bg:nth-child(8) {
+        top: 80%;
+        left: 5%;
+        animation-delay: -7s;
+    }
+
+    .emoji-bg:nth-child(9) {
+        top: 90%;
+        left: 3%;
+        animation-delay: -8s;
+    }
+
+    .emoji-bg:nth-child(10) {
+        top: 15%;
+        left: 92%;
+        animation-delay: -9s;
+    }
+
+    .emoji-bg:nth-child(11) {
+        top: 25%;
+        left: 95%;
+        animation-delay: -10s;
+    }
+
+    .emoji-bg:nth-child(12) {
+        top: 35%;
+        left: 93%;
+        animation-delay: -11s;
+    }
+
+    .emoji-bg:nth-child(13) {
+        top: 45%;
+        left: 94%;
+        animation-delay: -12s;
+    }
+
+    .emoji-bg:nth-child(14) {
+        top: 55%;
+        left: 92%;
+        animation-delay: -13s;
+    }
+
+    .emoji-bg:nth-child(15) {
+        top: 65%;
+        left: 95%;
+        animation-delay: -14s;
+    }
+
+    .emoji-bg:nth-child(16) {
+        top: 75%;
+        left: 93%;
+        animation-delay: -15s;
+    }
+
+    .emoji-bg:nth-child(17) {
+        top: 85%;
+        left: 94%;
+        animation-delay: -16s;
+    }
+
+    .emoji-bg:nth-child(18) {
+        top: 95%;
+        left: 92%;
+        animation-delay: -17s;
+    }
+
+    .emoji-bg:nth-child(19) {
+        top: 12%;
+        left: 5%;
+        animation-delay: -18s;
+    }
+
+    .emoji-bg:nth-child(20) {
+        top: 22%;
+        left: 95%;
+        animation-delay: -19s;
+    }
+
+    @keyframes float-rotate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-30px) rotate(15deg);
+        }
+
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 25%;
+        right: 0;
+        width: 30px;
+        height: 50%;
+        background: transparent;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .sidebar.dark {
+        border-color: #a5d6a7;
+    }
+
+    .progress-bar {
+        width: 8px;
+        height: calc(100% - 60px);
+        background: #e2e8f0;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .progress-bar.dark {
+        background: #475569;
+    }
+
+    .progress-fill {
+        width: 100%;
+        background: #4caf50;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        transition: height 0.2s ease-in-out;
+    }
+
+    .dark .progress-fill {
+        background: #a5d6a7;
+    }
+
+    #theme-toggle {
+        background: #a5d6a7;
+        color: #0f172a;
+        border: none;
+        border-radius: 15px;
+        padding: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: clamp(14px, 1.1vw, 16px);
+        width: clamp(24px, 2vw, 28px);
+        height: clamp(24px, 2vw, 28px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.1s, color 0.1s;
+    }
+
+    #theme-toggle.dark {
+        background: #a5d6a7;
+        color: #0f172a;
+    }
+
+    #theme-toggle:hover {
+        background: #ffffff;
+    }
+
+    .dark #theme-toggle:hover {
+        background: #4caf50;
+    }
+
+    header {
+        background: #4caf50;
+        color: #ffffff;
+        padding: clamp(20px, 2vw, 24px) 0;
+        text-align: center;
+        width: 95%;
+        max-width: 1800px;
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header.dark {
+        background: #2e7d32;
+    }
+
+    header h2 {
+        margin: 5px 0;
+        font-size: clamp(1.5em, 2.2vw, 3em);
+        color: #ffffff;
+    }
+
+    .content-section {
+        background: white;
+        margin: clamp(20px, 2vw, 24px) auto;
+        padding: clamp(20px, 2vw, 24px);
+        border-radius: 16px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 1800px;
+        width: 95%;
+        transition: box-shadow 0.1s, transform 0.1s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .content-section:hover {
+        box-shadow: 0px 6px 20px rgba(76, 175, 80, 0.4);
+        transform: scale(1.02);
+        z-index: 10;
+    }
+
+    .content-section.dark {
+        background: #3b6e55;
+        color: #e0f2e9;
+    }
+
+    .content-section.dark:hover {
+        box-shadow: 0px 6px 20px rgba(165, 214, 167, 0.4);
+    }
+
+    h3 {
+        font-size: clamp(1.5em, 2.2vw, 2em);
+        color: #2e7d32;
+        margin: 20px 0 10px;
+        display: flex;
+        align-items: center;
+        background: #e8f5e9;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        transition: box-shadow 0.1s, transform 0.1s;
+        justify-content: center;
+    }
+
+    h3:hover {
+        box-shadow: 0px 4px 15px rgba(76, 175, 80, 0.5);
+        transform: scale(1.03);
+    }
+
+    .dark h3 {
+        color: #e0f2e9;
+        background: #1a3c34;
+        border-color: #a5d6a7;
+    }
+
+    .dark h3:hover {
+        box-shadow: 0px 4px 15px rgba(165, 214, 167, 0.5);
+    }
+
+    h3 i {
+        margin-right: 10px;
+        color: #4caf50;
+    }
+
+    .dark h3 i {
+        color: #a5d6a7;
+    }
+
+    p,
+    li,
+    .learnings-grid div {
+        font-size: clamp(16px, 1.4vw, 20px);
+        color: #555;
+    }
+
+    .dark p,
+    .dark li,
+    .dark .learnings-grid div {
+        color: #e0f2e9;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        padding: 10px 0;
+        position: relative;
+        transition: transform 0.1s;
+    }
+
+    li:hover {
+        transform: translateX(5px);
+    }
+
+    li::before {
+        content: '\f058';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: #4caf50;
+        margin-right: 10px;
+    }
+
+    .dark li::before {
+        color: #a5d6a7;
+    }
+
+    a {
+        color: #00A3E0;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #003087;
+    }
+
+    .activity-link a {
+        background: #4caf50;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: inline-block;
+        transition: background 0.3s;
+    }
+
+    .activity-link a:hover {
+        background: #388e3c;
+    }
+
+    .learnings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .learnings-grid div {
+        background: #e8f5e9;
+        padding: 12px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        display: flex;
+        align-items: center;
+    }
+
+    .learnings-grid div:hover {
+        transform: translateY(-3px);
+    }
+
+    .dark .learnings-grid div {
+        background: #4c8c6a;
+    }
+
+    .learnings-grid div i {
+        margin-right: 10px;
+        color: #4caf50;
+    }
+
+    .dark .learnings-grid div i {
+        color: #a5d6a7;
+    }
+
+    .image-gallery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        padding: 10px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .image-gallery img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        border-radius: 10px;
+        border: 2px solid #4caf50;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .dark .image-gallery img {
+        border-color: #a5d6a7;
+    }
+
+    .image-gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Special flex for gg1 and gg2 */
+    .gg-images {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        flex-wrap: wrap;
+    }
+
+    .gg-images img {
+        flex: 1;
+        min-width: 280px;
+        max-width: 600px;
+        border-radius: 10px;
+        border: 2px solid #4caf50;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+    }
+
+    .dark .gg-images img {
+        border-color: #a5d6a7;
+    }
+
+    .gg-images img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Key Takeaways Image Larger */
+    .key-takeaways-img {
+        max-width: 700px !important;
+    }
+
+    table {
+        width: 100%;
+        max-width: 600px;
+        border-collapse: collapse;
+        margin: 20px auto;
+        background: #ffffff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #e0e0e0;
+        color: #333;
+    }
+
+    th {
+        background: #4caf50;
+        color: #ffffff;
+        font-weight: 600;
+    }
+
+    .dark th {
+        background: #a5d6a7;
+    }
+
+    tr:nth-child(even) {
+        background: #e8f5e9;
+    }
+
+    .dark tr:nth-child(even) {
+        background: #4c8c6a;
+    }
+
+    td:hover {
+        background: #c8e6c9;
+    }
+
+    .dark td:hover {
+        background: #4c8c6a;
+    }
+
+    details {
+        margin: 15px 0;
+        padding: 10px;
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .dark details {
+        background: #3b6e55;
+    }
+
+    summary {
+        font-size: clamp(1.5em, 2.2vw, 2em);
+        color: #2e7d32;
+        cursor: pointer;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        background: #e8f5e9;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        transition: box-shadow 0.1s, transform 0.1s;
+        justify-content: space-between;
+    }
+
+    summary:hover {
+        box-shadow: 0px 4px 15px rgba(76, 175, 80, 0.5);
+        transform: scale(1.03);
+    }
+
+    .dark summary {
+        color: #e0f2e9;
+        background: #1a3c34;
+        border-color: #a5d6a7;
+    }
+
+    .dark summary:hover {
+        box-shadow: 0px 4px 15px rgba(165, 214, 167, 0.5);
+    }
+
+    summary i {
+        margin-right: 10px;
+        color: #4caf50;
+    }
+
+    .dark summary i {
+        color: #a5d6a7;
+    }
+
+    summary .fa-chevron-down {
+        margin-left: auto;
+        transition: transform 0.3s;
+    }
+
+    details[open] summary .fa-chevron-down {
+        transform: rotate(180deg);
+    }
+
+    .swot-section textarea {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #4caf50;
+        border-radius: 5px;
+        font-size: clamp(16px, 1.4vw, 18px);
+        margin-top: 10px;
+        resize: vertical;
+        box-sizing: border-box;
+        background: #ffffff;
+        color: #333;
+    }
+
+    .dark .swot-section textarea {
+        background: #3b6e55;
+        color: #e0f2e9;
+        border-color: #a5d6a7;
+    }
+
+    .swot-section button {
+        background: #4caf50;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: clamp(14px, 1.2vw, 16px);
+        cursor: pointer;
+        display: block;
+        margin: 15px auto;
+        transition: background 0.1s, transform 0.1s;
+    }
+
+    .swot-section button:hover {
+        background: #388e3c;
+        transform: scale(1.05);
+    }
+
+    .dark .swot-section button {
+        background: #a5d6a7;
+    }
+
+    .dark .swot-section button:hover {
+        background: #2e7d32;
+    }
+
+    .confirmation-message {
+        color: #4caf50;
+        text-align: center;
+        margin-top: 10px;
+        opacity: 0;
+        transition: opacity 0.5s;
+        font-size: clamp(16px, 1.4vw, 18px);
+    }
+
+    .dark .confirmation-message {
+        color: #a5d6a7;
+    }
+
+    .confirmation-message.show {
+        opacity: 1;
+    }
+
+    .video-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        min-height: 320px;
+        /* Increased by 20px */
+    }
+
+    .dark .video-section {
+        background: #3b6e55;
+    }
+
+    .video-section iframe {
+        width: 100%;
+        max-width: clamp(200px, 40vw, 300px);
+        max-height: clamp(275.56px, 40vw, 531.11px);
+        /* +20px */
+        border-radius: 8px;
+        border: 2px solid #4caf50;
+        transition: transform 0.1s;
+        aspect-ratio: 9 / 16;
+    }
+
+    .dark .video-section iframe {
+        border-color: #a5d6a7;
+    }
+
+    .video-section iframe:hover {
+        transform: scale(1.05);
+    }
+
+    footer {
+        background: #4caf50;
+        color: white;
+        text-align: center;
+        padding: clamp(15px, 1.5vw, 18px);
+        margin-top: clamp(40px, 3vw, 48px);
+        border-radius: 20px 20px 0 0;
+        font-size: clamp(14px, 1.2vw, 18px);
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+        width: 95%;
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dark footer {
+        background: #2e7d32;
+    }
+
+    footer p {
+        margin: clamp(5px, 0.5vw, 6px) 0;
+    }
+
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: clamp(40px, 3vw, 60px);
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: clamp(40px, 3.5vw, 60px);
+        height: clamp(40px, 3.5vw, 60px);
+        font-size: clamp(20px, 1.8vw, 26px);
+        cursor: pointer;
+        display: none;
+        transition: background 0.1s, transform 0.1s;
+        z-index: 1000;
+    }
+
+    .dark #back-to-top {
+        background: #a5d6a7;
+    }
+
+    #back-to-top:hover {
+        background: #388e3c;
+        transform: scale(1.1);
+    }
+
+    .dark #back-to-top:hover {
+        background: #2e7d32;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding-right: 0;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .emoji-bg {
+            font-size: clamp(25px, 3vw, 30px);
+        }
+
+        .sidebar {
+            width: 100%;
+            height: 60px;
+            top: auto;
+            bottom: 0;
+            border: none;
+            background: #4caf50;
+            border-radius: 0;
+            padding: 5px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar.dark {
+            background: #2e7d32;
+            border: none;
+        }
+
+        .progress-bar {
+            width: 40%;
+            height: 10px;
+            margin: 0;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            bottom: auto;
+            left: 0;
+            transition: width 0.2s ease-in-out;
+        }
+
+        #theme-toggle {
+            margin-top: 0;
+            width: clamp(20px, 2.5vw, 24px);
+            height: clamp(20px, 2.5vw, 24px);
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        header h2 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        h3 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        p,
+        li,
+        .learnings-grid div {
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .video-section {
+            min-height: 220px;
+        }
+
+        .video-section iframe {
+            max-width: clamp(150px, 80vw, 250px);
+            max-height: clamp(186.67px, 80vw, 464.44px);
+        }
+
+        #back-to-top {
+            bottom: 80px;
+            right: 20px;
+            width: clamp(35px, 3vw, 40px);
+            height: clamp(35px, 3vw, 40px);
+            font-size: clamp(18px, 2vw, 20px);
+        }
+
+        footer {
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        .gg-images {
+            flex-direction: column;
+        }
+
+        .gg-images img {
+            max-width: 100%;
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1960px) {
+        body {
+            font-size: clamp(18px, 1.3vw, 20px);
+            max-width: 1700px;
+        }
+
+        header {
+            max-width: 1700px;
+        }
+
+        header h2 {
+            font-size: clamp(2em, 2.2vw, 3em);
+        }
+
+        .content-section {
+            max-width: 1700px;
+        }
+
+        h3 {
+            font-size: clamp(1.5em, 2.2vw, 2em);
+        }
+
+        p,
+        li,
+        .learnings-grid div {
+            font-size: clamp(18px, 1.3vw, 20px);
+        }
+
+        .video-section {
+            min-height: 320px;
+        }
+
+        .video-section iframe {
+            max-width: clamp(200px, 35vw, 300px);
+            max-height: clamp(275.56px, 35vw, 531.11px);
+        }
+
+        #theme-toggle {
+            font-size: clamp(16px, 1.1vw, 18px);
+            width: clamp(26px, 2vw, 30px);
+            height: clamp(26px, 2vw, 30px);
+        }
+
+        #back-to-top {
+            width: clamp(50px, 3.5vw, 60px);
+            height: clamp(50px, 3.5vw, 60px);
+            font-size: clamp(22px, 1.8vw, 26px);
+        }
+
+        footer {
+            font-size: clamp(16px, 1.2vw, 18px);
+            max-width: 1700px;
+        }
+    }
+
+    @media (min-width: 1961px) {
+        body {
+            font-size: clamp(20px, 1.2vw, 22px);
+            max-width: 2000px;
+        }
+
+        header {
+            max-width: 2000px;
+        }
+
+        header h2 {
+            font-size: clamp(2.5em, 2.1vw, 3.5em);
+        }
+
+        .content-section {
+            max-width: 2000px;
+        }
+
+        h3 {
+            font-size: clamp(2em, 2.1vw, 2.5em);
+        }
+
+        p,
+        li,
+        .learnings-grid div {
+            font-size: clamp(20px, 1.2vw, 22px);
+        }
+
+        .video-section {
+            min-height: 320px;
+        }
+
+        .video-section iframe {
+            max-width: clamp(250px, 30vw, 300px);
+            max-height: clamp(325.56px, 30vw, 531.11px);
+        }
+
+        #theme-toggle {
+            font-size: clamp(18px, 1.1vw, 20px);
+            width: clamp(28px, 2vw, 32px);
+            height: clamp(28px, 2vw, 32px);
+        }
+
+        .sidebar {
+            width: 40px;
+            right: clamp(10px, 1vw, 20px);
+        }
+
+        .progress-bar {
+            width: 10px;
+        }
+
+        #back-to-top {
+            width: clamp(55px, 3.5vw, 65px);
+            height: clamp(55px, 3.5vw, 65px);
+            font-size: clamp(24px, 1.8vw, 28px);
+            right: clamp(50px, 3vw, 70px);
+        }
+
+        footer {
+            font-size: clamp(18px, 1.2vw, 20px);
+            max-width: 2000px;
+        }
+    }
+
+    .audio-container {
+        position: relative;
+        background: url('/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center center no-repeat;
+        background-size: contain;
+        border-radius: 16px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        margin: 1rem auto;
+        width: 90%;
+        max-width: 900px;
+        aspect-ratio: 1920 / 1080;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .audio-container audio {
+        width: 100%;
+        border-radius: 12px;
+        border: 2px solid #2D2B7E;
+        background: #F5F5FF;
+        height: 50px;
+        padding: 4px;
+        box-shadow: 0 3px 10px rgba(45, 43, 126, 0.3);
+    }
+
+    audio::-webkit-media-controls-panel {
+        background-color: #E6E6FA;
+        border-radius: 12px;
+    }
+
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-timeline,
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display,
+    audio::-webkit-media-controls-volume-slider {
+        filter: hue-rotate(240deg) saturate(1.2);
+    }
+
+    .enlarged-img {
+        max-width: 750px !important;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 3px solid #4caf50;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+    }
+
+    .enlarged-img:hover {
+        transform: scale(1.06);
+        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+    }
+
+    .gg-images {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+        .enlarged-img {
+            max-width: 90% !important;
+        }
+    }
+</style>
+<!-- Background Emojis -->
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+<!-- Sidebar -->
+
+<div class="sidebar">
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill">&nbsp;</div>
+    </div>
+    <button aria-label="Toggle dark mode" fdprocessedid="xkpq8d" id="theme-toggle">🌙</button>
+</div>
+<!-- Header --><!-- GUSTORA THEMED FULLSCREEN BUTTON -->
+
+<div id="gustoraFullscreenBtn"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2.6" viewbox="0 0 24 24">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+    </svg></div>
+<style type="text/css">
+    #gustoraFullscreenBtn {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        z-index: 99999;
+        width: 68px;
+        height: 68px;
+        background: linear-gradient(135deg, var(--brand-gold), #2B2B85);
+        border: 4px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+            0 10px 30px rgba(170, 138, 0, 0.5),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        animation: gentlePulse 4s infinite ease-in-out;
+    }
+
+    #gustoraFullscreenBtn:hover {
+        transform: scale(1.18) rotate(8deg);
+        box-shadow:
+            0 20px 50px rgba(170, 138, 0, 0.7),
+            0 0 50px var(--glow-gold),
+            0 0 60px var(--glow-red);
+        border-color: var(--brand-red);
+    }
+
+    #gustoraFullscreenBtn svg {
+        width: 38px;
+        height: 38px;
+        stroke: #000;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Subtle floating + sauce-red glow on hover */
+    @keyframes gentlePulse {
+
+        0%,
+        100% {
+            box-shadow: 0 10px 30px rgba(170, 138, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 15px 40px rgba(170, 138, 0, 0.6), 0 0 40px rgba(225, 37, 27, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    /* Optional: tiny pasta particle burst when entering fullscreen */
+    #gustoraFullscreenBtn:active {
+        transform: scale(0.95);
+    }
+</style>
+<script>
+    // Gustora-themed Fullscreen Toggle (works on all modern browsers + mobile)
+    document.getElementById('gustoraFullscreenBtn').addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen?.() ||
+                document.documentElement.webkitRequestFullscreen?.() ||
+                document.documentElement.msRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() ||
+                document.webkitExitFullscreen?.() ||
+                document.msExitFullscreen?.();
+        }
+    });
+</script>
+<p>&nbsp;</p>
+
+<header>
+    <h2><span style="font-size:36px;">How GudGum Wins the Market</span></h2>
+</header>
+<!-- Audio -->
+
+<div class="audio-container">
+    <audio controls="" controlslist="nodownload" oncontextmenu="return false;">
+        <source src="https://pa2-cmd.github.io/audio-chapters-gudgum/audio%20chapters%20gudgum/m5c3.mp3"
+            type="audio/mp3" /> Your browser does not support the audio element.
+    </audio>
+</div>
+<!-- Intro -->
+
+<div class="content-section">
+    <p><strong>Hey students!</strong> Ready to see how GudGum&rsquo;s eco-friendly gum rocks the market? Discover the
+        smart strategies and cool trends behind its success!</p>
+</div>
+<!-- GudGum’s Game Plan -->
+
+<div class="content-section">
+    <details open="">
+        <summary>GudGum&rsquo;s Game Plan</summary>
+
+        <p>GudGum uses clever ways to reach fans and grow big. Here&rsquo;s how:</p>
+
+        <div class="learnings-grid">
+            <div>Leaf Direct-to-consumer sales</div>
+
+            <div>Phone Social media engagement</div>
+
+            <div>Handshake Eco-focused partnerships</div>
+        </div>
+
+        <div class="gg-images"><img alt="GudGum Strategy 1" src="https://login.skillizee.io/s/articles/691466edbe8ce103a29dbffb/images/gg2.jpg" />
+            <img alt="GudGum Strategy 2" src="https://login.skillizee.io/s/articles/691466edbe8ce103a29dbffb/images/gg1.jpg" /></div>
+
+        <div class="image-gallery"><img alt="GudGum Game Plan Illustration"
+                src="https://login.skillizee.io/s/articles/68848fa86b8b8a01bcd471db/images/lopl.png" /></div>
+    </details>
+</div>
+<!-- Challenges -->
+
+<div class="content-section">
+    <details open="">
+        <summary>Challenges GudGum Faces</summary>
+
+        <p>It&rsquo;s not always easy! GudGum tackles these hurdles:</p>
+
+        <div class="learnings-grid">
+            <div>Book Teaching people why eco-gum is awesome</div>
+
+            <div>Money Standing out against cheaper, fake gum</div>
+        </div>
+    </details>
+</div>
+<!-- Why GudGum Costs More -->
+
+<div class="content-section">
+    <details open="">
+        <summary>Why GudGum Costs More</summary>
+
+        <p>GudGum&rsquo;s price reflects its quality. You&rsquo;re paying for:</p>
+
+        <div class="learnings-grid">
+            <div>Herb Natural ingredients, no junk fillers</div>
+
+            <div>Package Eco-friendly paper wrappers, recyclable bags</div>
+
+            <div>Gear Small-batch crafting for top quality</div>
+
+            <div>Globe A cleaner planet, not just profits</div>
+        </div>
+    </details>
+</div>
+<!-- Shark Tank Success -->
+
+<div class="content-section">
+    <details open="">
+        <summary>Shark Tank Success</summary>
+
+        <p>GudGum made waves on Shark Tank India Season 3, raising <strong>₹80 lakhs</strong> for <strong>10%
+                equity</strong> and <strong>4% royalty</strong>!</p>
+
+        <div class="image-gallery"><img alt="GudGum Shark Tank Impact"
+                src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXdpF5R9DLz5zwstg9qewji55EVSWGfaLz7OdAeBdv9-xZKHwMH9mXe7wV74JQiNq6yDGr8wbfSq4KrxnASSjY-EoQbbZ1E0FrBrWSYXNZgDFMJCiSSdFnp0ghxNFk5MPcUPNHiL7w?key=iPTQs0QU8EIAQv8ek91gzQ" />
+        </div>
+
+        <p><strong>Why it matters:</strong> The deal boosted sales and got GudGum into more stores!</p>
+
+        <p>Why a <strong>royalty deal</strong> was smart? Curious?</p>
+
+        <div class="video-section"><iframe
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/kJI-sJ9sJ4c"
+                title="Why choose Royalty Deal"></iframe></div>
+    </details>
+</div>
+<!-- Market Trends -->
+
+<div class="content-section">
+    <h3>Market Trends Driving GudGum</h3>
+
+    <p>GudGum rides these hot trends to grow big:</p>
+
+    <table aria-label="Market Trends Supporting GudGum">
+        <tbody>
+            <tr>
+                <th>Trend</th>
+                <th>Impact</th>
+            </tr>
+            <tr>
+                <td>Sustainability in FMCG</td>
+                <td><strong>62%</strong> of consumers want eco-friendly products</td>
+            </tr>
+            <tr>
+                <td>D2C E-commerce</td>
+                <td>Market to hit <strong>USD 213 billion</strong> by 2023</td>
+            </tr>
+            <tr>
+                <td>Gen Z Values</td>
+                <td>Loves transparency and social impact</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="image-gallery"><img alt="Market Trends Graph"
+            src="https://login.skillizee.io/s/articles/68848fa86b8b8a01bcd471db/images/figures.png" /></div>
+
+    <p><strong>Graph Insight:</strong> <strong>62%</strong> of consumers prefer sustainable products, fueling
+        GudGum&rsquo;s growth!</p>
+</div>
+<!-- SWOT Activity -->
+
+<div class="content-section">
+    <h3>Interactive SWOT Analysis Activity</h3>
+
+    <p>Create a <strong>SWOT analysis</strong> for your own eco-product idea. Input your ideas below and export as a
+        text file:</p>
+
+    <div class="swot-section">
+        <h4>Strengths</h4>
+
+        <p>What makes your eco-product idea awesome?</p>
+        <textarea id="strengthsInput"
+            placeholder="Enter strengths (e.g., unique features, eco-friendly materials)"></textarea>
+
+        <h4>Weaknesses</h4>
+
+        <p>What could be better?</p>
+        <textarea id="weaknessesInput"
+            placeholder="Enter weaknesses (e.g., high production costs, limited market reach)"></textarea>
+
+        <h4>Opportunities</h4>
+
+        <p>How can your product grow?</p>
+        <textarea id="opportunitiesInput"
+            placeholder="Enter opportunities (e.g., growing demand for sustainable products, partnerships)"></textarea>
+
+        <h4>Threats</h4>
+
+        <p>What might stop your product?</p>
+        <textarea id="threatsInput"
+            placeholder="Enter threats (e.g., competition, market saturation)"></textarea><button fdprocessedid="h2kx89"
+            onclick="exportSWOT(event)">Export SWOT Analysis</button>
+
+        <p class="confirmation-message" id="confirmationMessage">&nbsp;</p>
+    </div>
+</div>
+<!-- Key Takeaways -->
+
+<div class="content-section">
+    <details open="">
+        <summary>Key Takeaways for Students</summary>
+
+        <p style="text-align: center;">GudGum&rsquo;s success is a lesson in business smarts! Here&rsquo;s what to know:
+        </p>
+
+        <div class="image-gallery"><img alt="Key Takeaways Illustration" class="key-takeaways-img"
+                src="/articles/68848fa86b8b8a01bcd471db/images/sule.png" /></div>
+
+        <p style="text-align: center;"><strong>Fun Fact:</strong> <strong>62%</strong> of consumers choose sustainable
+            products like GudGum, showing the power of eco-brands!</p>
+    </details>
+</div>
+<!-- Back to Top -->
+
+<p><button aria-label="Scroll to top" id="back-to-top" onclick="scrollToTop()">&uarr;</button><!-- Footer --></p>
+
+<footer>
+    <p>GudGum Virtual Internship &ndash; Sustainable Branding</p>
+</footer>
+<script>
+    // Throttle function to limit scroll event frequency
+    function throttle(fn, wait) {
+        let lastCall = 0;
+        return function (...args) {
+            const now = new Date().getTime();
+            if (now - lastCall < wait) return;
+            lastCall = now;
+            return fn(...args);
+        };
+    }
+    // Theme Toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        document.querySelector(".sidebar").classList.toggle("dark");
+        document.querySelector(".progress-bar").classList.toggle("dark");
+        document.querySelector("header").classList.toggle("dark");
+        document.querySelectorAll(".content-section").forEach(section => section.classList.toggle("dark"));
+        document.querySelectorAll("h3").forEach(heading => heading.classList.toggle("dark"));
+        document.querySelectorAll(".emoji-bg").forEach(emoji => emoji.classList.toggle("dark"));
+        document.querySelector("footer").classList.toggle("dark");
+        document.querySelector("#back-to-top").classList.toggle("dark");
+        document.querySelectorAll(".progress-fill").forEach(fill => fill.classList.toggle("dark"));
+        document.querySelectorAll("details").forEach(detail => detail.classList.toggle("dark"));
+        document.querySelectorAll("summary").forEach(summary => summary.classList.toggle("dark"));
+        document.querySelectorAll(".learnings-grid div").forEach(grid => grid.classList.toggle("dark"));
+        document.querySelectorAll(".video-section").forEach(video => video.classList.toggle("dark"));
+        document.querySelectorAll(".image-gallery img, .gg-images img").forEach(img => img.classList.toggle("dark"));
+        document.querySelectorAll(".swot-section textarea").forEach(textarea => textarea.classList.toggle("dark"));
+        document.querySelectorAll(".swot-section button").forEach(button => button.classList.toggle("dark"));
+        document.querySelector(".confirmation-message").classList.toggle("dark");
+        themeToggle.classList.toggle("dark");
+        themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+    // Progress Bar Logic
+    let scrollProgress = 0;
+    let maxProgress = 0;
+    let activityCompleted = false;
+    const progressFill = document.getElementById("progress-fill");
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 85 : 0;
+        let totalProgress = scrollProgress;
+        if (activityCompleted) {
+            totalProgress = Math.max(totalProgress, 85) + 15;
+        }
+        totalProgress = Math.min(100, totalProgress);
+        maxProgress = Math.max(maxProgress, totalProgress);
+        if (window.innerWidth <= 600) {
+            progressFill.style.width = maxProgress + "%";
+        } else {
+            progressFill.style.height = maxProgress + "%";
+        }
+    }
+    // Scroll-based Progress
+    const updateScrollProgress = throttle(() => {
+        updateProgress();
+    }, 50);
+    window.addEventListener("scroll", () => {
+        requestAnimationFrame(updateScrollProgress);
+    });
+    // Back to Top Button
+    const backToTop = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        updateProgress();
+    }
+    // Export SWOT Analysis
+    function exportSWOT(event) {
+        event.preventDefault();
+        const strengths = document.getElementById('strengthsInput').value;
+        const weaknesses = document.getElementById('weaknessesInput').value;
+        const opportunities = document.getElementById('opportunitiesInput').value;
+        const threats = document.getElementById('threatsInput').value;
+        const confirmationMessage = document.getElementById('confirmationMessage');
+        if (!strengths.trim() || !weaknesses.trim() || !opportunities.trim() || !threats.trim()) {
+            confirmationMessage.textContent = 'Please fill in all SWOT fields.';
+            confirmationMessage.classList.add('show');
+            setTimeout(() => {
+                confirmationMessage.classList.remove('show');
+                confirmationMessage.textContent = '';
+            }, 3000);
+            return;
+        }
+        const swotContent = `SWOT Analysis for Eco-Product Idea\n\nStrengths:\n${strengths}\n\nWeaknesses:\n${weaknesses}\n\nOpportunities:\n${opportunities}\n\nThreats:\n${threats}`;
+        const blob = new Blob([swotContent], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'SWOT_Analysis.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+        confirmationMessage.textContent = 'Your SWOT analysis has been exported as a text file!';
+        confirmationMessage.classList.add('show');
+        document.getElementById('strengthsInput').value = '';
+        document.getElementById('weaknessesInput').value = '';
+        document.getElementById('opportunitiesInput').value = '';
+        document.getElementById('threatsInput').value = '';
+        activityCompleted = true;
+        updateProgress();
+        setTimeout(() => {
+            confirmationMessage.classList.remove('show');
+            confirmationMessage.textContent = '';
+        }, 3000);
+    }
+</script>

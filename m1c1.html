@@ -1,0 +1,851 @@
+<div>
+    <div>
+        <div>
+            <div>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            </div>
+        </div>
+    </div>
+</div>
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<link href="responsive.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%), url('https://login.skillizee.io/s/articles/68a816ff6d84083c9b394177/images/leaf-pattern.png') repeat;
+        background-size: auto, 200px;
+        line-height: 1.6;
+        color: #333;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    body.dark {
+        background: linear-gradient(135deg, #1a3c34 0%, #2e7d32 100%), url('https://login.skillizee.io/s/articles/68a816ff6d84083c9b394177/images/leaf-pattern.png') repeat;
+        background-size: auto, 200px;
+        color: #e0f2e9;
+    }
+
+    .emoji-bg {
+        position: absolute;
+        font-size: clamp(30px, 2.5vw, 44px);
+        opacity: 0.4;
+        color: #4caf50;
+        pointer-events: none;
+        z-index: -1;
+        animation: float-rotate 15s infinite ease-in-out;
+    }
+
+    .emoji-bg.dark {
+        opacity: 0.5;
+        color: #a5d6a7;
+    }
+
+    .emoji-bg:nth-child(1) {
+        top: 5%;
+        left: 2%;
+        animation-delay: 0s;
+    }
+
+    .emoji-bg:nth-child(2) {
+        top: 10%;
+        left: 5%;
+        animation-delay: -1s;
+    }
+
+    .emoji-bg:nth-child(3) {
+        top: 15%;
+        left: 8%;
+        animation-delay: -2s;
+    }
+
+    .emoji-bg:nth-child(4) {
+        top: 20%;
+        left: 3%;
+        animation-delay: -3s;
+    }
+
+    .emoji-bg:nth-child(5) {
+        top: 25%;
+        left: 6%;
+        animation-delay: -4s;
+    }
+
+    .emoji-bg:nth-child(6) {
+        top: 30%;
+        left: 4%;
+        animation-delay: -5s;
+    }
+
+    .emoji-bg:nth-child(7) {
+        top: 35%;
+        left: 7%;
+        animation-delay: -6s;
+    }
+
+    .emoji-bg:nth-child(8) {
+        top: 40%;
+        left: 2%;
+        animation-delay: -7s;
+    }
+
+    .emoji-bg:nth-child(9) {
+        top: 45%;
+        left: 5%;
+        animation-delay: -8s;
+    }
+
+    .emoji-bg:nth-child(10) {
+        top: 50%;
+        left: 8%;
+        animation-delay: -9s;
+    }
+
+    .emoji-bg:nth-child(11) {
+        top: 55%;
+        left: 3%;
+        animation-delay: -10s;
+    }
+
+    .emoji-bg:nth-child(12) {
+        top: 60%;
+        left: 6%;
+        animation-delay: -11s;
+    }
+
+    .emoji-bg:nth-child(13) {
+        top: 65%;
+        left: 4%;
+        animation-delay: -12s;
+    }
+
+    .emoji-bg:nth-child(14) {
+        top: 70%;
+        left: 7%;
+        animation-delay: -13s;
+    }
+
+    .emoji-bg:nth-child(15) {
+        top: 75%;
+        left: 2%;
+        animation-delay: -14s;
+    }
+
+    .emoji-bg:nth-child(16) {
+        top: 80%;
+        left: 5%;
+        animation-delay: -15s;
+    }
+
+    .emoji-bg:nth-child(17) {
+        top: 85%;
+        left: 8%;
+        animation-delay: -16s;
+    }
+
+    .emoji-bg:nth-child(18) {
+        top: 90%;
+        left: 3%;
+        animation-delay: -17s;
+    }
+
+    .emoji-bg:nth-child(19) {
+        top: 95%;
+        left: 6%;
+        animation-delay: -18s;
+    }
+
+    .emoji-bg:nth-child(20) {
+        top: 10%;
+        left: 92%;
+        animation-delay: -19s;
+    }
+
+    .emoji-bg:nth-child(21) {
+        top: 15%;
+        left: 95%;
+        animation-delay: -20s;
+    }
+
+    .emoji-bg:nth-child(22) {
+        top: 20%;
+        left: 90%;
+        animation-delay: -21s;
+    }
+
+    .emoji-bg:nth-child(23) {
+        top: 25%;
+        left: 93%;
+        animation-delay: -22s;
+    }
+
+    .emoji-bg:nth-child(24) {
+        top: 30%;
+        left: 91%;
+        animation-delay: -23s;
+    }
+
+    .emoji-bg:nth-child(25) {
+        top: 35%;
+        left: 94%;
+        animation-delay: -24s;
+    }
+
+    .emoji-bg:nth-child(26) {
+        top: 40%;
+        left: 92%;
+        animation-delay: -25s;
+    }
+
+    .emoji-bg:nth-child(27) {
+        top: 45%;
+        left: 95%;
+        animation-delay: -26s;
+    }
+
+    .emoji-bg:nth-child(28) {
+        top: 50%;
+        left: 90%;
+        animation-delay: -27s;
+    }
+
+    .emoji-bg:nth-child(29) {
+        top: 55%;
+        left: 93%;
+        animation-delay: -28s;
+    }
+
+    .emoji-bg:nth-child(30) {
+        top: 60%;
+        left: 91%;
+        animation-delay: -29s;
+    }
+
+    @keyframes float-rotate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-30px) rotate(15deg);
+        }
+
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+    }
+
+    h1 {
+        color: #2e7d32;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        border-bottom: 3px solid #4caf50;
+        padding-bottom: 0.5rem;
+    }
+
+    .dark h1 {
+        color: #e0f2e9;
+        border-bottom: 3px solid #a5d6a7;
+    }
+
+    h2 {
+        color: #388e3c;
+        font-size: 1.8rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .dark h2 {
+        color: #e0f2e9;
+    }
+
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #555;
+    }
+
+    .dark p {
+        color: #e0f2e9;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    li {
+        background: #e8f5e9;
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .dark li {
+        background: #2a4b3f;
+        color: #e0f2e9;
+    }
+
+    li:before {
+        content: '🌱';
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .dark li:hover {
+        background: #3b6e55;
+        box-shadow: 0 4px 8px rgba(165, 214, 167, 0.3);
+    }
+
+    .nav-guide {
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 1.5rem;
+        text-align: center;
+    }
+
+    .dark .nav-guide {
+        background: #2a4b3f;
+        color: #e0f2e9;
+    }
+
+    .nav-guide button {
+        background-color: #4caf50;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: background-color 0.3s;
+    }
+
+    .dark .nav-guide button {
+        background-color: #a5d6a7;
+    }
+
+    .nav-guide button:hover {
+        background-color: #388e3c;
+    }
+
+    .dark .nav-guide button:hover {
+        background-color: #2e7d32;
+    }
+
+    .activity-section {
+        background: #ffffff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+    }
+
+    .dark .activity-section {
+        background: #2a4b3f;
+        color: #e0f2e9;
+    }
+
+    .activity-section h2 {
+        color: #2e7d32;
+        text-align: center;
+    }
+
+    .dark .activity-section h2 {
+        color: #e0f2e9;
+    }
+
+    .activity-section textarea {
+        width: 100%;
+        height: 100px;
+        padding: 0.75rem;
+        border: 1px solid #4caf50;
+        border-radius: 5px;
+        font-size: 1rem;
+        margin-top: 0.75rem;
+        resize: vertical;
+    }
+
+    .dark .activity-section textarea {
+        border: 1px solid #a5d6a7;
+        background: #3b6e55;
+        color: #e0f2e9;
+    }
+
+    .activity-section button {
+        background-color: #4caf50;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        display: block;
+        margin: 1rem auto;
+        transition: background-color 0.3s;
+    }
+
+    .dark .activity-section button {
+        background-color: #a5d6a7;
+    }
+
+    .activity-section button:hover {
+        background-color: #388e3c;
+    }
+
+    .dark .activity-section button:hover {
+        background-color: #2e7d32;
+    }
+
+    .activity-section p {
+        font-style: italic;
+        color: #777;
+        text-align: center;
+    }
+
+    .dark .activity-section p {
+        color: #e0f2e9;
+    }
+
+    .progress-tracker {
+        background: #e8f5e9;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1.5rem;
+        text-align: center;
+        font-size: 1rem;
+        color: #2e7d32;
+        position: relative;
+    }
+
+    .dark .progress-tracker {
+        background: #2a4b3f;
+        color: #e0f2e9;
+    }
+
+    .progress-bar {
+        width: 0%;
+        height: 10px;
+        background: #4caf50;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+        transition: width 1s ease-in-out;
+    }
+
+    .dark .progress-bar {
+        background: #a5d6a7;
+    }
+
+    .section-bg {
+        background: linear-gradient(135deg, #ffffff 0%, #e8f5e9 100%);
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .dark .section-bg {
+        background: linear-gradient(135deg, #2a4b3f 0%, #3b6e55 100%);
+        color: #e0f2e9;
+    }
+
+    @media (max-width: 640px) {
+        body {
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        p,
+        li {
+            font-size: 1rem;
+        }
+
+        .nav-guide button,
+        .activity-section button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+        }
+    }
+
+    @media print {
+        body {
+            background: white;
+        }
+
+        .dark body {
+            background: white;
+            color: #333;
+        }
+
+        .progress-bar {
+            background: #4caf50 !important;
+        }
+
+        .scoop-bounce {
+            animation: none;
+        }
+
+        .dark .section-bg,
+        .dark .nav-guide,
+        .dark .activity-section,
+        .dark .progress-tracker {
+            background: white !important;
+            color: #333 !important;
+        }
+
+        .dark li,
+        .dark h1,
+        .dark h2,
+        .dark p,
+        .dark .activity-section p {
+            color: #333 !important;
+        }
+
+        .dark .activity-section textarea {
+            background: white !important;
+            color: #333 !important;
+            border: 1px solid #4caf50 !important;
+        }
+
+        .dark .nav-guide button,
+        .dark .activity-section button {
+            background: #4caf50 !important;
+        }
+    }
+</style>
+<!-- Background Emojis -->
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">🌾</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">🌾</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">🌾</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">🌾</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">🌾</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">🌾</div>
+<!-- Header --><!-- GUSTORA THEMED FULLSCREEN BUTTON -->
+
+<div id="gustoraFullscreenBtn"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2.6" viewbox="0 0 24 24">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+    </svg></div>
+<style type="text/css">
+    #gustoraFullscreenBtn {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 99999;
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--brand-gold), #2B2B85);
+        border: 2px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+            0 10px 30px rgba(170, 138, 0, 0.5),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        animation: gentlePulse 4s infinite ease-in-out;
+    }
+
+    #gustoraFullscreenBtn:hover {
+        transform: scale(1.18) rotate(8deg);
+        box-shadow:
+            0 20px 50px rgba(170, 138, 0, 0.7),
+            0 0 50px var(--glow-gold),
+            0 0 60px var(--glow-red);
+        border-color: var(--brand-red);
+    }
+
+    #gustoraFullscreenBtn svg {
+        width: 24px;
+        height: 24px;
+        stroke: #000;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Subtle floating + sauce-red glow on hover */
+    @keyframes gentlePulse {
+
+        0%,
+        100% {
+            box-shadow: 0 10px 30px rgba(170, 138, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 15px 40px rgba(170, 138, 0, 0.6), 0 0 40px rgba(225, 37, 27, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    /* Optional: tiny pasta particle burst when entering fullscreen */
+    #gustoraFullscreenBtn:active {
+        transform: scale(0.95);
+    }
+</style>
+<script>
+    // Gustora-themed Fullscreen Toggle (works on all modern browsers + mobile)
+    document.getElementById('gustoraFullscreenBtn').addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen?.() ||
+                document.documentElement.webkitRequestFullscreen?.() ||
+                document.documentElement.msRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() ||
+                document.webkitExitFullscreen?.() ||
+                document.msExitFullscreen?.();
+        }
+    });
+</script>
+<p>&nbsp;</p>
+
+<header class="section-bg text-center py-6"
+    style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+    <h1 class="scoop-bounce"
+        style="translate: none; rotate: none; scale: none; opacity: 0.9595; transform: translate3d(0px, 0px, 0px) scale(0.998, 0.998);">
+        <span style="font-size:48px;"><strong>Inside GudGum:</strong></span></h1>
+
+    <h1 class="text-3xl font-bold"
+        style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">Building a
+        Sustainable Brand from Chew to Change</h1>
+
+    <p class="text-lg mt-2">Hello, future eco-entrepreneurs! We&rsquo;re thrilled to welcome you to this exciting
+        journey into sustainable branding with GudGum, India&rsquo;s pioneering eco-friendly chewing gum brand leading
+        the charge in sustainable confectionery.</p>
+
+    <p class="text-lg mt-2"><span style="font-size:16px;"><em><strong>Below is an Interactive Video. Please watch the
+                    video and Interact with it click on options appearing in the video.</strong></em></span></p>
+</header>
+
+<div style="position: relative; overflow: hidden; aspect-ratio: 1920/1080"><iframe allow="encrypted-media; fullscreen;"
+        allowfullscreen="" loading="lazy"
+        src="https://share.synthesia.io/embeds/videos/73cf9e3e-e38b-4061-875f-7f60a9fb21fb"
+        style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0; margin: 0; overflow:hidden;"
+        title="Synthesia video player - Copy of Overview"></iframe></div>
+
+<main class="flex-grow px-4 sm:px-6 py-8 max-w-5xl mx-auto"><!-- What You Will Learn -->
+    <section class="section-bg"
+        style="translate: none; rotate: none; scale: none; opacity: 0.9963; transform: translate3d(0px, 0.1861px, 0px);">
+        <h2 class="text-2xl font-semibold">What You Will Learn</h2>
+
+        <p class="text-lg">Dive deep into the world of sustainable branding with hands-on insights:</p>
+
+        <ul>
+            <li class="scoop-bounce"
+                style="translate: none; rotate: none; scale: none; opacity: 0.8936; transform: translate3d(0px, 0px, 0px) scale(0.9947, 0.9947);">
+                <strong>Environmental Challenges</strong>: Explore the problems caused by conventional products and the
+                importance of sustainable alternatives.</li>
+            <li class="scoop-bounce"
+                style="translate: none; rotate: none; scale: none; opacity: 0.7964; transform: translate3d(0px, 0px, 0px) scale(0.9898, 0.9898);">
+                <strong>GudGum&rsquo;s Identity</strong>: Analyze how GudGum&rsquo;s mission, vision, and unique brand
+                identity set it apart in the marketplace.</li>
+            <li class="scoop-bounce"
+                style="translate: none; rotate: none; scale: none; opacity: 0.6679; transform: translate3d(0px, 0px, 0px) scale(0.9834, 0.9834);">
+                <strong>Innovative Product Development</strong>: Discover the role of natural ingredient sourcing and
+                biodegradable packaging in creating eco-conscious products.</li>
+            <li class="scoop-bounce"
+                style="translate: none; rotate: none; scale: none; opacity: 0.5082; transform: translate3d(0px, 0px, 0px) scale(0.9754, 0.9754);">
+                <strong>Strategic Market Insights</strong>: Evaluate the competitive landscape and learn to develop
+                marketing strategies that promote sustainability.</li>
+            <li class="scoop-bounce"
+                style="translate: none; rotate: none; scale: none; opacity: 0.3173; transform: translate3d(0px, 0px, 0px) scale(0.9659, 0.9659);">
+                <strong>Hands-On Experience</strong>: Create your own branding and marketing materials that reflect
+                GudGum&rsquo;s eco-conscious mission.</li>
+        </ul>
+    </section>
+    <!-- Course Navigation -->
+
+    <section class="section-bg nav-guide"
+        style="translate: none; rotate: none; scale: none; opacity: 0.9319; transform: translate3d(0px, 3.4061px, 0px);">
+        <h2 class="text-2xl font-semibold">Course Navigation</h2>
+
+        <p class="text-lg">Navigate the course seamlessly using our interactive tools:</p>
+
+        <div class="flex justify-center gap-4"><button aria-label="Go to next section" class="scoop-bounce"
+                fdprocessedid="mbkm4r" onclick="navigateTo('next')"
+                style="translate: none; rotate: none; scale: none; opacity: 0.3173; transform: translate3d(0px, 0px, 0px) scale(0.8635, 0.8635);">Next
+                Section</button><button aria-label="Open course menu" class="scoop-bounce" fdprocessedid="szw4f"
+                onclick="navigateTo('menu')"
+                style="translate: none; rotate: none; scale: none; opacity: 0; transform: scale(0.8, 0.8);">Course
+                Menu</button></div>
+    </section>
+    <!-- Quizzes and Assignments -->
+
+    <section class="section-bg"
+        style="translate: none; rotate: none; scale: none; opacity: 0.7875; transform: translate3d(0px, 10.6261px, 0px);">
+        <h2 class="text-2xl font-semibold">Quizzes and Assignments</h2>
+
+        <p class="text-lg">As you progress, demonstrate your mastery:</p>
+
+        <ul>
+            <li class="scoop-bounce"
+                style="translate: none; rotate: none; scale: none; opacity: 0; transform: scale(0.95, 0.95);">
+                <strong>Quizzes</strong>: Achieve a passing grade of 85% to unlock the next module.</li>
+            <li class="scoop-bounce"
+                style="translate: none; rotate: none; scale: none; opacity: 0; transform: scale(0.95, 0.95);">
+                <strong>Assignments</strong>: Earn a passing grade of 60% to showcase your creativity.</li>
+        </ul>
+    </section>
+    <!-- Progress Tracker -->
+
+    <section class="section-bg progress-tracker"
+        style="translate: none; rotate: none; scale: none; opacity: 0.5631; transform: translate3d(0px, 21.8461px, 0px);">
+        <h2 class="text-2xl font-semibold">Your Progress</h2>
+
+        <p class="text-lg" id="progressTracker">0% Complete (Start your journey!)</p>
+
+        <div class="progress-bar" id="progressBar" style="width: 20%;">&nbsp;</div>
+    </section>
+</main>
+<!-- Footer -->
+
+<footer class="hocco-navy text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+        <p class="text-sm sm:text-base">&copy; 2025 GudGum Virtual Internship &ndash; Sustainable Branding</p>
+    </div>
+</footer>
+<script>
+    window.onload = () => {
+        // GSAP Animations
+        gsap.fromTo("h1", { y: -50, opacity: 0 }, { duration: 1, y: 0, opacity: 1, ease: "power2.out" });
+        gsap.fromTo(".section-bg", { y: 50, opacity: 0 }, { duration: 1, y: 0, opacity: 1, stagger: 0.2, delay: 0.5 });
+        gsap.fromTo(".scoop-bounce", { scale: 0.95, opacity: 0 }, { duration: 0.8, scale: 1, opacity: 1, stagger: 0.1, delay: 1 });
+        gsap.fromTo(".nav-guide button", { scale: 0.8, opacity: 0 }, { duration: 0.8, scale: 1, opacity: 1, stagger: 0.2, delay: 1.5 });
+
+        // Simulate progress bar animation (static for now, as progress logic isn't provided)
+        gsap.to("#progressBar", { width: "20%", duration: 2, ease: "power2.out", delay: 2 });
+
+        // Button hover animations
+        $(".nav-guide button, .activity-section button").hover(
+            function () {
+                gsap.to(this, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+            },
+            function () {
+                gsap.to(this, { scale: 1, duration: 0.3, ease: "power2.out" });
+            }
+        );
+
+        // Theme Toggle
+        const themeToggle = document.createElement('button');
+        themeToggle.id = 'theme-toggle';
+        themeToggle.setAttribute('aria-label', 'Toggle dark mode');
+        themeToggle.textContent = '🌙';
+        themeToggle.style.position = 'fixed';
+        themeToggle.style.top = '20px';
+        themeToggle.style.right = '20px';
+        themeToggle.style.background = '#a5d6a7';
+        themeToggle.style.color = '#0f172a';
+        themeToggle.style.border = 'none';
+        themeToggle.style.borderRadius = '50%';
+        themeToggle.style.width = '40px';
+        themeToggle.style.height = '40px';
+        themeToggle.style.cursor = 'pointer';
+        themeToggle.style.display = 'flex';
+        themeToggle.style.alignItems = 'center';
+        themeToggle.style.justifyContent = 'center';
+        document.body.appendChild(themeToggle);
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            document.querySelectorAll('.section-bg').forEach(section => section.classList.toggle('dark'));
+            document.querySelectorAll('.nav-guide').forEach(nav => nav.classList.toggle('dark'));
+            document.querySelectorAll('.activity-section').forEach(activity => activity.classList.toggle('dark'));
+            document.querySelectorAll('.progress-tracker').forEach(tracker => tracker.classList.toggle('dark'));
+            document.querySelectorAll('.emoji-bg').forEach(emoji => emoji.classList.toggle('dark'));
+            themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+    };
+
+    // Placeholder navigation functions (unchanged from original)
+    function navigateTo(section) {
+        console.log(`Navigating to ${section}`);
+        // Add actual navigation logic here
+    }
+</script>

@@ -1,0 +1,1327 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    referrerpolicy="no-referrer" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0 auto;
+        padding: 0 40px 0 0;
+        background: linear-gradient(180deg, #e8f5e9, #f1f8e9);
+        color: #333;
+        font-size: clamp(16px, 1.4vw, 18px);
+        max-width: 1800px;
+        transition: background 0.3s, color 0.3s;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    body.dark {
+        background: #1a3c34;
+        color: #e0f2e9;
+    }
+
+    .emoji-bg {
+        position: absolute;
+        font-size: clamp(30px, 2.5vw, 44px);
+        opacity: 0.4;
+        color: #4caf50;
+        pointer-events: none;
+        z-index: -1;
+        animation: float-rotate 15s infinite ease-in-out;
+    }
+
+    .emoji-bg.dark {
+        opacity: 0.5;
+        color: #a5d6a7;
+    }
+
+    .emoji-bg:nth-child(1) {
+        top: 10%;
+        left: 2%;
+        animation-delay: 0s;
+    }
+
+    .emoji-bg:nth-child(2) {
+        top: 20%;
+        left: 5%;
+        animation-delay: -1s;
+    }
+
+    .emoji-bg:nth-child(3) {
+        top: 30%;
+        left: 3%;
+        animation-delay: -2s;
+    }
+
+    .emoji-bg:nth-child(4) {
+        top: 40%;
+        left: 6%;
+        animation-delay: -3s;
+    }
+
+    .emoji-bg:nth-child(5) {
+        top: 50%;
+        left: 4%;
+        animation-delay: -4s;
+    }
+
+    .emoji-bg:nth-child(6) {
+        top: 60%;
+        left: 7%;
+        animation-delay: -5s;
+    }
+
+    .emoji-bg:nth-child(7) {
+        top: 70%;
+        left: 2%;
+        animation-delay: -6s;
+    }
+
+    .emoji-bg:nth-child(8) {
+        top: 80%;
+        left: 5%;
+        animation-delay: -7s;
+    }
+
+    .emoji-bg:nth-child(9) {
+        top: 90%;
+        left: 3%;
+        animation-delay: -8s;
+    }
+
+    .emoji-bg:nth-child(10) {
+        top: 15%;
+        left: 92%;
+        animation-delay: -9s;
+    }
+
+    .emoji-bg:nth-child(11) {
+        top: 25%;
+        left: 95%;
+        animation-delay: -10s;
+    }
+
+    .emoji-bg:nth-child(12) {
+        top: 35%;
+        left: 93%;
+        animation-delay: -11s;
+    }
+
+    .emoji-bg:nth-child(13) {
+        top: 45%;
+        left: 94%;
+        animation-delay: -12s;
+    }
+
+    .emoji-bg:nth-child(14) {
+        top: 55%;
+        left: 92%;
+        animation-delay: -13s;
+    }
+
+    .emoji-bg:nth-child(15) {
+        top: 65%;
+        left: 95%;
+        animation-delay: -14s;
+    }
+
+    .emoji-bg:nth-child(16) {
+        top: 75%;
+        left: 93%;
+        animation-delay: -15s;
+    }
+
+    .emoji-bg:nth-child(17) {
+        top: 85%;
+        left: 94%;
+        animation-delay: -16s;
+    }
+
+    .emoji-bg:nth-child(18) {
+        top: 95%;
+        left: 92%;
+        animation-delay: -17s;
+    }
+
+    .emoji-bg:nth-child(19) {
+        top: 12%;
+        left: 5%;
+        animation-delay: -18s;
+    }
+
+    .emoji-bg:nth-child(20) {
+        top: 22%;
+        left: 95%;
+        animation-delay: -19s;
+    }
+
+    @keyframes float-rotate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-30px) rotate(15deg);
+        }
+
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 25%;
+        right: 0;
+        width: 30px;
+        height: 50%;
+        background: transparent;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .sidebar.dark {
+        border-color: #a5d6a7;
+    }
+
+    .progress-bar {
+        width: 8px;
+        height: calc(100% - 60px);
+        background: #e2e8f0;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .progress-bar.dark {
+        background: #475569;
+    }
+
+    .progress-fill {
+        width: 100%;
+        background: #4caf50;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        transition: height 0.5s ease-in-out;
+    }
+
+    #theme-toggle {
+        background: #a5d6a7;
+        color: #0f172a;
+        border: none;
+        border-radius: 15px;
+        padding: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: clamp(14px, 1.1vw, 16px);
+        width: clamp(24px, 2vw, 28px);
+        height: clamp(24px, 2vw, 28px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    #theme-toggle.dark {
+        background: #a5d6a7;
+        color: #0f172a;
+    }
+
+    #theme-toggle:hover {
+        background: #ffffff;
+    }
+
+    .dark #theme-toggle:hover {
+        background: #4caf50;
+    }
+
+    header {
+        background: #4caf50;
+        color: #ffffff;
+        padding: clamp(20px, 2vw, 24px) 0;
+        text-align: center;
+        width: 95%;
+        max-width: 1800px;
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header.dark {
+        background: #2e7d32;
+    }
+
+    header h2 {
+        margin: 5px 0;
+        font-size: clamp(1.5em, 2.2vw, 3em);
+        color: #ffffff;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: clamp(20px, 2vw, 24px);
+    }
+
+    .topic {
+        background: white;
+        margin: clamp(20px, 2vw, 24px) 0;
+        padding: clamp(20px, 2vw, 24px);
+        border-radius: 16px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 1800px;
+        width: 95%;
+        transition: box-shadow 0.3s, transform 0.3s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .topic:hover {
+        box-shadow: 0px 6px 20px rgba(76, 175, 80, 0.4);
+        transform: scale(1.02);
+        z-index: 10;
+    }
+
+    .topic.dark {
+        background: #3b6e55;
+        color: #e0f2e9;
+    }
+
+    .topic.dark:hover {
+        box-shadow: 0px 6px 20px rgba(165, 214, 167, 0.4);
+    }
+
+    .topic-heading {
+        background: #e8f5e9;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        position: relative;
+        z-index: 5;
+    }
+
+    .topic-heading:hover {
+        box-shadow: 0px 4px 15px rgba(76, 175, 80, 0.5);
+        transform: scale(1.03);
+        z-index: 15;
+    }
+
+    .topic-heading.dark {
+        background: #1a3c34;
+        border-color: #a5d6a7;
+    }
+
+    .topic-heading.dark:hover {
+        box-shadow: 0px 4px 15px rgba(165, 214, 167, 0.5);
+    }
+
+    .topic-heading h2,
+    .topic-heading h3,
+    .topic-heading h4 {
+        margin: 0;
+        color: #2e7d32;
+        font-size: clamp(1.5em, 2.2vw, 2em);
+    }
+
+    .dark .topic-heading h2,
+    .dark .topic-heading h3,
+    .dark .topic-heading h4 {
+        color: #e0f2e9;
+    }
+
+    .topic-content {
+        padding: 0 10px;
+    }
+
+    .topic-content p,
+    .topic-content li {
+        font-size: clamp(16px, 1.4vw, 20px);
+        color: #555;
+    }
+
+    .dark .topic-content p,
+    .dark .topic-content li {
+        color: #e0f2e9;
+    }
+
+    .learnings-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .learnings-grid div {
+        background: #e8f5e9;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    }
+
+    .learnings-grid div:before {
+        content: '🌍';
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .learnings-grid div:hover {
+        background: #d4edda;
+        transform: scale(1.02);
+        box-shadow: 0px 4px 10px rgba(76, 175, 80, 0.3);
+    }
+
+    .dark .learnings-grid div {
+        background: #3b6e55;
+        color: #e0f2e9;
+    }
+
+    .dark .learnings-grid div:hover {
+        background: #4c8c6a;
+        transform: scale(1.02);
+        box-shadow: 0px 4px 10px rgba(165, 214, 167, 0.3);
+    }
+
+    .media-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .media-row iframe,
+    .media-row img {
+        flex: 1;
+        width: 100%;
+        max-width: clamp(200px, 40vw, 300px);
+        height: auto;
+        border-radius: 8px;
+        border: 2px solid #4caf50;
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+
+    .media-row iframe {
+        aspect-ratio: 9 / 16;
+        max-height: clamp(300px, 40vw, 611.11px);
+    }
+
+    .media-row iframe:hover,
+    .media-row img:hover {
+        transform: scale(1.05);
+    }
+
+    .dark .media-row iframe,
+    .dark .media-row img {
+        border-color: #a5d6a7;
+    }
+
+    .dark .media-row iframe:hover,
+    .dark .media-row img:hover {
+        border-color: #4caf50;
+    }
+
+    .founders-tree {
+        background: linear-gradient(180deg, #e8f5e9, #f1f8e9);
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        margin: 30px 0;
+    }
+
+    .dark .founders-tree {
+        background: #3b6e55;
+    }
+
+    .tree-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .tree-branch {
+        position: relative;
+        flex: 1;
+        min-width: 300px;
+        text-align: center;
+    }
+
+    .tree-branch::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        width: 2px;
+        height: 20px;
+        background: #4caf50;
+    }
+
+    .tree-branch h4 {
+        background: #e8f5e9;
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid #4caf50;
+        margin-bottom: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .dark .tree-branch h4 {
+        background: #1a3c34;
+        border-color: #a5d6a7;
+    }
+
+    .tree-branch h4:hover {
+        transform: scale(1.03);
+        box-shadow: 0 4px 15px rgba(76, 175, 80, 0.5);
+    }
+
+    .dark .tree-branch h4:hover {
+        box-shadow: 0 4px 15px rgba(165, 214, 167, 0.5);
+    }
+
+    .tree-branch ul {
+        list-style: none;
+        padding: 0;
+        position: relative;
+    }
+
+    .tree-branch li {
+        background: #e8f5e9;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 6px;
+        border-left: 2px solid #4caf50;
+        font-size: clamp(14px, 1.2vw, 16px);
+        color: #555;
+        position: relative;
+        transition: transform 0.3s;
+    }
+
+    .dark .tree-branch li {
+        background: #3b6e55;
+        color: #e0f2e9;
+        border-left-color: #a5d6a7;
+    }
+
+    .tree-branch li::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        width: 20px;
+        height: 2px;
+        background: #4caf50;
+    }
+
+    .tree-branch li i {
+        margin-right: 8px;
+        color: #4caf50;
+    }
+
+    .tree-branch li:hover {
+        transform: translateX(5px);
+    }
+
+    .centered-image {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 900px;
+        height: auto;
+        border-radius: 8px;
+        border: 2px solid #4caf50;
+        transition: transform 0.3s;
+    }
+
+    .centered-image:hover {
+        transform: scale(1.05);
+    }
+
+    .dark .centered-image {
+        border-color: #a5d6a7;
+    }
+
+    .dark .centered-image:hover {
+        border-color: #4caf50;
+    }
+
+    footer {
+        background: #4caf50;
+        color: white;
+        text-align: center;
+        padding: clamp(15px, 1.5vw, 18px);
+        margin-top: clamp(40px, 3vw, 48px);
+        border-radius: 20px 20px 0 0;
+        font-size: clamp(14px, 1.2vw, 18px);
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+        width: 95%;
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dark footer {
+        background: #2e7d32;
+    }
+
+    footer p {
+        margin: clamp(5px, 0.5vw, 6px) 0;
+    }
+
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: clamp(40px, 3vw, 60px);
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: clamp(40px, 3.5vw, 60px);
+        height: clamp(40px, 3.5vw, 60px);
+        font-size: clamp(20px, 1.8vw, 26px);
+        cursor: pointer;
+        display: none;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .dark #back-to-top {
+        background: #a5d6a7;
+    }
+
+    #back-to-top:hover {
+        background: #388e3c;
+        transform: scale(1.1);
+    }
+
+    .dark #back-to-top:hover {
+        background: #2e7d32;
+    }
+
+    .audio-container {
+        position: relative;
+        background: url('/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center center no-repeat;
+        background-size: contain;
+        border-radius: 16px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        margin: 1rem auto;
+        width: 90%;
+        max-width: 900px;
+        aspect-ratio: 1920 / 1080;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .audio-container audio {
+        width: 100%;
+        border-radius: 12px;
+        border: 2px solid #2D2B7E;
+        background: #F5F5FF;
+        height: 50px;
+        padding: 4px;
+        box-shadow: 0 3px 10px rgba(45, 43, 126, 0.3);
+    }
+
+    audio::-webkit-media-controls-panel {
+        background-color: #E6E6FA;
+        border-radius: 12px;
+    }
+
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-timeline,
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display,
+    audio::-webkit-media-controls-volume-slider {
+        filter: hue-rotate(240deg) saturate(1.2);
+    }
+
+    .fullscreen-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.3s;
+    }
+
+    .dark .fullscreen-overlay {
+        background: rgba(26, 60, 52, 0.9);
+    }
+
+    .fullscreen-image {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 8px;
+        border: 2px solid #4caf50;
+    }
+
+    .dark .fullscreen-image {
+        border-color: #a5d6a7;
+    }
+
+    .fullscreen-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .dark .fullscreen-close {
+        background: #a5d6a7;
+    }
+
+    .fullscreen-close:hover {
+        background: #388e3c;
+        transform: scale(1.1);
+    }
+
+    .dark .fullscreen-close:hover {
+        background: #2e7d32;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding-right: 0;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .emoji-bg {
+            font-size: clamp(25px, 3vw, 30px);
+        }
+
+        .sidebar {
+            width: 100%;
+            height: 60px;
+            top: auto;
+            bottom: 0;
+            border: none;
+            background: #4caf50;
+            border-radius: 0;
+            padding: 5px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar.dark {
+            background: #2e7d32;
+            border: none;
+        }
+
+        .progress-bar {
+            width: 40%;
+            height: 10px;
+            margin: 0;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            bottom: auto;
+            left: 0;
+            transition: width 0.5s ease-in-out;
+        }
+
+        #theme-toggle {
+            margin-top: 0;
+            width: clamp(20px, 2.5vw, 24px);
+            height: clamp(20px, 2.5vw, 24px);
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        header h2 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        .topic-heading h2,
+        .topic-heading h3,
+        .topic-heading h4 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        .topic-content p,
+        .topic-content li {
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .media-row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .media-row iframe,
+        .media-row img {
+            max-width: clamp(150px, 80vw, 250px);
+            height: auto;
+        }
+
+        .media-row iframe {
+            max-height: clamp(150px, 80vw, 444.44px);
+        }
+
+        #back-to-top {
+            bottom: 80px;
+            right: 20px;
+            width: clamp(35px, 3vw, 40px);
+            height: clamp(35px, 3vw, 40px);
+            font-size: clamp(18px, 2vw, 20px);
+        }
+
+        footer {
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        .tree-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tree-branch {
+            min-width: 100%;
+        }
+
+        .tree-branch::before {
+            display: none;
+        }
+
+        .fullscreen-close {
+            width: 30px;
+            height: 30px;
+            font-size: 18px;
+            top: 10px;
+            right: 10px;
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1960px) {
+        body {
+            font-size: clamp(18px, 1.3vw, 20px);
+            max-width: 1700px;
+        }
+
+        header {
+            max-width: 1700px;
+        }
+
+        header h2 {
+            font-size: clamp(2em, 2.2vw, 3em);
+        }
+
+        .topic {
+            max-width: 1700px;
+        }
+
+        .topic-heading h2,
+        .topic-heading h3,
+        .topic-heading h4 {
+            font-size: clamp(1.5em, 2.2vw, 2em);
+        }
+
+        .topic-content p,
+        .topic-content li {
+            font-size: clamp(18px, 1.3vw, 20px);
+        }
+
+        .media-row iframe,
+        .media-row img {
+            max-width: clamp(200px, 35vw, 300px);
+            height: auto;
+        }
+
+        .media-row iframe {
+            max-height: clamp(300px, 35vw, 611.11px);
+        }
+
+        #theme-toggle {
+            font-size: clamp(16px, 1.1vw, 18px);
+            width: clamp(26px, 2vw, 30px);
+            height: clamp(26px, 2vw, 30px);
+        }
+
+        #back-to-top {
+            width: clamp(50px, 3.5vw, 60px);
+            height: clamp(50px, 3.5vw, 60px);
+            font-size: clamp(22px, 1.8vw, 26px);
+        }
+
+        footer {
+            font-size: clamp(16px, 1.2vw, 18px);
+            max-width: 1700px;
+        }
+    }
+
+    @media (min-width: 1961px) {
+        body {
+            font-size: clamp(20px, 1.2vw, 22px);
+            max-width: 2000px;
+        }
+
+        header {
+            max-width: 2000px;
+        }
+
+        header h2 {
+            font-size: clamp(2.5em, 2.1vw, 3.5em);
+        }
+
+        .topic {
+            max-width: 2000px;
+        }
+
+        .topic-heading h2,
+        .topic-heading h3,
+        .topic-heading h4 {
+            font-size: clamp(2em, 2.1vw, 2.5em);
+        }
+
+        .topic-content p,
+        .topic-content li {
+            font-size: clamp(20px, 1.2vw, 22px);
+        }
+
+        .media-row iframe,
+        .media-row img {
+            max-width: clamp(250px, 30vw, 300px);
+            height: auto;
+        }
+
+        .media-row iframe {
+            max-height: clamp(350px, 30vw, 611.11px);
+        }
+
+        #theme-toggle {
+            font-size: clamp(18px, 1.1vw, 20px);
+            width: clamp(28px, 2vw, 32px);
+            height: clamp(28px, 2vw, 32px);
+        }
+
+        .sidebar {
+            width: 40px;
+            right: clamp(10px, 1vw, 20px);
+        }
+
+        .progress-bar {
+            width: 10px;
+        }
+
+        #back-to-top {
+            width: clamp(55px, 3.5vw, 65px);
+            height: clamp(55px, 3.5vw, 65px);
+            font-size: clamp(24px, 1.8vw, 28px);
+            right: clamp(50px, 3vw, 70px);
+        }
+
+        footer {
+            font-size: clamp(18px, 1.2vw, 20px);
+            max-width: 2000px;
+        }
+    }
+</style>
+<!-- Background Emojis -->
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+<!-- Sidebar -->
+
+<div class="sidebar">
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill">&nbsp;</div>
+    </div>
+    <button aria-label="Toggle dark mode" id="theme-toggle">🌙</button>
+</div>
+
+<header>
+    <h2><span style="font-size:36px;">GudGum: Meet the Team and How We Make Our Gum</span></h2>
+</header>
+
+<main><!-- Welcome to GudGum -->
+    <div class="audio-container">
+        <audio controls="" controlslist="nodownload" oncontextmenu="return false;">
+            <source src="https://pa2-cmd.github.io/audio-chapters-gudgum/audio%20chapters%20gudgum/m4c1.mp3"
+                type="audio/mp3" /> Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="topic" id="topic-welcome">
+        <div class="topic-heading">
+            <h3>Welcome to GudGum!</h3>
+        </div>
+
+        <div class="topic-content">
+            <p>GudGum is India&rsquo;s first plastic-free, 100% natural chewing gum, made with real chicle and
+                recyclable packaging. Our mission is to create tasty, sustainable gum that&rsquo;s good for you and the
+                planet. Meet the awesome team behind GudGum and see how we turn natural ingredients into your favorite
+                gum!</p>
+        </div>
+    </div>
+    <!-- Our Founders -->
+
+    <div class="topic" id="topic-founders">
+        <div class="topic-heading">
+            <h3>Our Founders</h3>
+        </div>
+
+        <div class="topic-content">
+            <p>Mayank and Bhuvan Nagori started GudGum in 2022 to make chewing gum fun, healthy, and eco-friendly. They
+                dream up new ideas, plan how GudGum grows, and make sure every piece of gum is plastic-free and super
+                tasty. Their big goal? A world with zero plastic waste!</p>
+
+            <p class="text-center"><img alt="GudGum Founders" class="centered-image" src="https://login.skillizee.io/s/org/images/Gud-Gum.png" />
+            </p>
+
+            <div class="founders-tree">
+                <div class="topic-heading">
+                    <h3>Founders&rsquo; Roles: Growing GudGum</h3>
+                </div>
+
+                <div class="tree-container">
+                    <div class="tree-branch">
+                        <h4>Mayank Nagori</h4>
+
+                        <ul>
+                            <li><strong>Manufacturing</strong>: Ensures eco-friendly, high-quality gum production.</li>
+                            <li><strong>Research</strong>: Innovates flavors and sustainable gum formulas.</li>
+                            <li><strong>Public Face</strong>: Represents GudGum in media and events.</li>
+                            <li><strong>Operations</strong>: Manages supply chain efficiency.</li>
+                        </ul>
+                    </div>
+
+                    <div class="tree-branch">
+                        <h4>Bhuvan Nagori</h4>
+
+                        <ul>
+                            <li><strong>Brand Deals</strong>: Secures partnerships for growth.</li>
+                            <li><strong>Legality</strong>: Handles compliance and legal protections.</li>
+                            <li><strong>Marketing</strong>: Promotes GudGum&rsquo;s eco-friendly mission.</li>
+                            <li><strong>Sales</strong>: Drives revenue via strategic channels.</li>
+                            <li><strong>Branding &amp; Design</strong>: Shapes GudGum&rsquo;s visual identity.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Awesome Team: Marketing -->
+
+    <div class="topic" id="topic-marketing">
+        <div class="topic-heading">
+            <h4>Marketing: Spreading the #GudMove</h4>
+        </div>
+
+        <div class="topic-content">
+            <p class="text-center"><img alt="GudGum Marketing Team" class="centered-image"
+                    src="https://login.skillizee.io/s/org/images/community.png" /></p>
+        </div>
+    </div>
+    <!-- Our Awesome Team: Supply Chain -->
+
+    <div class="topic" id="topic-supply-chain">
+        <div class="topic-heading">
+            <h4>Supply Chain: Sourcing the Good Stuff</h4>
+        </div>
+
+        <div class="topic-content">
+            <p class="text-center"><img alt="GudGum Supply Chain" class="centered-image" src="https://login.skillizee.io/s/org/images/efef.png" />
+            </p>
+
+            <p class="text-center">&nbsp;</p>
+
+            <p>Our supply chain team finds natural chicle (a tree sap) and 100% biodegradable packaging. They work with
+                farmers and suppliers to make sure everything is eco-friendly and high-quality, so your gum is good for
+                the planet from start to finish.</p>
+        </div>
+    </div>
+    <!-- Our Awesome Team: R&D -->
+
+    <div class="topic" id="topic-rd">
+        <div class="topic-heading">
+            <h4>R&amp;D: Making Gum Yummier</h4>
+        </div>
+
+        <div class="topic-content">
+            <p class="text-center"><img alt="GudGum R&amp;D Team" class="centered-image" src="https://login.skillizee.io/s/org/images/rd.png" />
+            </p>
+
+            <p class="text-center">&nbsp;</p>
+
+            <p>Our research and development (R&amp;D) team creates cool flavors like mango chili and makes our gum chewy
+                and fun. They test new ideas to keep GudGum natural and delicious, improving the texture based on
+                feedback from fans like you!</p>
+        </div>
+    </div>
+    <!-- Behind the Scenes -->
+
+    <div class="topic" id="topic-behind-scenes">
+        <div class="topic-heading">
+            <h3>Behind the Scenes: From Tree to Store</h3>
+        </div>
+
+        <div class="topic-content">
+            <p>Here&rsquo;s how we make GudGum, from nature to your pocket:</p>
+
+            <div class="learnings-grid">
+                <div><strong>Chicle Harvesting</strong>: We get natural chicle from sapodilla trees, a sustainable gum
+                    base that&rsquo;s 100% plastic-free.</div>
+
+                <div><strong>Mixing Flavors</strong>: Our R&amp;D team blends natural flavors (like mango chili) and
+                    sweeteners for a tasty, healthy chew.</div>
+
+                <div><strong>Eco-Packaging</strong>: We pack the gum in Recyclable ziplocks, keeping the planet clean.
+                </div>
+
+                <div><strong>Quality Checks</strong>: Every batch is tested to make sure it&rsquo;s safe, chewy, and
+                    delicious.</div>
+
+                <div><strong>Shipping to Stores</strong>: We send GudGum to shops and online stores, ready for you to
+                    enjoy!</div>
+            </div>
+
+            <div class="media-row"><img alt="GudGum Production" id="behind-scenes-image"
+                    src="https://login.skillizee.io/s/org/images/deed.png" /><iframe allowfullscreen=""
+                    aria-label="Video showing GudGum production process" frameborder="0" scrolling="no"
+                    src="https://www.youtube.com/embed/qeFFu8RD28g" title="GudGum Production Process"></iframe></div>
+        </div>
+    </div>
+</main>
+<!-- Back to Top Button -->
+
+<p><button aria-label="Scroll to top" id="back-to-top" onclick="scrollToTop()">&uarr;</button><!-- Footer --></p>
+
+<footer>
+    <p>GudGum Virtual Internship &ndash; Sustainable Branding</p>
+</footer>
+<script>
+    // Throttle function to limit scroll event frequency
+    function throttle(fn, wait) {
+        let lastCall = 0;
+        return function (...args) {
+            const now = new Date().getTime();
+            if (now - lastCall < wait) return;
+            lastCall = now;
+            return fn(...args);
+        };
+    }
+    // Theme Toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        document.querySelector(".sidebar").classList.toggle("dark");
+        document.querySelector(".progress-bar").classList.toggle("dark");
+        document.querySelector("header").classList.toggle("dark");
+        document.querySelectorAll(".topic").forEach(topic => topic.classList.toggle("dark"));
+        document.querySelectorAll(".topic-heading").forEach(heading => heading.classList.toggle("dark"));
+        document.querySelectorAll(".emoji-bg").forEach(emoji => emoji.classList.toggle("dark"));
+        document.querySelector("footer").classList.toggle("dark");
+        document.querySelector("#back-to-top").classList.toggle("dark");
+        document.querySelectorAll(".founders-tree").forEach(tree => tree.classList.toggle("dark"));
+        document.querySelectorAll(".tree-branch h4").forEach(h4 => h4.classList.toggle("dark"));
+        document.querySelectorAll(".tree-branch li").forEach(li => li.classList.toggle("dark"));
+        document.querySelectorAll(".centered-image").forEach(img => img.classList.toggle("dark"));
+        document.querySelectorAll(".media-row iframe, .media-row img").forEach(el => el.classList.toggle("dark"));
+        document.querySelector(".fullscreen-overlay").classList.toggle("dark");
+        document.querySelector(".fullscreen-close").classList.toggle("dark");
+        themeToggle.classList.toggle("dark");
+        themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+    // Progress Bar Logic
+    let scrollProgress = 0;
+    const progressFill = document.getElementById("progress-fill");
+    function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 85 : 0; // Up to 85% from scrolling
+        const totalProgress = Math.min(100, scrollProgress);
+        if (window.innerWidth <= 600) {
+            progressFill.style.width = totalProgress + "%";
+        } else {
+            progressFill.style.height = totalProgress + "%";
+        }
+    }
+    // Scroll-based Progress
+    const updateScrollProgress = throttle(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 85 : 0; // Up to 85% from scrolling
+        const totalProgress = Math.min(100, scrollProgress);
+        if (window.innerWidth <= 600) {
+            progressFill.style.width = totalProgress + "%";
+        } else {
+            progressFill.style.height = totalProgress + "%";
+        }
+    }, 50);
+    window.addEventListener("scroll", () => {
+        requestAnimationFrame(updateScrollProgress);
+    });
+    // Back to Top Button
+    const backToTop = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    // Fullscreen Image Logic
+    const behindScenesImage = document.getElementById("behind-scenes-image");
+    const fullscreenOverlay = document.getElementById("fullscreen-overlay");
+    const fullscreenImage = document.getElementById("fullscreen-image");
+    const fullscreenClose = document.getElementById("fullscreen-close");
+    behindScenesImage.addEventListener("click", () => {
+        fullscreenImage.src = behindScenesImage.src;
+        fullscreenOverlay.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+    });
+    fullscreenClose.addEventListener("click", () => {
+        fullscreenOverlay.style.display = "none";
+        document.body.style.overflow = "auto"; // Restore scrolling
+    });
+    fullscreenOverlay.addEventListener("click", (e) => {
+        if (e.target === fullscreenOverlay) {
+            fullscreenOverlay.style.display = "none";
+            document.body.style.overflow = "auto"; // Restore scrolling
+        }
+    });
+</script>
+<style type="text/css">
+    #gustoraFullscreenBtn {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        z-index: 99999;
+        width: 68px;
+        height: 68px;
+        background: linear-gradient(135deg, var(--brand-gold), #2B2B85);
+        border: 4px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+            0 10px 30px rgba(170, 138, 0, 0.5),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        animation: gentlePulse 4s infinite ease-in-out;
+    }
+
+    #gustoraFullscreenBtn:hover {
+        transform: scale(1.18) rotate(8deg);
+        box-shadow:
+            0 20px 50px rgba(170, 138, 0, 0.7),
+            0 0 50px var(--glow-gold),
+            0 0 60px var(--glow-red);
+        border-color: var(--brand-red);
+    }
+
+    #gustoraFullscreenBtn svg {
+        width: 38px;
+        height: 38px;
+        stroke: #000;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Subtle floating + sauce-red glow on hover */
+    @keyframes gentlePulse {
+
+        0%,
+        100% {
+            box-shadow: 0 10px 30px rgba(170, 138, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 15px 40px rgba(170, 138, 0, 0.6), 0 0 40px rgba(225, 37, 27, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    /* Optional: tiny pasta particle burst when entering fullscreen */
+    #gustoraFullscreenBtn:active {
+        transform: scale(0.95);
+    }
+</style>

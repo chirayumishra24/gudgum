@@ -1,0 +1,1435 @@
+<div>
+    <div>
+        <div>
+            <div>
+                <div>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<title></title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+<link href="responsive.css" rel="stylesheet" />
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbMvwQzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    referrerpolicy="no-referrer" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        margin: 0 auto;
+        padding: 0 40px 0 0;
+        background: linear-gradient(180deg, #e8f5e9, #f1f8e9);
+        color: #333;
+        font-size: clamp(16px, 1.4vw, 18px);
+        max-width: 1800px;
+        transition: background 0.3s, color 0.3s;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    body.dark {
+        background: #1a3c34;
+        color: #e0f2e9;
+    }
+
+    .emoji-bg {
+        position: absolute;
+        font-size: clamp(30px, 2.5vw, 44px);
+        opacity: 0.4;
+        color: #4caf50;
+        pointer-events: none;
+        z-index: -1;
+        animation: float-rotate 15s infinite ease-in-out;
+    }
+
+    .emoji-bg.dark {
+        opacity: 0.5;
+        color: #a5d6a7;
+    }
+
+    .emoji-bg:nth-child(1) {
+        top: 5%;
+        left: 2%;
+        animation-delay: 0s;
+    }
+
+    .emoji-bg:nth-child(2) {
+        top: 15%;
+        left: 5%;
+        animation-delay: -1s;
+    }
+
+    .emoji-bg:nth-child(3) {
+        top: 25%;
+        left: 8%;
+        animation-delay: -2s;
+    }
+
+    .emoji-bg:nth-child(4) {
+        top: 35%;
+        left: 3%;
+        animation-delay: -3s;
+    }
+
+    .emoji-bg:nth-child(5) {
+        top: 45%;
+        left: 6%;
+        animation-delay: -4s;
+    }
+
+    .emoji-bg:nth-child(6) {
+        top: 55%;
+        left: 4%;
+        animation-delay: -5s;
+    }
+
+    .emoji-bg:nth-child(7) {
+        top: 65%;
+        left: 7%;
+        animation-delay: -6s;
+    }
+
+    .emoji-bg:nth-child(8) {
+        top: 75%;
+        left: 2%;
+        animation-delay: -7s;
+    }
+
+    .emoji-bg:nth-child(9) {
+        top: 85%;
+        left: 5%;
+        animation-delay: -8s;
+    }
+
+    .emoji-bg:nth-child(10) {
+        top: 10%;
+        left: 92%;
+        animation-delay: -9s;
+    }
+
+    .emoji-bg:nth-child(11) {
+        top: 20%;
+        left: 95%;
+        animation-delay: -10s;
+    }
+
+    .emoji-bg:nth-child(12) {
+        top: 30%;
+        left: 90%;
+        animation-delay: -11s;
+    }
+
+    .emoji-bg:nth-child(13) {
+        top: 40%;
+        left: 93%;
+        animation-delay: -12s;
+    }
+
+    .emoji-bg:nth-child(14) {
+        top: 50%;
+        left: 91%;
+        animation-delay: -13s;
+    }
+
+    .emoji-bg:nth-child(15) {
+        top: 60%;
+        left: 94%;
+        animation-delay: -14s;
+    }
+
+    .emoji-bg:nth-child(16) {
+        top: 70%;
+        left: 92%;
+        animation-delay: -15s;
+    }
+
+    .emoji-bg:nth-child(17) {
+        top: 80%;
+        left: 90%;
+        animation-delay: -16s;
+    }
+
+    .emoji-bg:nth-child(18) {
+        top: 90%;
+        left: 95%;
+        animation-delay: -17s;
+    }
+
+    .emoji-bg:nth-child(19) {
+        top: 12%;
+        left: 88%;
+        animation-delay: -18s;
+    }
+
+    .emoji-bg:nth-child(20) {
+        top: 22%;
+        left: 85%;
+        animation-delay: -19s;
+    }
+
+    @keyframes float-rotate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-30px) rotate(15deg);
+        }
+
+        100% {
+            transform: translateY(0) rotate(0deg);
+        }
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 25%;
+        right: 0;
+        width: 30px;
+        height: 50%;
+        background: transparent;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px;
+    }
+
+    .sidebar.dark {
+        border-color: #a5d6a7;
+    }
+
+    li::before {
+        content: '\f4d8';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        margin-right: 10px;
+        font-size: 1.2em;
+        color: #4caf50;
+    }
+
+    .progress-bar {
+        width: 8px;
+        height: calc(100% - 60px);
+        background: #e2e8f0;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .progress-bar.dark {
+        background: #475569;
+    }
+
+    .progress-fill {
+        width: 100%;
+        background: #4caf50;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 0;
+        transition: height 0.6s ease, width 0.6s ease;
+    }
+
+    #theme-toggle {
+        background: #a5d6a7;
+        color: #0f172a;
+        border: none;
+        border-radius: 15px;
+        padding: 5px;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: clamp(14px, 1.1vw, 16px);
+        width: clamp(24px, 2vw, 28px);
+        height: clamp(24px, 2vw, 28px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    #theme-toggle.dark {
+        background: #a5d6a7;
+        color: #0f172a;
+    }
+
+    #theme-toggle:hover {
+        background: #ffffff;
+    }
+
+    .dark #theme-toggle:hover {
+        background: #4caf50;
+    }
+
+    header {
+        background: #4caf50;
+        color: #ffffff;
+        padding: clamp(20px, 2vw, 24px) 0;
+        text-align: center;
+        width: 95%;
+        max-width: 1800px;
+        margin: 0 auto;
+        border-radius: 0;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header.dark {
+        background: #2e7d32;
+    }
+
+    header h2 {
+        margin: 5px 0;
+        font-size: clamp(1.5em, 2.2vw, 3em);
+        color: #ffffff;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: clamp(20px, 2vw, 24px);
+    }
+
+    .topic {
+        background: white;
+        margin: clamp(20px, 2vw, 24px) 0;
+        padding: clamp(20px, 2vw, 24px);
+        border-radius: 16px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        max-width: 1800px;
+        width: 95%;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out, box-shadow 0.3s, transform 0.3s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .topic:hover {
+        box-shadow: 0px 6px 20px rgba(76, 175, 80, 0.4);
+        transform: scale(1.02);
+        z-index: 10;
+    }
+
+    .topic.dark {
+        background: #3b6e55;
+        color: #e0f2e9;
+    }
+
+    .topic.dark:hover {
+        box-shadow: 0px 6px 20px rgba(165, 214, 167, 0.4);
+    }
+
+    .topic.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .topic-heading {
+        background: #e8f5e9;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 15px;
+        transition: box-shadow 0.3s, transform 0.3s;
+        position: relative;
+        z-index: 5;
+    }
+
+    .topic-heading:hover {
+        box-shadow: 0px 4px 15px rgba(76, 175, 80, 0.5);
+        transform: scale(1.03);
+        z-index: 15;
+    }
+
+    .topic-heading.dark {
+        background: #1a3c34;
+        border-color: #a5d6a7;
+    }
+
+    .topic-heading.dark:hover {
+        box-shadow: 0px 4px 15px rgba(165, 214, 167, 0.5);
+    }
+
+    .topic-heading h2,
+    .topic-heading h3,
+    .topic-heading h4 {
+        margin: 0;
+        color: #2e7d32;
+        font-size: clamp(1.5em, 2.2vw, 2em);
+    }
+
+    .dark .topic-heading h2,
+    .dark .topic-heading h3,
+    .dark .topic-heading h4 {
+        color: #e0f2e9;
+    }
+
+    .topic-content {
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .topic-content p,
+    .topic-content li {
+        font-size: clamp(16px, 1.4vw, 20px);
+        color: #555;
+    }
+
+    .dark .topic-content p,
+    .dark .topic-content li {
+        color: #e0f2e9;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    li:before {
+        content: '\f4d8';
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+        color: #4caf50;
+    }
+
+    .dark li:before {
+        color: #a5d6a7;
+    }
+
+    @media screen and (max-width: 0px) {
+        li:before {
+            content: '🌿';
+            font-family: 'Inter', sans-serif;
+        }
+    }
+
+    .video-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-section iframe {
+        width: 100%;
+        max-width: 300px;
+        height: 500px;
+        border-radius: 8px;
+        border: 2px solid #4caf50;
+        transition: transform 0.3s;
+    }
+
+    .video-section iframe:hover {
+        transform: scale(1.05);
+    }
+
+    .video-section.collapsible {
+        display: none;
+    }
+
+    .toggle-scroll-btn {
+        background-color: #4caf50;
+        color: white;
+        padding: clamp(12px, 1.2vw, 14px) clamp(20px, 2vw, 24px);
+        border: none;
+        border-radius: 30px;
+        font-size: clamp(16px, 1.4vw, 20px);
+        cursor: pointer;
+        margin-bottom: 1rem;
+        transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dark .toggle-scroll-btn {
+        background: #a5d6a7;
+    }
+
+    .toggle-scroll-btn:hover {
+        background: #388e3c;
+        transform: scale(1.05);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark .toggle-scroll-btn:hover {
+        background: #2e7d32;
+    }
+
+    .toggle-scroll-btn::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.4s, height 0.4s;
+    }
+
+    .toggle-scroll-btn:hover::after {
+        width: 300px;
+        height: 300px;
+    }
+
+    .image-gallery {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+        padding: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .image-gallery img {
+        width: 128px;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s, border-color 0.3s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border: 2px solid #4caf50;
+    }
+
+    .image-gallery img:hover {
+        transform: scale(1.05);
+        border-color: #388e3c;
+    }
+
+    .image-gallery .text-content {
+        flex: 1;
+        min-width: 200px;
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .modal.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .modal img {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 8px;
+    }
+
+    .drag-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.5rem auto;
+        max-width: 600px;
+        justify-content: center;
+    }
+
+    .drag-item {
+        background: #e8f5e9;
+        padding: 0.5rem 1rem;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        cursor: move;
+        font-size: clamp(14px, 1.2vw, 16px);
+        transition: transform 0.2s, background 0.3s;
+        user-select: none;
+        width: calc(33.33% - 0.67rem);
+        text-align: center;
+    }
+
+    .dark .drag-item {
+        background: #3b6e55;
+        border-color: #a5d6a7;
+        color: #e0f2e9;
+    }
+
+    .drag-item:hover {
+        background: #d4edda;
+        transform: scale(1.05);
+    }
+
+    .dark .drag-item:hover {
+        background: #4c8c6a;
+    }
+
+    .drop-zone {
+        background: #f1f8e9;
+        padding: 1rem;
+        border: 2px dashed #4caf50;
+        border-radius: 5px;
+        min-height: 80px;
+        width: 100%;
+        font-size: clamp(14px, 1.2vw, 16px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: border-color 0.3s;
+    }
+
+    .dark .drop-zone {
+        background: #3b6e55;
+        border-color: #a5d6a7;
+        color: #e0f2e9;
+    }
+
+    .drop-zone.drag-over {
+        border-color: #2e7d32;
+        background: #d4edda;
+    }
+
+    .dark .drop-zone.drag-over {
+        background: #4c8c6a;
+    }
+
+    .drop-zone.correct {
+        border-color: #4caf50;
+        background: #e8f5e9;
+    }
+
+    .dark .drop-zone.correct {
+        border-color: #a5d6a7;
+        background: #4c8c6a;
+    }
+
+    .drop-zone.incorrect {
+        border-color: #e53e3e;
+        background: #fed7d7;
+    }
+
+    .dark .drop-zone.incorrect {
+        border-color: #f87171;
+        background: #7f1d1d;
+    }
+
+    .confirmation-message {
+        color: #2e7d32;
+        text-align: center;
+        margin-top: 10px;
+        opacity: 0;
+        transition: opacity 0.5s;
+        font-size: clamp(16px, 1.4vw, 18px);
+    }
+
+    .dark .confirmation-message {
+        color: #a5d6a7;
+    }
+
+    .confirmation-message.show {
+        opacity: 1;
+    }
+
+    footer {
+        background: #4caf50;
+        color: white;
+        text-align: center;
+        padding: clamp(15px, 1.5vw, 18px);
+        margin-top: clamp(40px, 3vw, 48px);
+        border-radius: 20px 20px 0 0;
+        font-size: clamp(14px, 1.2vw, 18px);
+        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+        width: 95%;
+        max-width: 1800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dark footer {
+        background: #2e7d32;
+    }
+
+    footer p {
+        margin: clamp(5px, 0.5vw, 6px) 0;
+    }
+
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: clamp(40px, 3vw, 60px);
+        background: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: clamp(40px, 3.5vw, 60px);
+        height: clamp(40px, 3.5vw, 60px);
+        font-size: clamp(20px, 1.8vw, 26px);
+        cursor: pointer;
+        display: none;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    .dark #back-to-top {
+        background: #a5d6a7;
+    }
+
+    #back-to-top:hover {
+        background: #388e3c;
+        transform: scale(1.1);
+    }
+
+    .dark #back-to-top:hover {
+        background: #2e7d32;
+    }
+
+    .audio-container {
+        position: relative;
+        background: url('https://login.skillizee.io/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center center no-repeat;
+        background-size: contain;
+        border-radius: 16px;
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        margin: 1rem auto;
+        width: 90%;
+        max-width: 900px;
+        aspect-ratio: 1920 / 1080;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .audio-container audio {
+        width: 100%;
+        border-radius: 12px;
+        border: 2px solid #2D2B7E;
+        background: #F5F5FF;
+        height: 50px;
+        padding: 4px;
+        box-shadow: 0 3px 10px rgba(45, 43, 126, 0.3);
+    }
+
+    audio::-webkit-media-controls-panel {
+        background-color: #E6E6FA;
+        border-radius: 12px;
+    }
+
+    audio::-webkit-media-controls-play-button,
+    audio::-webkit-media-controls-timeline,
+    audio::-webkit-media-controls-current-time-display,
+    audio::-webkit-media-controls-time-remaining-display,
+    audio::-webkit-media-controls-volume-slider {
+        filter: hue-rotate(240deg) saturate(1.2);
+    }
+
+    @media (max-width: 600px) {
+        body {
+            padding-right: 0;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .emoji-bg {
+            font-size: clamp(25px, 3vw, 30px);
+        }
+
+        .sidebar {
+            width: 100%;
+            height: 60px;
+            top: auto;
+            bottom: 0;
+            border: none;
+            background: #4caf50;
+            border-radius: 0;
+            padding: 5px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sidebar.dark {
+            background: #2e7d32;
+            border: none;
+        }
+
+        .progress-bar {
+            width: 40%;
+            height: 10px;
+            margin: 0;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            bottom: auto;
+            left: 0;
+            transition: width 0.6s ease;
+        }
+
+        #theme-toggle {
+            margin-top: 0;
+            width: clamp(20px, 2.5vw, 24px);
+            height: clamp(20px, 2.5vw, 24px);
+            font-size: clamp(12px, 2vw, 14px);
+        }
+
+        header h2 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        .topic-heading h2,
+        .topic-heading h3,
+        .topic-heading h4 {
+            font-size: clamp(1.3em, 2.5vw, 1.5em);
+        }
+
+        .topic-content p,
+        .topic-content li {
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+
+        .video-section {
+            display: none;
+        }
+
+        .video-section.collapsible {
+            display: block;
+        }
+
+        .video-section iframe {
+            height: clamp(200px, 30vw, 250px);
+        }
+
+        .image-gallery {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .image-gallery img {
+            width: 100px;
+            height: 148px;
+        }
+
+        .drag-container {
+            max-width: 100%;
+        }
+
+        .drag-item {
+            width: calc(50% - 0.5rem);
+        }
+
+        #back-to-top {
+            bottom: 80px;
+            right: 20px;
+            width: clamp(35px, 3vw, 40px);
+            height: clamp(35px, 3vw, 40px);
+            font-size: clamp(18px, 2vw, 20px);
+        }
+
+        footer {
+            font-size: clamp(12px, 2vw, 14px);
+        }
+    }
+
+    @media (min-width: 1200px) and (max-width: 1960px) {
+        body {
+            font-size: clamp(18px, 1.3vw, 20px);
+            max-width: 1700px;
+        }
+
+        header {
+            max-width: 1700px;
+        }
+
+        header h2 {
+            font-size: clamp(2em, 2.2vw, 3em);
+        }
+
+        .topic {
+            max-width: 1700px;
+        }
+
+        .topic-heading h2,
+        .topic-heading h3,
+        .topic-heading h4 {
+            font-size: clamp(1.5em, 2.2vw, 2em);
+        }
+
+        .topic-content p,
+        .topic-content li {
+            font-size: clamp(18px, 1.3vw, 20px);
+        }
+
+        .video-section iframe {
+            height: clamp(300px, 28vw, 400px);
+        }
+
+        .image-gallery img {
+            width: 120px;
+            height: 178px;
+        }
+
+        #theme-toggle {
+            font-size: clamp(16px, 1.1vw, 18px);
+            width: clamp(26px, 2vw, 30px);
+            height: clamp(26px, 2vw, 30px);
+        }
+
+        #back-to-top {
+            width: clamp(50px, 3.5vw, 60px);
+            height: clamp(50px, 3.5vw, 60px);
+            font-size: clamp(22px, 1.8vw, 26px);
+        }
+
+        footer {
+            font-size: clamp(16px, 1.2vw, 18px);
+            max-width: 1700px;
+        }
+    }
+
+    @media (min-width: 1961px) {
+        body {
+            font-size: clamp(20px, 1.2vw, 22px);
+            max-width: 2000px;
+        }
+
+        header {
+            max-width: 2000px;
+        }
+
+        header h2 {
+            font-size: clamp(2.5em, 2.1vw, 3.5em);
+        }
+
+        .topic {
+            max-width: 2000px;
+        }
+
+        .topic-heading h2,
+        .topic-heading h3,
+        .topic-heading h4 {
+            font-size: clamp(2em, 2.1vw, 2.5em);
+        }
+
+        .topic-content p,
+        .topic-content li {
+            font-size: clamp(20px, 1.2vw, 22px);
+        }
+
+        .video-section iframe {
+            height: clamp(400px, 27vw, 500px);
+        }
+
+        .image-gallery img {
+            width: 140px;
+            height: 207px;
+        }
+
+        #theme-toggle {
+            font-size: clamp(18px, 1.1vw, 20px);
+            width: clamp(28px, 2vw, 32px);
+            height: clamp(28px, 2vw, 32px);
+        }
+
+        .sidebar {
+            width: 40px;
+            right: clamp(10px, 1vw, 20px);
+        }
+
+        .progress-bar {
+            width: 10px;
+        }
+
+        #back-to-top {
+            width: clamp(55px, 3.5vw, 65px);
+            height: clamp(55px, 3.5vw, 65px);
+            font-size: clamp(24px, 1.8vw, 28px);
+            right: clamp(50px, 3vw, 70px);
+        }
+
+        footer {
+            font-size: clamp(18px, 1.2vw, 20px);
+            max-width: 2000px;
+        }
+    }
+</style>
+<!-- Background Emojis -->
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+
+<div class="emoji-bg">🌱</div>
+
+<div class="emoji-bg">🌍</div>
+
+<div class="emoji-bg">♻️</div>
+
+<div class="emoji-bg">🌿</div>
+<!-- Sidebar -->
+
+<div class="sidebar">
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill">&nbsp;</div>
+    </div>
+    <button aria-label="Toggle dark mode" fdprocessedid="1a9e7" id="theme-toggle">🌙</button>
+</div>
+
+
+<!-- GUSTORA THEMED FULLSCREEN BUTTON -->
+<div id="gustoraFullscreenBtn"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2.6" viewbox="0 0 24 24">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+    </svg></div>
+<script>
+    // Gustora-themed Fullscreen Toggle (works on all modern browsers + mobile)
+    document.getElementById('gustoraFullscreenBtn').addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen?.() ||
+                document.documentElement.webkitRequestFullscreen?.() ||
+                document.documentElement.msRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() ||
+                document.webkitExitFullscreen?.() ||
+                document.msExitFullscreen?.();
+        }
+    });
+</script>
+\n<header>
+    <h2><span style="font-size:36px;">The Origin Story</span></h2>
+
+    <p class="text-lg"><span style="font-size:28px;">Discover how GudGum was founded to revolutionize sustainable
+            chewing gum.</span></p>
+</header>
+
+<main><!-- Introduction -->
+    <div class="audio-container">
+        <audio controls="" controlslist="nodownload" oncontextmenu="return false;">
+            <source src="https://pa2-cmd.github.io/audio-chapters-gudgum/audio%20chapters%20gudgum/m1c4.mp3"
+                type="audio/mp3" /> Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="topic visible" id="topic-intro">
+        <div class="topic-heading">
+            <h2>GudGum&rsquo;s Beginnings</h2>
+        </div>
+
+        <div class="topic-content">
+            <p>Every great venture has an inspiring origin story, and <strong>GudGum</strong> is no different.
+                <strong>Founded in Bengaluru, India</strong>, this eco-friendly gum brand emerged from a passionate
+                desire to change the way we think about everyday products. The creators recognized that while gum is a
+                beloved treat worldwide, its environmental impact often goes unnoticed.
+            </p>
+        </div>
+    </div>
+    <!-- Video Section -->
+
+    <div class="topic" id="topic-video">
+        <div class="topic-heading">
+            <h3>Watch the Origin Story</h3>
+        </div>
+
+        <div class="topic-content">
+            <div class="video-section"><iframe allowfullscreen="" aria-label="Video explaining GudGum's origin story"
+                    frameborder="0" id="origin-video" scrolling="no" src="https://www.youtube.com/embed/lRe-JSgwgEA"
+                    title="GudGum Origin Story"></iframe></div>
+        </div>
+    </div>
+    <!-- The Idea -->
+
+    <div class="topic" id="topic-idea">
+        <div class="topic-heading">
+            <h3>The Idea</h3>
+        </div>
+
+        <div class="topic-content">
+            <p>The founders of GudGum saw a world overflowing with non-biodegradable waste, particularly from
+                conventional candy wrappers and synthetic ingredients. Driven by their love for the planet and a
+                commitment to sustainability, they set out to create a gum that was not only enjoyable but also kind to
+                the Earth. This vision was the spark that ignited the journey towards an innovative, eco-friendly
+                product.</p>
+        </div>
+    </div>
+    <!-- The Journey -->
+
+    <div class="topic" id="topic-journey">
+        <div class="topic-heading">
+            <h3>The Journey</h3>
+        </div>
+
+        <div class="topic-content">
+            <p>Launching a sustainable brand comes with unique challenges. The founders faced numerous obstacles,
+                including:</p>
+
+            <ul>
+                <li>Sourcing sustainable, biodegradable materials for gum and packaging.</li>
+                <li>Balancing eco-friendly production with cost-effectiveness.</li>
+                <li>Educating consumers about the environmental impact of traditional gum.</li>
+            </ul>
+
+            <p class="text-center"><img alt="GudGum Journey" src="https://login.skillizee.io/s/articles/688200b248589c211e50b4c5/images/eff4.png"
+                    style="width: 100%; max-width: 900px; height: auto;" /></p>
+
+            <p>Despite the hurdles, the team was relentless. They focused on research and development, exploring various
+                natural formulations and biodegradable materials, leading to the birth of GudGum.</p>
+        </div>
+    </div>
+    <!-- Visualizing the Journey -->
+
+    <div class="topic" id="topic-visuals">
+        <div class="topic-heading">
+            <h3>Visualizing the Journey</h3>
+        </div>
+
+        <div class="topic-content">
+            <p>Explore the images below to see the elements of GudGum&rsquo;s origin story in action:</p>
+            <img alt="" src="https://login.skillizee.io/s/articles/68ef7888bb76076893719e83/images/pol.png"
+                style="width: 1092px; height: 522px;" />
+            <div class="image-gallery"><img alt="Traditional chewing gum origins"
+                    aria-label="Enlarge image of traditional chewing gum origins" onclick="enlargeImage(this)"
+                    role="button"
+                    src="https://www.gudgum.in/cdn/shop/files/Screenshot_2023-08-07_at_4.56.32_PM.png?v=1691407651&amp;width=1500" />
+                <div class="text-content">
+                    <h4>Chewing gum the way it was meant to be!</h4>
+
+                    <p>The Mayan people on the other side of our planet have been chewing gum made of tree sap for
+                        thousands of years.</p>
+
+                    <p><strong>Chewing GudGum is not only better for the planet &amp; you, but also helps run
+                            livelihoods of tribal farmers who harvest this tree sap.</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Community Impact -->
+
+    <div class="topic" id="topic-community">
+        <div class="topic-heading">
+            <h3>Community Impact</h3>
+        </div>
+
+        <div class="topic-content">
+            <p class="text-center"><img alt="GudGum Community Impact"
+                    src="https://login.skillizee.io/s/articles/688200b248589c211e50b4c5/images/dd.png"
+                    style="width: 100%; max-width: 1107px; height: auto;" /></p>
+        </div>
+    </div>
+    <!-- Interactive Activity: Drag and Drop -->
+
+    <div class="topic" id="topic-activity">
+        <div class="topic-heading">
+            <h4>Interactive Activity: Match Sustainable Materials</h4>
+        </div>
+
+        <div class="topic-content">
+            <p>Drag each sustainable material to its correct description to learn about GudGum&rsquo;s eco-friendly
+                approach (not graded).</p>
+
+            <div class="drag-container">
+                <div class="drag-item" data-id="chicle" draggable="true">Chicle</div>
+
+                <div class="drag-item" data-id="packaging" draggable="true">Biodegradable Packaging</div>
+
+                <div class="drag-item" data-id="sweeteners" draggable="true">Plant-based Sweeteners</div>
+
+                <div class="drop-zone" data-id="chicle">Natural gum base from tree sap, biodegradable.</div>
+
+                <div class="drop-zone" data-id="packaging">Compostable material for wrapping, reducing waste.</div>
+
+                <div class="drop-zone" data-id="sweeteners">Derived from plants, replacing synthetic sugars.</div>
+            </div>
+            <button aria-label="Reset drag and drop activity"
+                class="bg-green-500 text-white px-4 py-2 rounded-full text-base font-semibold hover:bg-green-600 transform hover:scale-105 transition-all duration-300 dark:bg-green-300 dark:hover:bg-green-400 mx-auto block"
+                fdprocessedid="eu7l4m" onclick="resetDragDrop()">Reset Activity</button>
+
+            <p class="confirmation-message" id="confirmationMessage">&nbsp;</p>
+
+            <p>Explore sustainable packaging trends: <a class="text-green-500 hover:underline dark:text-green-300"
+                    href="https://www.triviumpackaging.com" target="_blank">Trivium Packaging&rsquo;s 2023 Buying Green
+                    Report</a></p>
+        </div>
+    </div>
+</main>
+<!-- Back to Top Button -->
+
+<p><button aria-label="Scroll to top" id="back-to-top" onclick="scrollToTop()">&uarr;</button><!-- Footer --></p>
+
+<footer>
+    <p>Great job learning about GudGum&rsquo;s origin story!</p>
+
+    <p>GudGum Virtual Internship &ndash; Sustainable Branding</p>
+</footer>
+<script>
+    // Throttle function to limit scroll event frequency
+    function throttle(fn, wait) {
+        let lastCall = 0;
+        return function (...args) {
+            const now = new Date().getTime();
+            if (now - lastCall < wait) return;
+            lastCall = now;
+            return fn(...args);
+        };
+    }
+    // Theme Toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        document.querySelector(".sidebar").classList.toggle("dark");
+        document.querySelector(".progress-bar").classList.toggle("dark");
+        document.querySelector("header").classList.toggle("dark");
+        document.querySelectorAll(".topic").forEach(topic => topic.classList.toggle("dark"));
+        document.querySelectorAll(".topic-heading").forEach(heading => heading.classList.toggle("dark"));
+        document.querySelectorAll(".emoji-bg").forEach(emoji => emoji.classList.toggle("dark"));
+        document.querySelector("footer").classList.toggle("dark");
+        document.querySelector("#back-to-top").classList.toggle("dark");
+        document.querySelectorAll(".drag-item, .drop-zone, .confirmation-message").forEach(el => el.classList.toggle("dark"));
+        themeToggle.classList.toggle("dark");
+        themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+    // Progress Bar Logic
+    let progress = 0; // Tracks total progress
+    let activityProgress = 0; // Tracks drag-and-drop progress (up to 15%)
+    const progressFill = document.getElementById("progress-fill");
+    function updateProgress(increment = 0) {
+        activityProgress = Math.min(15, activityProgress + increment); // Max 15% from activity
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 85 : 0; // Up to 85% from scrolling
+        progress = Math.min(100, scrollPercent + activityProgress);
+        if (window.innerWidth <= 600) {
+            progressFill.style.width = progress + "%";
+        } else {
+            progressFill.style.height = progress + "%";
+        }
+    }
+    // Scroll-based Progress
+    const updateScrollProgress = throttle(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 85 : 0; // Up to 85% from scrolling
+        progress = Math.min(100, scrollPercent + activityProgress);
+        if (window.innerWidth <= 600) {
+            progressFill.style.width = progress + "%";
+        } else {
+            progressFill.style.height = progress + "%";
+        }
+    }, 50);
+    window.addEventListener("scroll", () => {
+        requestAnimationFrame(updateScrollProgress);
+    });
+    // Scroll-based Visibility
+    const topics = document.querySelectorAll(".topic");
+    window.addEventListener("scroll", () => {
+        topics.forEach(topic => {
+            const rect = topic.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                topic.classList.add("visible");
+            }
+        });
+    });
+    // Back to Top Button
+    const backToTop = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    // Toggle Scroll for Video
+    $(".toggle-scroll-btn").click(function () {
+        const iframeId = $(this).data("iframe");
+        const iframe = $("#" + iframeId);
+        const currentScroll = iframe.attr("scrolling");
+        if (currentScroll === "no") {
+            iframe.attr("scrolling", "yes");
+            $(this).text("Disable Scroll");
+        } else {
+            iframe.attr("scrolling", "no");
+            $(this).text("Enable Scroll");
+        }
+    });
+    // Image Modal
+    function enlargeImage(img) {
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        const enlargedImg = document.createElement('img');
+        enlargedImg.src = img.src;
+        enlargedImg.alt = img.alt;
+        modal.appendChild(enlargedImg);
+        document.body.appendChild(modal);
+        setTimeout(() => modal.classList.add('active'), 0);
+        modal.onclick = () => {
+            modal.classList.remove('active');
+            setTimeout(() => modal.remove(), 300);
+        };
+    }
+    // Drag and Drop Logic
+    let correctMatches = 0;
+    const dragItems = document.querySelectorAll('.drag-item');
+    const dropZones = document.querySelectorAll('.drop-zone');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    dragItems.forEach(item => {
+        item.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text', item.dataset.id);
+            item.style.opacity = '0.5';
+        });
+        item.addEventListener('dragend', () => {
+            item.style.opacity = '1';
+        });
+    });
+    dropZones.forEach(zone => {
+        zone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            zone.classList.add('drag-over');
+        });
+        zone.addEventListener('dragleave', () => {
+            zone.classList.remove('drag-over');
+        });
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            zone.classList.remove('drag-over');
+            const id = e.dataTransfer.getData('text');
+            const draggedItem = document.querySelector(`.drag-item[data-id="${id}"]`);
+            if (zone.dataset.id === id) {
+                zone.classList.add('correct');
+                zone.textContent = draggedItem.textContent;
+                draggedItem.style.display = 'none';
+                correctMatches++;
+                updateProgress(5); // 5% progress per correct match
+                if (correctMatches === 3) {
+                    confirmationMessage.textContent = 'Great job! All materials matched correctly!';
+                    confirmationMessage.classList.add('show');
+                    setTimeout(() => {
+                        confirmationMessage.classList.remove('show');
+                        confirmationMessage.textContent = '';
+                    }, 3000);
+                }
+            } else {
+                zone.classList.add('incorrect');
+                setTimeout(() => zone.classList.remove('incorrect'), 1000);
+            }
+        });
+    });
+    function resetDragDrop() {
+        dropZones.forEach(zone => {
+            zone.textContent = zone.dataset.id === 'chicle' ? 'Natural gum base from tree sap, biodegradable.' :
+                zone.dataset.id === 'packaging' ? 'Compostable material for wrapping, reducing waste.' :
+                    'Derived from plants, replacing synthetic sugars.';
+            zone.classList.remove('correct', 'incorrect');
+        });
+        dragItems.forEach(item => {
+            item.style.display = 'block';
+        });
+        correctMatches = 0;
+        activityProgress = 0;
+        updateProgress(0); // Update progress to reflect only scroll position
+    }
+</script>
+<style type="text/css">
+    #gustoraFullscreenBtn {
+        position: fixed;
+        top: 16px;
+        right: 16px;
+        z-index: 99999;
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, var(--brand-gold), #2B2B85);
+        border: 2px solid white;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+            0 10px 30px rgba(170, 138, 0, 0.5),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            inset 0 0 20px rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+        animation: gentlePulse 4s infinite ease-in-out;
+    }
+
+    #gustoraFullscreenBtn:hover {
+        transform: scale(1.18) rotate(8deg);
+        box-shadow:
+            0 20px 50px rgba(170, 138, 0, 0.7),
+            0 0 50px var(--glow-gold),
+            0 0 60px var(--glow-red);
+        border-color: var(--brand-red);
+    }
+
+    #gustoraFullscreenBtn svg {
+        width: 24px;
+        height: 24px;
+        stroke: #000;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    }
+
+    /* Subtle floating + sauce-red glow on hover */
+    @keyframes gentlePulse {
+
+        0%,
+        100% {
+            box-shadow: 0 10px 30px rgba(170, 138, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+
+        50% {
+            box-shadow: 0 15px 40px rgba(170, 138, 0, 0.6), 0 0 40px rgba(225, 37, 27, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    /* Optional: tiny pasta particle burst when entering fullscreen */
+    #gustoraFullscreenBtn:active {
+        transform: scale(0.95);
+    }
+</style>
