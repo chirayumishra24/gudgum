@@ -515,11 +515,18 @@
     .shark-tank-image {
         display: block;
         margin: 0 auto;
-        width: clamp(400px, 25vw, 800px);
-        height: clamp(218.4px, 13.65vw, 436.8px);
-        object-fit: contain;
+        width: 100%;
+        max-width: 950px;
         border-radius: 8px;
         transition: transform 0.3s ease;
+    }
+
+    .shark-tank-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        object-fit: contain;
     }
 
     .shark-tank-image:hover {
@@ -629,6 +636,32 @@
 
     .dark #check-answers:hover {
         background: #2e7d32;
+    }
+
+    #reset-answers {
+        background: #9ca3af;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: clamp(14px, 1.2vw, 18px);
+        transition: background 0.3s, transform 0.2s;
+        margin-left: 10px;
+    }
+
+    #reset-answers:hover {
+        background: #6b7280;
+        transform: translateY(-1px);
+    }
+
+    .dark #reset-answers {
+        background: #64748b;
+        color: #0f172a;
+    }
+
+    .dark #reset-answers:hover {
+        background: #94a3b8;
     }
 
     #feedback {
@@ -774,8 +807,7 @@
         }
 
         .shark-tank-image {
-            width: clamp(200px, 20vw, 300px);
-            height: clamp(109.2px, 10.92vw, 163.8px);
+            max-width: 100%;
         }
 
         .drag-drop-container {
@@ -837,8 +869,7 @@
         }
 
         .shark-tank-image {
-            width: clamp(350px, 20vw, 500px);
-            height: clamp(191.1px, 10.92vw, 273px);
+            max-width: 950px;
         }
 
         #theme-toggle {
@@ -894,8 +925,7 @@
         }
 
         .shark-tank-image {
-            width: clamp(400px, 20vw, 600px);
-            height: clamp(218.4px, 10.92vw, 327.6px);
+            max-width: 1050px;
         }
 
         #theme-toggle {
@@ -966,8 +996,7 @@
         }
 
         .shark-tank-image {
-            width: clamp(400px, 25vw, 800px);
-            height: clamp(218.4px, 13.65vw, 436.8px);
+            max-width: 1150px;
         }
 
         .drag-drop-container {
@@ -1363,6 +1392,7 @@
                     </div>
                 </div>
                 <button fdprocessedid="5ptrfi" id="check-answers">Check Answers</button>
+                <button id="reset-answers" type="button">Reset</button>
 
                 <p id="feedback">&nbsp;</p>
             </div>
@@ -1552,7 +1582,10 @@
     const draggables = document.querySelectorAll('.draggable');
     const dropZones = document.querySelectorAll('.drop-zone');
     const checkAnswersButton = document.getElementById('check-answers');
+    const resetAnswersButton = document.getElementById('reset-answers');
     const feedback = document.getElementById('feedback');
+    const dragColumn = document.querySelector('.drag-column');
+    const initialDraggables = Array.from(dragColumn.querySelectorAll('.draggable'));
 
     draggables.forEach(draggable => {
         draggable.addEventListener('dragstart', (e) => {
@@ -1597,5 +1630,17 @@
             }
         });
         feedback.textContent = allCorrect ? 'Great job! All matches are correct!' : 'Try again! Some matches are incorrect.';
+    });
+
+    resetAnswersButton.addEventListener('click', () => {
+        initialDraggables.forEach(draggable => {
+            draggable.classList.remove('dragging');
+            dragColumn.appendChild(draggable);
+        });
+        dropZones.forEach(dropZone => {
+            dropZone.classList.remove('filled', 'over');
+            dropZone.style.borderColor = '';
+        });
+        feedback.textContent = '';
     });
 </script>

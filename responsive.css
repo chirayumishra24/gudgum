@@ -60,6 +60,12 @@ iframe, video, embed {
     display: block !important;
 }
 
+/* Override for portrait/shorts containers */
+.video-section.portrait-video-section {
+    aspect-ratio: auto !important;
+    max-width: none !important;
+}
+
 /* Specific class for Vertical/Portrait videos like YouTube Shorts */
 .portrait-video-wrapper {
     width: 100% !important;

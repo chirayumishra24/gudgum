@@ -1070,42 +1070,4 @@
     }
 </script>
 <link rel="stylesheet" href="responsive.css" />\n
-<button id="page-fullscreen-btn" aria-label="Toggle Fullscreen" onclick="toggleFullScreen()"><i class="fas fa-expand"></i></button>
-<style>
-    #page-fullscreen-btn {
-        position: fixed;
-        top: 20px;
-        right: 80px;
-        background-color: #ffffff;
-        color: #4caf50;
-        border: none;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        cursor: pointer;
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-    #page-fullscreen-btn:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-    }
-    .dark #page-fullscreen-btn {
-        background-color: #333333;
-        color: #a5d6a7;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    }
-</style>
-<script>
-    function toggleFullScreen() {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(err => console.log(err));
-        } else if (document.exitFullscreen) {
-            document.exitFullscreen();
-        }
-    }
-</script>
+
