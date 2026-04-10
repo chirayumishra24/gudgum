@@ -956,7 +956,7 @@
 <style type="text/css">
     .audio-container {
         position: relative;
-        background: url('/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center center no-repeat;
+        background: url('https://login.skillizee.io/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center center no-repeat;
         background-size: contain;
         /* keeps the GIF's aspect ratio */
         border-radius: 16px;
@@ -1286,6 +1286,10 @@
         }
     </script>
 </p>
+<div id="gustoraFullscreenBtn"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+        stroke-width="2.6" viewbox="0 0 24 24">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+    </svg></div>
 <style type="text/css">
     #gustoraFullscreenBtn {
         position: fixed;
@@ -1345,42 +1349,18 @@
     }
 </style>
 <link rel="stylesheet" href="responsive.css" />\n
-<button id="page-fullscreen-btn" aria-label="Toggle Fullscreen" onclick="toggleFullScreen()"><i class="fas fa-expand"></i></button>
-<style>
-    #page-fullscreen-btn {
-        position: fixed;
-        top: 20px;
-        right: 80px;
-        background-color: #ffffff;
-        color: #4caf50;
-        border: none;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        cursor: pointer;
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-    #page-fullscreen-btn:hover {
-        transform: scale(1.1);
-        box-shadow: 0 6px 8px rgba(0,0,0,0.15);
-    }
-    .dark #page-fullscreen-btn {
-        background-color: #333333;
-        color: #a5d6a7;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    }
-</style>
 <script>
-    function toggleFullScreen() {
+    // Gustora-themed Fullscreen Toggle (works on all modern browsers + mobile)
+    document.getElementById('gustoraFullscreenBtn').addEventListener('click', () => {
         if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(err => console.log(err));
-        } else if (document.exitFullscreen) {
-            document.exitFullscreen();
+            document.documentElement.requestFullscreen?.() ||
+                document.documentElement.webkitRequestFullscreen?.() ||
+                document.documentElement.msRequestFullscreen?.();
+        } else {
+            document.exitFullscreen?.() ||
+                document.webkitExitFullscreen?.() ||
+                document.msExitFullscreen?.();
         }
-    }
+    });
 </script>
+

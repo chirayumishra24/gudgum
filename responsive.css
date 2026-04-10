@@ -64,6 +64,11 @@ iframe, video, embed {
 .video-section.portrait-video-section {
     aspect-ratio: auto !important;
     max-width: none !important;
+    position: static !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 !important;
 }
 
 /* Specific class for Vertical/Portrait videos like YouTube Shorts */
@@ -75,6 +80,8 @@ iframe, video, embed {
     margin: 0 auto !important;
     position: relative !important;
     display: block !important;
+    overflow: hidden !important;
+    border-radius: 12px !important;
 }
 
 iframe[src*="youtube"], .video-section iframe, .video-gallery iframe, .portrait-video-wrapper iframe {
@@ -87,6 +94,21 @@ iframe[src*="youtube"], .video-section iframe, .video-gallery iframe, .portrait-
     aspect-ratio: auto !important;
     max-width: 100% !important;
     max-height: 100% !important;
+}
+
+/* Portrait galleries should behave like a row of vertical videos */
+.video-gallery.portrait-video-gallery {
+    aspect-ratio: auto !important;
+    max-width: none !important;
+    position: static !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+}
+
+.portrait-video-wrapper iframe {
+    border: 0 !important;
 }
 
 /* Flex-based Galleries */
@@ -158,6 +180,10 @@ iframe[src*="youtube"], .video-section iframe, .video-gallery iframe, .portrait-
         height: auto !important;
         aspect-ratio: 9 / 16;
         max-height: 80vh;
+    }
+
+    .portrait-video-wrapper iframe {
+        height: 100% !important;
     }
 
     /* Activities stacking */
