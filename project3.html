@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>SkilliZee & GudGum Capstone Project</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -154,18 +154,6 @@
         animation-delay: -17s;
     }
 
-    .emoji-bg:nth-child(19) {
-        top: 12%;
-        left: 5%;
-        animation-delay: -18s;
-    }
-
-    .emoji-bg:nth-child(20) {
-        top: 22%;
-        left: 95%;
-        animation-delay: -19s;
-    }
-
     @keyframes float-rotate {
         0% {
             transform: translateY(0) rotate(0deg);
@@ -243,19 +231,6 @@
         transition: background 0.1s, color 0.1s;
     }
 
-    #theme-toggle.dark {
-        background: #a5d6a7;
-        color: #0f172a;
-    }
-
-    #theme-toggle:hover {
-        background: #ffffff;
-    }
-
-    .dark #theme-toggle:hover {
-        background: #4caf50;
-    }
-
     header {
         background: #4caf50;
         color: #ffffff;
@@ -295,16 +270,11 @@
     .content-section:hover {
         box-shadow: 0px 6px 20px rgba(76, 175, 80, 0.4);
         transform: scale(1.02);
-        z-index: 10;
     }
 
     .content-section.dark {
         background: #3b6e55;
         color: #e0f2e9;
-    }
-
-    .content-section.dark:hover {
-        box-shadow: 0px 6px 20px rgba(165, 214, 167, 0.4);
     }
 
     @keyframes fadeIn {
@@ -331,14 +301,7 @@
         border-radius: 8px;
         padding: 10px;
         text-align: center;
-        transition: box-shadow 0.1s, transform 0.1s;
         justify-content: center;
-    }
-
-    h3:hover,
-    h4:hover {
-        box-shadow: 0px 4px 15px rgba(76, 175, 80, 0.5);
-        transform: scale(1.03);
     }
 
     .dark h3,
@@ -346,22 +309,6 @@
         color: #e0f2e9;
         background: #1a3c34;
         border-color: #a5d6a7;
-    }
-
-    .dark h3:hover,
-    .dark h4:hover {
-        box-shadow: 0px 4px 15px rgba(165, 214, 167, 0.5);
-    }
-
-    h3 i,
-    h4 i {
-        margin-right: 10px;
-        color: #4caf50;
-    }
-
-    .dark h3 i,
-    .dark h4 i {
-        color: #a5d6a7;
     }
 
     p {
@@ -382,16 +329,15 @@
     li {
         padding: 10px 0;
         position: relative;
-        transition: transform 0.1s;
         background: #e8f5e9;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         margin-bottom: 10px;
+        transition: transform 0.1s;
     }
 
     li:hover {
         transform: translateX(5px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
 
     li::before {
@@ -406,31 +352,17 @@
         background: #4c8c6a;
     }
 
-    .dark li::before {
-        color: #a5d6a7;
-    }
-
     .video-gallery {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 20px 0;
-        padding: 10px;
     }
 
     .video-gallery iframe {
         border-radius: 10px;
         border: 2px solid #4caf50;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s;
-    }
-
-    .dark .video-gallery iframe {
-        border-color: #a5d6a7;
-    }
-
-    .video-gallery iframe:hover {
-        transform: scale(1.05);
     }
 
     .button {
@@ -441,9 +373,8 @@
         padding: 10px 20px;
         border: 2px solid #4caf50;
         border-radius: 8px;
-        transition: all 0.3s ease-in-out;
-        text-align: center;
         margin: 10px 0;
+        transition: all 0.3s;
     }
 
     .button:hover {
@@ -452,27 +383,11 @@
         transform: scale(1.05);
     }
 
-    .dark .button {
-        color: #a5d6a7;
-        border-color: #a5d6a7;
-    }
-
-    .dark .button:hover {
-        background: #a5d6a7;
-        color: #1a3c34;
-    }
-
     .confirmation-message {
         color: #4caf50;
         text-align: center;
-        margin-top: 10px;
         opacity: 0;
         transition: opacity 0.5s;
-        font-size: clamp(16px, 1.4vw, 18px);
-    }
-
-    .dark .confirmation-message {
-        color: #a5d6a7;
     }
 
     .confirmation-message.show {
@@ -483,610 +398,182 @@
         background: #4caf50;
         color: white;
         text-align: center;
-        padding: clamp(15px, 1.5vw, 18px);
-        margin-top: clamp(40px, 3vw, 48px);
+        padding: 20px;
+        margin-top: 40px;
         border-radius: 20px 20px 0 0;
-        font-size: clamp(14px, 1.2vw, 18px);
-        box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
         width: 95%;
         max-width: 1800px;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .dark footer {
-        background: #2e7d32;
-    }
-
-    footer p {
-        margin: clamp(5px, 0.5vw, 6px) 0;
-    }
-
     #back-to-top {
         position: fixed;
         bottom: 20px;
-        right: clamp(40px, 3vw, 60px);
+        right: 40px;
         background: #4caf50;
         color: white;
-        border: none;
         border-radius: 50%;
-        width: clamp(40px, 3.5vw, 60px);
-        height: clamp(40px, 3.5vw, 60px);
-        font-size: clamp(20px, 1.8vw, 26px);
-        cursor: pointer;
+        width: 50px;
+        height: 50px;
         display: none;
-        transition: background 0.1s, transform 0.1s;
         z-index: 1000;
     }
-
-    .dark #back-to-top {
-        background: #a5d6a7;
-    }
-
-    #back-to-top:hover {
-        background: #388e3c;
-        transform: scale(1.1);
-    }
-
-    .dark #back-to-top:hover {
-        background: #2e7d32;
-    }
-
-    @media (max-width: 600px) {
-        body {
-            padding-right: 0;
-            font-size: clamp(14px, 2.5vw, 16px);
-        }
-
-        .emoji-bg {
-            font-size: clamp(25px, 3vw, 30px);
-        }
-
-        .sidebar {
-            width: 100%;
-            height: 60px;
-            top: auto;
-            bottom: 0;
-            border: none;
-            background: #4caf50;
-            border-radius: 0;
-            padding: 5px;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .sidebar.dark {
-            background: #2e7d32;
-            border: none;
-        }
-
-        .progress-bar {
-            width: 40%;
-            height: 10px;
-            margin: 0;
-        }
-
-        .progress-fill {
-            width: 0%;
-            height: 100%;
-            bottom: auto;
-            left: 0;
-            transition: width 0.2s ease-in-out;
-        }
-
-        #theme-toggle {
-            margin-top: 0;
-            width: clamp(20px, 2.5vw, 24px);
-            height: clamp(20px, 2.5vw, 24px);
-            font-size: clamp(12px, 2vw, 14px);
-        }
-
-        header h2 {
-            font-size: clamp(1.3em, 2.5vw, 1.5em);
-        }
-
-        h3,
-        h4 {
-            font-size: clamp(1.3em, 2.5vw, 1.5em);
-        }
-
-        p,
-        li {
-            font-size: clamp(14px, 2.5vw, 16px);
-        }
-
-        .video-gallery iframe {
-            width: 100%;
-            height: auto;
-        }
-
-        #back-to-top {
-            bottom: 80px;
-            right: 20px;
-            width: clamp(35px, 3vw, 40px);
-            height: clamp(35px, 3vw, 40px);
-            font-size: clamp(18px, 2vw, 20px);
-        }
-
-        footer {
-            font-size: clamp(12px, 2vw, 14px);
-        }
-    }
-
-    @media (min-width: 1200px) and (max-width: 1960px) {
-        body {
-            font-size: clamp(18px, 1.3vw, 20px);
-            max-width: 1700px;
-        }
-
-        header {
-            max-width: 1700px;
-        }
-
-        header h2 {
-            font-size: clamp(2em, 2.2vw, 3em);
-        }
-
-        .content-section {
-            max-width: 1700px;
-        }
-
-        h3,
-        h4 {
-            font-size: clamp(1.5em, 2.2vw, 2em);
-        }
-
-        p,
-        li {
-            font-size: clamp(18px, 1.3vw, 20px);
-        }
-
-        #theme-toggle {
-            font-size: clamp(16px, 1.1vw, 18px);
-            width: clamp(26px, 2vw, 30px);
-            height: clamp(26px, 2vw, 30px);
-        }
-
-        #back-to-top {
-            width: clamp(50px, 3.5vw, 60px);
-            height: clamp(50px, 3.5vw, 60px);
-            font-size: clamp(22px, 1.8vw, 26px);
-        }
-
-        footer {
-            font-size: clamp(16px, 1.2vw, 18px);
-            max-width: 1700px;
-        }
-    }
-
-    @media (min-width: 1961px) {
-        body {
-            font-size: clamp(20px, 1.2vw, 22px);
-            max-width: 2000px;
-        }
-
-        header {
-            max-width: 2000px;
-        }
-
-        header h2 {
-            font-size: clamp(2.5em, 2.1vw, 3.5em);
-        }
-
-        .content-section {
-            max-width: 2000px;
-        }
-
-        h3,
-        h4 {
-            font-size: clamp(2em, 2.1vw, 2.5em);
-        }
-
-        p,
-        li {
-            font-size: clamp(20px, 1.2vw, 22px);
-        }
-
-        #theme-toggle {
-            font-size: clamp(18px, 1.1vw, 20px);
-            width: clamp(28px, 2vw, 32px);
-            height: clamp(28px, 2vw, 32px);
-        }
-
-        .sidebar {
-            width: 40px;
-            right: clamp(10px, 1vw, 20px);
-        }
-
-        .progress-bar {
-            width: 10px;
-        }
-
-        #back-to-top {
-            width: clamp(55px, 3.5vw, 65px);
-            height: clamp(55px, 3.5vw, 65px);
-            font-size: clamp(24px, 1.8vw, 28px);
-            right: clamp(50px, 3vw, 70px);
-        }
-
-        footer {
-            font-size: clamp(18px, 1.2vw, 20px);
-            max-width: 2000px;
-        }
-    }
 </style>
-<!-- Background Emojis -->
-<div class="emoji-bg">🌱</div>
 
-<div class="emoji-bg">🌍</div>
-
-<div class="emoji-bg">♻️</div>
-
-<div class="emoji-bg">🌿</div>
-
-<div class="emoji-bg">🌱</div>
-
-<div class="emoji-bg">🌍</div>
-
-<div class="emoji-bg">♻️</div>
-
-<div class="emoji-bg">🌿</div>
-
-<div class="emoji-bg">🌱</div>
-
-<div class="emoji-bg">🌍</div>
-
-<div class="emoji-bg">♻️</div>
-
-<div class="emoji-bg">🌿</div>
-
-<div class="emoji-bg">🌱</div>
-
-<div class="emoji-bg">🌍</div>
-
-<div class="emoji-bg">♻️</div>
-
-<div class="emoji-bg">🌿</div>
-
-<div class="emoji-bg">🌱</div>
-
-<div class="emoji-bg">🌍</div>
-
-<div class="emoji-bg">♻️</div>
-
-<div class="emoji-bg">🌿</div>
-<!-- Sidebar -->
-
-<div class="sidebar">
-    <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill">&nbsp;</div>
-    </div>
-    <button aria-label="Toggle dark mode" id="theme-toggle">🌙</button>
-</div>
-<!-- Header --><!-- GUSTORA THEMED FULLSCREEN BUTTON -->
-
-<div id="gustoraFullscreenBtn"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-        stroke-width="2.6" viewbox="0 0 24 24">
+<!-- Fullscreen Button -->
+<div id="gustoraFullscreenBtn">
+    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"
+        viewbox="0 0 24 24">
         <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-    </svg></div>
-<style type="text/css">
+    </svg>
+</div>
+<style>
     #gustoraFullscreenBtn {
         position: fixed;
         top: 24px;
         right: 24px;
-        z-index: 99999;
-        width: 68px;
-        height: 68px;
-        background: linear-gradient(135deg, var(--brand-gold), #2B2B85);
-        border: 4px solid white;
+        z-index: 9999;
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #FFD700, #2B2B85);
+        border: 3px solid white;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow:
-            0 10px 30px rgba(170, 138, 0, 0.5),
-            0 0 30px rgba(255, 215, 0, 0.4),
-            inset 0 0 20px rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(12px);
-        transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-        animation: gentlePulse 4s infinite ease-in-out;
-    }
-
-    #gustoraFullscreenBtn:hover {
-        transform: scale(1.18) rotate(8deg);
-        box-shadow:
-            0 20px 50px rgba(170, 138, 0, 0.7),
-            0 0 50px var(--glow-gold),
-            0 0 60px var(--glow-red);
-        border-color: var(--brand-red);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     #gustoraFullscreenBtn svg {
-        width: 38px;
-        height: 38px;
-        stroke: #000;
-        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-    }
-
-    /* Subtle floating + sauce-red glow on hover */
-    @keyframes gentlePulse {
-
-        0%,
-        100% {
-            box-shadow: 0 10px 30px rgba(170, 138, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.4);
-        }
-
-        50% {
-            box-shadow: 0 15px 40px rgba(170, 138, 0, 0.6), 0 0 40px rgba(225, 37, 27, 0.3), inset 0 0 25px rgba(255, 255, 255, 0.5);
-        }
-    }
-
-    /* Optional: tiny pasta particle burst when entering fullscreen */
-    #gustoraFullscreenBtn:active {
-        transform: scale(0.95);
+        width: 30px;
+        height: 30px;
+        stroke: white;
     }
 </style>
-<script>
-    // Gustora-themed Fullscreen Toggle (works on all modern browsers + mobile)
-    document.getElementById('gustoraFullscreenBtn').addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen?.() ||
-                document.documentElement.webkitRequestFullscreen?.() ||
-                document.documentElement.msRequestFullscreen?.();
-        } else {
-            document.exitFullscreen?.() ||
-                document.webkitExitFullscreen?.() ||
-                document.msExitFullscreen?.();
-        }
-    });
-</script>
-<p>&nbsp;</p>
+
+<div class="emoji-bg">🌱</div>
+<div class="emoji-bg">🌍</div>
+<div class="emoji-bg">♻️</div>
+<div class="emoji-bg">🌿</div>
+<div class="emoji-bg">🌱</div>
+<div class="emoji-bg">🌍</div>
+<div class="emoji-bg">♻️</div>
+<div class="emoji-bg">🌿</div>
+
+<div class="sidebar">
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <button id="theme-toggle">🌙</button>
+</div>
 
 <header>
-    <h2><span style="font-size:36px;">SkilliZee &amp; GudGum Capstone Project</span></h2>
+    <h2>SkilliZee & GudGum Capstone Project</h2>
 </header>
-<!-- Content Section -->
 
 <div class="audio-container">
-    <audio controls="" controlslist="nodownload" oncontextmenu="return false;">
+    <audio controls controlslist="nodownload">
         <source src="https://pa2-cmd.github.io/audio-chapters-gudgum/audio%20chapters%20gudgum/cap3.mp3"
-            type="audio/mp3" /> Your browser does not support the audio element.
+            type="audio/mp3" />
     </audio>
 </div>
-<style type="text/css">
+<style>
     .audio-container {
-        position: relative;
-        background: url('https://login.skillizee.io/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center center no-repeat;
+        background: url('https://login.skillizee.io/s/articles/688200b248589c211e50b4c5/images/gudguml.gif') center no-repeat;
         background-size: contain;
-        /* keeps the GIF's aspect ratio */
         border-radius: 16px;
-        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-        margin: 1.5rem auto;
+        margin: 20px auto;
         width: 90%;
-        max-width: 900px;
-        aspect-ratio: 1920 / 1080;
-        /* maintain original proportion */
+        max-width: 800px;
+        aspect-ratio: 16/9;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 1rem;
-        padding-bottom: 2rem;
+        justify-content: center;
+        align-items: flex-end;
+        padding-bottom: 20px;
     }
 
-    /* Modern styled audio */
     .audio-container audio {
-        width: 90%;
+        width: 80%;
         border-radius: 12px;
-        border: 2px solid #2D2B7E;
         background: #F5F5FF;
-        height: 50px;
         padding: 4px;
-        box-shadow: 0 3px 10px rgba(45, 43, 126, 0.3);
-    }
-
-    /* Lavender-toned player controls */
-    audio::-webkit-media-controls-panel {
-        background-color: #E6E6FA;
-        border-radius: 12px;
-    }
-
-    audio::-webkit-media-controls-play-button,
-    audio::-webkit-media-controls-timeline,
-    audio::-webkit-media-controls-current-time-display,
-    audio::-webkit-media-controls-time-remaining-display,
-    audio::-webkit-media-controls-volume-slider {
-        filter: hue-rotate(240deg) saturate(1.2);
     }
 </style>
+
 <div class="content-section">
     <h3>Overview Task 3</h3>
-
     <p>Welcome to the final capstone project of the SkilliZee EcoPreneurship Internship with GudGum! This project is
         your chance to showcase your creativity, sustainability knowledge, and entrepreneurial skills by creating a
         website, developing a business model, producing a pitching video, and reflecting on your internship journey.
-        Your work will help amplify GudGum&rsquo;s mission to make plastic-free chewing gum the future!</p>
-
-    <p><strong>Theme:</strong> Be Gud. Be Bold. Be the Voice.<br />
-        <strong>First Step:</strong> Download the template and fill that out.<br />
-        <strong>Final Step:</strong> Upload the Document filled with your answers.<br />
+        Your work will help amplify GudGum’s mission to make plastic-free chewing gum the future!</p>
+    <p><strong>Theme:</strong> Be Gud. Be Bold. Be the Voice.<br>
+        <strong>First Step:</strong> Download the template and fill that out.<br>
+        <strong>Final Step:</strong> Upload the Document filled with your answers.<br>
         <strong>Hashtag:</strong> #BeGudWithGudGum
     </p>
-
-    <p><strong>The task is Mandatory for:</strong> <strong>Internship Certificate and Badge <span
-                style="color:#e74c3c;">*</span></strong></p>
-    <a class="button" href="https://login.skillizee.io/s/preview/courses/688093b21e8aec5c3378ca92/assignments/69e9fa318339b9231d72fa94/template/download" id="task-template-link" rel="noopener noreferrer" target="_blank">Download Task Template</a>
-
-    <p>&nbsp;</p>
+    <p><strong>The task is Mandatory for:</strong> Internship Certificate and Badge <span style="color:red;">*</span>
+    </p>
+    <a class="button"
+        href="https://login.skillizee.io/s/preview/courses/688093b21e8aec5c3378ca92/assignments/69e9fa318339b9231d72fa94/template/download"
+        target="_blank">Download Task Template</a>
 
     <h3>Project Tasks</h3>
-
     <h4>Task 3: Pitching Video</h4>
-
-    <p>Create a 30&ndash;90 second pitching video to showcase your business model and convince young audiences why
-        GudGum is the coolest, most sustainable gum. Upload it to Instagram with the hashtag #BeGudWithGudGum and tag
-        @skillizee.official and @gud.gum.</p>
-
+    <p>Create a 30–90 second pitching video to showcase your business model of Task 2 and pitch your own sustainable
+        product made with product persona experiential.</p>
     <ul>
         <li>Choose a format: Pitch, skit, ad, or direct-to-camera talk.</li>
-        <li>Highlight your business model and GudGum&rsquo;s eco-friendly vibe.</li>
-        <li>Request a collab with @skillizee.official and @gud.gum when posting.</li>
-        <li>Example caption: &ldquo;I&rsquo;m pitching why GudGum is the future for Gen Z! 🌿 #BeGudWithGudGum
-            @skillizee.official @gud.gum&rdquo;</li>
+        <li>Highlight your business model and eco-friendly vibe.</li>
     </ul>
+    <div class="video-gallery">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/i7jX9SR0bfw" frameborder="0"
+            allowfullscreen></iframe>
+    </div>
 
-    <div class="video-gallery"><iframe allowfullscreen="" frameborder="0" height="349" mozallowfullscreen=""
-            src="https://www.youtube.com/embed/i7jX9SR0bfw" webkitallowfullscreen="" width="560"></iframe></div>
-
-    <h3>Submission &amp; Rewards</h3>
-
-    <p><strong>Submission Steps:</strong></p>
-
+    <h3>Submission & Rewards</h3>
     <ul>
-        <li>Download the template.</li>
-        <li>Create a 30&ndash;90 second pitching video.</li>
-        <li>Choose a format (Pitch, skit, ad, or direct-to-camera talk).</li>
-        <li>Highlight your business model and GudGum&rsquo;s eco-friendly vibe in the video.</li>
-        <li>Save the video in mp4 format.</li>
-        <li>Optionally, post the video on Instagram with #BeGudWithGudGum and collab tags (@skillizee.official,
-            @gud.gum).</li>
-        <li>Request a collab with @skillizee.official and @gud.gum when posting.</li>
-        <li>Upload the mp4 video to the SkilliZee LMS using the default &lsquo;Choose File&rsquo; button at the bottom
-            of the page.</li>
-        <li>Select the saved video in the LMS.</li>
-        <li>Write a note (max 100 characters) in the LMS.</li>
-        <li>Click &lsquo;Submit&rsquo; in the LMS.</li>
+        <li>Download the template and record your video (30-90s).</li>
+        <li>Save as MP4 and upload to the SkilliZee LMS.</li>
+        <li>Top 10 Projects earn the "Changemaker Badge" and exclusive rewards!</li>
     </ul>
-
-    <p class="confirmation-message" id="confirmationMessage">&nbsp;</p>
-
-    <p><strong>Rewards:</strong></p>
-
-    <ul>
-        <li><b>Complete all Assignments and Quizes:</b> Recieve your Certificates and Badges</li>
-        <li><strong>Top 10 Projects:</strong> Featured on SkilliZee and GudGum feeds, earn a &ldquo;Changemaker
-            Badge,&rdquo; and get an exclusive invite to the next-level entrepreneurship module.</li>
-        <li><strong>Campaign Amplification:</strong> SkilliZee and GudGum will create a reel featuring the best student
-            projects for media/PR.</li>
-    </ul>
-
-    <h3>Support &amp; Resources</h3>
-
-    <p>To help you succeed, SkilliZee provides:</p>
-
-    <ul>
-        <li>Reel format ideas (funny, trending, educational).</li>
-        <li>Hook and caption bank for Instagram posts.</li>
-        <li>Optional Canva templates for Gamma website design.</li>
-        <li>Voiceover scripts for camera-shy students.</li>
-    </ul>
-
-    <p><strong>Mentor Message:</strong> &ldquo;Hi, I&rsquo;m <strong>Astrid</strong>. Your
-        <strong>#BeGudWithGudGum</strong> project is your chance to shine! Be authentic, be bold, and inspire the world
-        to go plastic-free with GudGum! 🌍&rdquo;
-    </p>
-
-    <ul>
-        <li>Please download the assignment and answer all questions accordingly.</li>
-    </ul>
+    <p class="confirmation-message" id="confirmationMessage"></p>
 </div>
-<!-- Back to Top Button -->
-
-<p><button aria-label="Scroll to top" id="back-to-top" onclick="scrollToTop()">&uarr;</button><!-- Footer --></p>
 
 <footer>
-    <p>GudGum Virtual Internship &ndash; Sustainable Branding</p>
+    <p>GudGum Virtual Internship – Sustainable Branding</p>
 </footer>
+
+<button id="back-to-top" onclick="scrollToTop()">↑</button>
+
 <script>
-    // Throttle function to limit scroll event frequency
-    function throttle(fn, wait) {
-        let lastCall = 0;
-        return function (...args) {
-            const now = new Date().getTime();
-            if (now - lastCall < wait) return;
-            lastCall = now;
-            return fn(...args);
-        };
-    }
-    // Theme Toggle
     const themeToggle = document.getElementById("theme-toggle");
-    const templateLink = document.getElementById("task-template-link");
-
-    if (templateLink) {
-        templateLink.addEventListener("click", (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            window.open(templateLink.href, "_blank", "noopener,noreferrer");
-        });
-    }
-
     themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("dark");
-        document.querySelector(".sidebar").classList.toggle("dark");
-        document.querySelector(".progress-bar").classList.toggle("dark");
-        document.querySelector("header").classList.toggle("dark");
-        document.querySelectorAll(".content-section").forEach(section => section.classList.toggle("dark"));
-        document.querySelectorAll("h3").forEach(heading => heading.classList.toggle("dark"));
-        document.querySelectorAll("h4").forEach(heading => heading.classList.toggle("dark"));
-        document.querySelectorAll(".emoji-bg").forEach(emoji => emoji.classList.toggle("dark"));
-        document.querySelector("footer").classList.toggle("dark");
-        document.querySelector("#back-to-top").classList.toggle("dark");
-        document.querySelectorAll(".progress-fill").forEach(fill => fill.classList.toggle("dark"));
-        document.querySelectorAll("li").forEach(item => item.classList.toggle("dark"));
-        document.querySelectorAll(".video-gallery iframe").forEach(iframe => iframe.classList.toggle("dark"));
-        document.querySelectorAll(".button").forEach(button => button.classList.toggle("dark"));
-        document.querySelectorAll(".confirmation-message").forEach(message => message.classList.toggle("dark"));
-        themeToggle.classList.toggle("dark");
         themeToggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
     });
-    // Progress Bar Logic
-    let scrollProgress = 0;
-    let activityCompleted = false;
+
     const progressFill = document.getElementById("progress-fill");
-    function updateProgress() {
+    window.addEventListener("scroll", () => {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        scrollProgress = docHeight > 0 ? (scrollTop / docHeight) * 85 : 0;
-        let totalProgress = scrollProgress;
-        if (activityCompleted) {
-            totalProgress = Math.max(totalProgress, 85) + 15;
-        }
-        totalProgress = Math.min(100, totalProgress);
-        if (window.innerWidth <= 600) {
-            progressFill.style.width = totalProgress + "%";
-        } else {
-            progressFill.style.height = totalProgress + "%";
-        }
-    }
-    // Scroll-based Progress
-    const updateScrollProgress = throttle(() => {
-        updateProgress();
-    }, 50);
-    window.addEventListener("scroll", () => {
-        requestAnimationFrame(updateScrollProgress);
+        const progress = (scrollTop / docHeight) * 100;
+        progressFill.style.height = progress + "%";
+        document.getElementById("back-to-top").style.display = window.scrollY > 300 ? "block" : "none";
     });
-    // Back to Top Button
-    const backToTop = document.getElementById("back-to-top");
-    window.addEventListener("scroll", () => {
-        backToTop.style.display = window.scrollY > 300 ? "block" : "none";
+
+    function scrollToTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+
+    document.getElementById('gustoraFullscreenBtn').addEventListener('click', () => {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+        else document.exitFullscreen();
     });
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-        updateProgress();
-    }
-    // Simulate Activity Completion on Page Load
-    window.onload = function () {
-        const confirmationMessage = document.getElementById('confirmationMessage');
-        confirmationMessage.textContent = 'Submission instructions viewed! Use the LMS to upload your video.';
-        confirmationMessage.classList.add('show');
-        activityCompleted = true;
-        updateProgress();
-        setTimeout(() => {
-            confirmationMessage.classList.remove('show');
-            confirmationMessage.textContent = '';
-        }, 3000);
+
+    window.onload = () => {
+        const msg = document.getElementById('confirmationMessage');
+        msg.textContent = 'Submission instructions viewed!';
+        msg.classList.add('show');
     };
 </script>
-<link rel="stylesheet" href="responsive.css" />\n
+<link rel="stylesheet" href="responsive.css" />
