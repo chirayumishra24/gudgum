@@ -419,18 +419,21 @@
         padding: 10px;
     }
 
-    .image-gallery img {
+    .image-gallery img,
+    .video-gallery iframe {
         border-radius: 10px;
         border: 2px solid #4caf50;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s;
     }
 
-    .dark .image-gallery img {
+    .dark .image-gallery img,
+    .dark .video-gallery iframe {
         border-color: #a5d6a7;
     }
 
-    .image-gallery img:hover {
+    .image-gallery img:hover,
+    .video-gallery iframe:hover {
         transform: scale(1.05);
     }
 
@@ -859,6 +862,10 @@
         <li>Submit the Gamma website link via the SkilliZee LMS.</li>
     </ul>
 
+    <div class="video-gallery">
+        <iframe width="700" height="394" src="https://www.youtube.com/embed/fO2cnUYl3Jc" title="How to Use Gamma - Explainer Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+
     <div class="image-gallery"><img alt="GudGum Website Preview"
             src="https://login.skillizee.io/s/articles/688b192f6b99da6897579d3e/images/weebgud.png" style="width: 700px; height: 317px;" /></div>
 
@@ -942,6 +949,7 @@
         document.querySelectorAll(".progress-fill").forEach(fill => fill.classList.toggle("dark"));
         document.querySelectorAll("li").forEach(item => item.classList.toggle("dark"));
         document.querySelectorAll(".image-gallery img").forEach(img => img.classList.toggle("dark"));
+        document.querySelectorAll(".video-gallery iframe").forEach(iframe => iframe.classList.toggle("dark"));
         document.querySelectorAll(".button").forEach(button => button.classList.toggle("dark"));
         document.querySelectorAll(".confirmation-message").forEach(message => message.classList.toggle("dark"));
         themeToggle.classList.toggle("dark");
