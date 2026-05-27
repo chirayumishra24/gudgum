@@ -895,6 +895,33 @@
             max-width: 2000px;
         }
     }
+
+    .video-guide-frame {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        margin: 20px auto;
+        aspect-ratio: 1920/1080;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .video-guide-frame:hover {
+        transform: scale(1.03);
+    }
+    .video-guide-frame iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .dark .video-guide-frame iframe {
+        border-color: #a5d6a7;
+    }
 </style>
 <!-- Background Emojis -->
 <div class="emoji-bg">🌱</div>
@@ -1021,6 +1048,11 @@
 
     <p>Use the embedded Product Pathfinder Lab below to create a customer persona for GudGum&rsquo;s eco-conscious
         Indian youth.</p>
+
+    <!-- Video Guide for Product Pathfinder Lab -->
+    <div class="video-guide-frame">
+        <iframe src="https://share.synthesia.io/embeds/videos/9a0ccdaf-4e32-4fa8-9bb9-1fe7aeff496b" loading="lazy" title="Synthesia video player - Copy of Untitled" allowfullscreen allow="encrypted-media; fullscreen; microphone; screen-wake-lock;"></iframe>
+    </div>
 
     <div class="iframe-container"><iframe allowfullscreen="" class="pathfinder-iframe"
             src="https://product-pathfinder-lab.lovable.app/"
