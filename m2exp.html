@@ -1036,6 +1036,25 @@
             max-width: 1200px;
         }
     }
+
+    .video-guide-frame {
+        aspect-ratio: 1920/1080;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .video-guide-frame:hover {
+        transform: scale(1.03);
+    }
+    .video-guide-frame iframe {
+        height: 100% !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .video-guide-frame iframe:hover {
+        transform: none !important;
+    }
 </style>
 <!-- Background Emojis -->
 <div class="emoji-bg">🌱</div>
@@ -1207,6 +1226,11 @@
                 <li>Add GudGum&rsquo;s logo and use earthy colors (forest green, beige, coral).</li>
                 <li>Export as a PNG or JPG for submission.</li>
             </ul>
+
+            <!-- Video Guide for Lovable Pack Studio -->
+            <div class="activity-frame video-guide-frame">
+                <iframe src="https://share.synthesia.io/embeds/videos/f051abea-e7c4-4d6d-bf3d-109fa028676a" loading="lazy" title="Synthesia video player - Untitled" allowfullscreen allow="encrypted-media; fullscreen; microphone; screen-wake-lock;"></iframe>
+            </div>
 
             <div class="activity-frame"><iframe allowfullscreen="" frameborder="0" id="packStudioIframe"
                     src="https://lovable-pack-studio.lovable.app/"
