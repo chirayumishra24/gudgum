@@ -720,6 +720,32 @@
             max-width: 2000px;
         }
     }
+    .video-guide-frame {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        margin: 20px auto;
+        aspect-ratio: 1920/1080;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+    .video-guide-frame:hover {
+        transform: scale(1.03);
+    }
+    .video-guide-frame iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 2px solid #4caf50;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .dark .video-guide-frame iframe {
+        border-color: #a5d6a7;
+    }
 </style>
 <!-- Background Emojis -->
 <div class="emoji-bg">🌱</div>
@@ -847,6 +873,11 @@
 
     <p>&nbsp;</p>
 
+    <!-- Video Guide for Capstone Project -->
+    <div class="video-guide-frame">
+        <iframe src="https://share.synthesia.io/embeds/videos/cc4eb952-1771-461c-a55b-28016e3749a0" loading="lazy" title="Synthesia video player - Untitled" allowfullscreen allow="encrypted-media; fullscreen; microphone; screen-wake-lock;"></iframe>
+    </div>
+
     <h3>Project Tasks</h3>
 
     <h4>Task 1: Create a Website Using Gamma</h4>
@@ -950,6 +981,7 @@
         document.querySelectorAll("li").forEach(item => item.classList.toggle("dark"));
         document.querySelectorAll(".image-gallery img").forEach(img => img.classList.toggle("dark"));
         document.querySelectorAll(".video-gallery iframe").forEach(iframe => iframe.classList.toggle("dark"));
+        document.querySelectorAll(".video-guide-frame iframe").forEach(iframe => iframe.classList.toggle("dark"));
         document.querySelectorAll(".button").forEach(button => button.classList.toggle("dark"));
         document.querySelectorAll(".confirmation-message").forEach(message => message.classList.toggle("dark"));
         themeToggle.classList.toggle("dark");
